@@ -1,0 +1,97 @@
+
+$path: '../../scss';
+
+@import "../../scss/helpers/functions";
+@import "../../scss/helpers/fonts";
+@import "../../scss/helpers/responsive";
+@import "../../scss/helpers/vars";
+
+.u-modal {
+  position: fixed;
+  z-index : 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  transition: opacity 0.3s ease;
+
+  &__close {
+    background: none;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    float: right;
+    text-shadow: none;
+    opacity: inherit;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 1;
+
+    @include to(movil) {
+      top: 20px;
+      right: 20px;
+    }
+
+    &:before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      display: inline-block;
+      background: url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/05ed392f-0935-4907-8b18-7d45766a5576-b62a3b7c-7e3c-48f9-91a2-cfd422d6f2f2-icon-close-black.svg") no-repeat center top;
+      background-size: 100%;
+    }
+  }
+
+  &__main {
+    margin: auto;
+    position: relative; 
+  }
+}
+
+.modal-enter-from {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+
+  .u-modal__main {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    //transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+    //transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    //transition: transform 0.3s ease-out;
+    transition: transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+}
+
+.modal-leave-to {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+
+  //transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  .u-modal__main {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    //transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+    transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+    //transition: transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+}
+
+/*.modal-enter-from {
+  opacity: 0;
+}
+
+.modal-leave-to {
+  opacity: 0;
+}
+
+.modal-enter-from .modal-container,
+.modal-leave-to .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}*/

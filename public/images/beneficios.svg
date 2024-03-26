@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Beneficios_30x30</title>
+    <g id="Beneficios_30x30" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Servicios_Hogar_30x30" transform="translate(0.500000, 3.000000)">
+            <g id="TV">
+                <polygon id="Path" stroke="#424242" fill="#FF8300" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="10.54875 18.038 13.81125 18.038 14.355 20.213 10.005 20.213"></polygon>
+                <line x1="9.28" y1="20.213" x2="15.08" y2="20.213" id="Path" stroke="#424242" stroke-linecap="square"></line>
+                <rect id="Rectangle" fill="#FF8300" x="1.16" y="1.508" width="22.04" height="15.08"></rect>
+                <path d="M23.7590788,17.9494737 L0.579490241,17.9494737 C0.25754966,17.9494737 0,17.6599769 0,17.2980866 L0,0.651394847 C0,0.289504515 0.25754966,0 0.579490241,0 L23.7805378,0 C24.1024924,0 24.36,0.289504515 24.36,0.651394847 L24.36,17.2980866 C24.338541,17.6599769 24.0810335,17.9494737 23.7590788,17.9494737 Z" id="Path" stroke="#424242" fill-rule="nonzero"></path>
+            </g>
+            <g id="Group-2" transform="translate(9.000000, 7.500000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                <polyline id="play" stroke-width="0.8" points="0 1.8 0 3 2.4 1.5 0 0 0 0.75"></polyline>
+                <g id="stop" transform="translate(4.100000, 0.300000)">
+                    <line x1="0.25" y1="0" x2="0.25" y2="2.5" id="Path"></line>
+                    <line x1="1.75" y1="0" x2="1.75" y2="2.5" id="Path"></line>
+                </g>
+            </g>
+            <g id="PHONE" transform="translate(21.750000, 12.238000)">
+                <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="7.25" height="11.6" rx="1"></rect>
+                <rect id="Rectangle" stroke="#424242" stroke-linecap="round" x="0" y="0" width="7.25" height="11.6" rx="1"></rect>
+                <g id="Elementos" transform="translate(1.150000, 0.962000)">
+                    <rect id="Rectangle" fill="#FF8300" x="0" y="1.1" width="5" height="7.3"></rect>
+                    <circle id="Oval" fill="#424242" cx="2.6" cy="0.3" r="1"></circle>
+                    <rect id="Rectangle" fill="#424242" x="2.1" y="8.8" width="1" height="1"></rect>
+                </g>
+                <g id="WIFI" transform="translate(2.250000, 4.262000)" stroke="#FFFFFF">
+                    <path d="M1.50155925,2.29857502 C1.58197621,2.29857502 1.64717602,2.2333752 1.64717602,2.15292937 C1.64717602,2.07251242 1.58197621,2.0073126 1.50155925,2.0073126 C1.42111342,2.0073126 1.35591361,2.07251242 1.35591361,2.15292937 C1.35591361,2.2333752 1.42111342,2.29857502 1.50155925,2.29857502 Z" id="Path" stroke-width="0.29" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <path d="M0.495148995,1.09800907 C1.07443982,0.589924059 1.93852506,0.589924059 2.51781589,1.09800907" id="Path" stroke-width="0.3" stroke-linecap="square"></path>
+                    <path d="M0,0.589808559 C0.844652345,-0.196602853 2.15534766,-0.196602853 3,0.589808559" id="Path" stroke-width="0.3" stroke-linecap="square"></path>
+                    <path d="M0.983829984,1.60268682 C1.29129129,1.37292822 1.71200046,1.37292822 2.01943289,1.60268682" id="Path" stroke-width="0.3" stroke-linecap="square"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

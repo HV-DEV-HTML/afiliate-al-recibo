@@ -1,0 +1,214 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 1;
+
+block content
+	.page3.internal
+		.page3__header.internal__header
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							.banner
+								.banner__image.banner1
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li 
+										a Lugares y medios de pago
+									li /
+									li Débito Automático
+		.page3__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Afiliate aquí
+						.zone1__main
+							section
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/miclaro.png' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/miclaro.png' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/logo-visa.png' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/logo-visa.png' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/mastercard.png' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/mastercard.png' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/scotiabank.svg' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/scotiabank.svg' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/interbank.svg' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/interbank.svg' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/bcp.svg' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/bcp.svg' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+								a.content
+									.content__header
+										figure
+											picture
+												source(srcset=path+'assets/afiliate/bbva.png' media="(min-width: 600px)")
+												img(src=path+'assets/afiliate/bbva.png' alt="MDN")
+											figcaption 
+												h3 Afíliate aquí
+												h5 *A través de Niubiz
+
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Consejos para una afiliación exitosa
+						.zone1__main
+							section
+								ul 
+									li 
+										span Si cambias de tarjeta, ingresa una nueva afiliación para actualizar tus datos.
+									li 
+										span Asegúrate que la opción de compras por internet esté habilitada. Activa esta opción en el aplicativo de tu banco.
+									li 
+										span Revisa si tienes el saldo suficiente para completar la operación.
+									li 
+										span Si tu tarjeta es Scotiabank, asegúrate de tener un límite diario que permita realizar la operación. Recuerda que puedes cambiar este límite en el aplicativo de tu banco.
+									li 
+										span Si tu tarjeta es del Banco de la Nación, solo podrás hacer compras hasta 200 soles por operación.
+									li 
+										span Si ingresas un monto tope, asegúrate de que este sea mayor a tu cargo fijo para evitar un saldo pendiente.
+								figure
+									picture
+										source(srcset=path+'assets/afiliate/afiliacion_exitosa.jpg' media="(min-width: 600px)")
+										img(src=path+'assets/afiliate/afiliacion_exitosa.jpg' alt="MDN")
+								
+		.page3__footer
+			.considerations
+				.considerations__align
+					.considerations__header
+						hgroup
+							h5 CONSIDERACIONES
+							h3 Nos gusta hablar Claro
+						.link(@click="openConsiderations()")
+							zoom-center-transition(group :duration="{enter: 400, leave: 300}")
+								.link__more(v-if="!considerations.show" key=0)
+									span Saber más
+								.link__close(v-if="considerations.show" key=1)
+									span Cerrar
+					
+					.considerations__main(:class="{ 'active': considerations.show }")
+						//-slide-y-down-transition(:duration="{enter: 300, leave: 200}" group)
+						.considerations__main__desktop(v-if="considerations.show" key=2)
+							.menu
+								.menu__list
+									span(ref="point")
+									a(v-for="(item, iItem) in considerations.menu" :key="iItem" ref="menu" :class="{ 'active': iItem == considerations.choose }" @click="menuConsiderations(iItem, item)") {{ item.name }}
+							.content
+								zoom-center-transition(:duration="{enter: 300, leave: 200}" group)
+									.content__info(v-if="considerations.choose == 0" key=4)
+
+										p Si quieres modificar el monto máximo a debitar de una tarjeta de crédito la puedes solicitar de manera telefónica y presencial; y si quieres modificar el monto máximo a debitar de una cuenta bancaria solicítala de manera presencial.
+										p El débito a la cuenta será cargado en cualquier momento entre las 48 horas antes y 48 horas después de la fecha de vencimiento de tu recibo.
+										p Si tienes una cuenta de ahorro en el BCP o Interbank, puedes escanear los documentos solicitados y enviarlos al buzón recaudaciondebitos@claro.com.pe.
+										p Para el caso de cuentas del BBVA y Scotiabank, se requiere acudir al Centro de Atención para presentar la documentación necesaria.
+										p Para desafiliarte del débito automático debes hacerlo de manera telefónica o presencial.
+								
+						.considerations__main__mobile(v-if="considerations.show" key=3)
+							.content
+								.content__title(:class="{ 'active': considerations.menu[0].active }")
+									a(@click="considerations.menu[0].active = !considerations.menu[0].active") {{ considerations.menu[0].name }}
+									sup
+								slide-y-down-transition(:duration="{enter: 300, leave: 200}")
+									.content__info(v-if="considerations.menu[0].active == true")
+
+										p Si quieres modificar el monto máximo a debitar de una tarjeta de crédito la puedes solicitar de manera telefónica y presencial; y si quieres modificar el monto máximo a debitar de una cuenta bancaria solicítala de manera presencial.
+										p El débito a la cuenta será cargado en cualquier momento entre las 48 horas antes y 48 horas después de la fecha de vencimiento de tu recibo.
+										p Si tienes una cuenta de ahorro en el BCP o Interbank, puedes escanear los documentos solicitados y enviarlos al buzón recaudaciondebitos@claro.com.pe.
+										p Para el caso de cuentas del BBVA y Scotiabank, se requiere acudir al Centro de Atención para presentar la documentación necesaria.
+										p Para desafiliarte del débito automático debes hacerlo de manera telefónica o presencial.
+
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

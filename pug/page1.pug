@@ -1,0 +1,119 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 1;
+	- var title = 'Formulario Component | Claro Perú';
+	- var modal = 1;
+
+block content
+	.page1 
+		.portlet(data-portlet='bannerform')
+			.section(data-section) 
+				.section__modals(id="modaltratamiento") 
+					.section__modals__modal 
+						.section__modals__modal-close
+						hgroup.section__modals__modal-group 
+							h4.section__modals__modal-group-title Tratamiento de mis datos personales
+						.section__modals__modal-main 
+							p.section__modals__modal-main-text Autorizo a AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia y departamento de Lima (CLARO), para tratar mis datos personales y registrarlos en el Banco de Datos Personales “Clientes” de su titularidad, con la finalidad de llamarme o enviarme mensajes de texto (SMS), mensajes electrónicos y/o correos electrónicos con contenido informativo, publicitario y/o promocional sobre los productos y/o servicios que he solicitado mediante este formulario. Declaro conocer que (i) mis datos serán registrados por el tiempo necesario para cumplir con la finalidad expuesta, o hasta que decida revocar mi autorización, (ii) CLARO podrá compartir su información con terceros encargados del tratamiento de sus datos personales, (iii) mi autorización resulta facultativa, pero en caso de negativa, la finalidad expuesta no podrá realizarse, (iv) podré ejercer los derechos ARCO (Acceso, Rectificación, Cancelación y Oposición); en los puntos de atención designados para tal efecto o a través del siguiente 
+								a(href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank") enlace.
+							<br/>
+							p.section__modals__modal-main-text Para consultar el detalle de los encargados de tratamiento y mayor información, revisa nuestra 
+								a(href="https://www.claro.com.pe/proteccion-datos/" target="_blank") Política de Privacidad.
+						.section__modals__modal-footer 
+							button.section__modals__modal-footer-close Entendido
+
+				.section__modals(id="modalpromociones") 
+					.section__modals__modal 
+						.section__modals__modal-close
+						hgroup.section__modals__modal-group 
+							h4.section__modals__modal-group-title Solicitud para recibir publicidad de Claro
+						.section__modals__modal-main 
+							p.section__modals__modal-main-text En aplicación del artículo 58 e) de la Ley N° 29571, solicito , mediante mi consentimiento libre, previo, informado, expreso e inequívoco, que AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia y departamento de Lima (CLARO), me contacte con fines publicitarios por llamadas, mensajes de texto (SMS), mensajes electrónicos, correos electrónicos y/o por cualquier otro medio análogo de comunicación, sobre cualquier producto y/o servicio de CLARO a la línea telefónica y/o correo electrónico utilizados para completar este formulario.
+							<br/>
+							p.section__modals__modal-main-text Declaro conocer que (i) mis datos serán registrados en el Banco de Datos Personales “Clientes” de CLARO para cumplir con la finalidad expuesta hasta que decida revocar mi consentimiento, (ii) CLARO podrá compartir mi información con terceros encargados del tratamiento de sus datos personales, (iii) mi consentimiento resulta facultativo, pero en caso de negativa, la finalidad expuesta no podrá realizarse, (iv) podré ejercer los derechos ARCO (Acceso, Rectificación, Cancelación y Oposición); en los puntos de atención designados para tal efecto o a través del siguiente 
+								a(href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank") enlace. 
+								| Podré consultar el detalle de los encargados de tratamiento y mayor información, revisando la 
+								a(href="https://www.claro.com.pe/proteccion-datos/" target="_blank") Política de Privacidad.
+						.section__modals__modal-footer 
+							button.section__modals__modal-footer-close Entendido
+
+				picture.section__banner 
+					source(media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-mobile.jpg")
+					source(media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-desktop.jpg")
+					img(src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy")
+
+				.section__align 
+					.content 
+						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6IitNS3FtQmFnZGtraGFwUGp0Umk5U3c9PSIsInZhbHVlIjoiYUpVazdwVUVSRHpSdlpzM2hNdm9VZz09IiwibWFjIjoiOGU5ZTBhZDQ0ZDk4YWNiZTA2ODAxYjEzNTg3YmFkYjRiMDA0ZGVkODMyZWM2YzcxNGQ1NmE5MjBiMjI2ZjQzMCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
+							hgroup.formBC__group 
+								h1.formBC__group-title Afíliate al recibo digital
+								p.formBC__group-text 
+									| Es gratuito y reduce el consumo de papel.
+								p.formBC__group-text 
+									| Completa tus datos ahora:
+									//- br
+									//- br
+									//- p.formBC__group-text 
+									//- 	| Sorteo: 13/02/2024
+							.formBC__main 
+								input(type="hidden" name="form_id" value="167")
+								input(type="hidden" name="form_name" value="Recibo digital por correo")
+								dl.type1  
+									dd 
+										input(type="text" class="formBC__main-input" name="nombre_y_apellido" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }")
+								dl.type2 
+									dd 
+										select(class="formBC__main-select" autocomplete="nope" v-model.trim="v1$.type_documento.$model" :class="{ 'invalid': v1$.type_documento.$error, 'valid': !v1$.type_documento.$invalid, }" name="tipo_de_documento")
+											option(value="" disabled selected) Tipo de documento
+											option(value="DNI") DNI 
+											option(value="RUC") RUC 
+											option(value="CE") Carnet de Extranjería
+											option(value="Pasaporte") Pasaporte
+								dl.type3 
+									dd 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress="isNumber($event)" :maxlength="lgthTypeDocument")
+								dl.type1 
+									dd 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)") 
+								dl.type1 
+									dd 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico") 
+
+								dl.type4 
+									dd 
+										.formBC__main-checkbox
+											input(type="checkbox" id="tratamiento" value="Sí" v-model="v1$.tratamiento.$model" @change="v1$.tratamiento.$touch()" name="autorizo_el_tratamiento_de_mis_datos_personales")
+											label.formBC__main-checkbox-label(for="tratamiento") 
+												b 
+											small.formBC__main-checkbox-text 
+												| Autorizo el 
+												em.ctopen tratamiento de mis datos personales.
+
+								dl.type4 
+									dd 
+										.formBC__main-checkbox
+											input(type="checkbox" id="promociones" v-model="v1$.promociones.$model" @change="v1$.promociones.$touch()" value="Sí" name="quiero_recibir_promociones_y_beneficios_de_claro")
+											label.formBC__main-checkbox-label(for="promociones") 
+												b 
+											small.formBC__main-checkbox-text 
+												| Quiero recibir  
+												em.ctopen promociones y beneficios
+												|  de Claro.
+
+							.formBC__footer 
+								button.formBC__footer-action#btnAction(type='submit' :disabled="v1$.$invalid && !disabled" :class="{ 'active': !v1$.$invalid }") Quiero participar
+
+block modal
+
+
+block css
+
+block javascript
+	//- script(type="text/javascript").
+		$(document).ready(function() {
+
+
+		})
+	script(type="module" src=path+"js/main.js" async)

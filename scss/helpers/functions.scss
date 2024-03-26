@@ -1,0 +1,63 @@
+$browser-context: 16;
+
+@function em($pixels, $context: $browser-context) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1em;
+}
+
+@function trans($color, $percentage) {
+ 	@return lighten($color, (1-$percentage)*5%);
+}
+
+@function transd($color, $percentage) {
+ 	@return darken($color,  (1-$percentage)*5%);
+}
+
+@function convert($value, $currentUnit, $convertUnit){
+  @if $currentUnit == px{
+    
+    @if $convertUnit == ems{
+      @return $value / 16+em;
+    }
+    @else if $convertUnit == percent{
+      @return percentage($value / 16);
+    }
+  
+  }@else if $currentUnit == ems{
+   
+    @if $convertUnit == px{
+      @return $value * 16+px;
+    }
+    @else if $convertUnit == percent{
+       @return percentage($value);
+    }
+  
+  }@else if $currentUnit == percent{
+  
+    @if $convertUnit == px{
+      @return $value * 16 / 100+px;
+    }
+    @else if $convertUnit == ems{
+      @return $value / 100+em;
+    }
+ 
+  }@else if $currentUnit == pts{
+   
+    @if $convertUnit == px{
+      @return $value * 1.3333+px;
+    }
+    @else if $convertUnit == ems{
+      @return $value / 12+em;
+    }
+    @else if $convertUnit == percent{
+        @return percentage($value / 12)
+    }
+  }
+}

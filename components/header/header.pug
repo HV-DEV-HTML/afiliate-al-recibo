@@ -1,0 +1,170 @@
+header.claro-havas-header
+
+	aside.claro-havas-header__top
+
+		nav.claro-havas-header__top__options
+			a.claro-havas-header__top__options__link.-active-(href="https://www.claro.com.pe/personas/") Personas
+			a.claro-havas-header__top__options__link(href="https://www.claro.com.pe/negocios/") Negocios
+			a.claro-havas-header__top__options__link(href="https://www.claro.com.pe/empresas/") Empresas
+
+		b.claro-havas-header__top__info
+			a.claro-havas-header__top__info__link(href="https://www.claro.com.pe/informacion-a-abonados-y-usuarios/") Información a Abonados y Usuarios
+
+		form.claro-havas-header__top__form(method="get" action="/buscador/" onsubmit="return (this.q.value == '') ? false:true;")
+			img.claro-havas-header__top__form__icon(src=pathImage+"search.svg" loading="lazy")
+			input.claro-havas-header__top__form__input(type="search" name="q" autocomplete="off" disabled placeholder="Buscar")
+
+		aside.claro-havas-header__top__more
+			strong.claro-havas-header__top__more__title.fnButtonActiveToggle
+				span Más de Claro
+				img(src=pathImage+"arrow-bottom.svg" loading="lazy")
+			nav.claro-havas-header__top__more__nav
+				.claro-havas-header__top__more__nav__inset
+					a.claro-havas-header__top__more__nav__item(href="https://www.claromusica.com/landing")
+						img(src=pathImage+"icono-musica.svg" loading="lazy")
+						| Claro Música
+					a.claro-havas-header__top__more__nav__item(href="https://www.clarovideo.com/peru/homeuser")
+						img(src=pathImage+"icono-video.svg" loading="lazy")
+						| Claro Video
+
+		.claro-havas-header__top__countries
+			strong.claro-havas-header__top__countries__selected.fnButtonActiveToggle
+				img(src=pathImage+"peru-v2.svg" loading="lazy")
+				img(src=pathImage+"arrow-bottom.svg" loading="lazy")
+
+			select.claro-havas-header__top__countries__select(onchange="location.href=this.value")
+				option(value="https://www.claro.com.ar/") Argentina
+				option(value="https://www.claro.com.br/") Brasil
+				option(value="https://www.clarochile.cl/") Chile
+				option(value="https://www.claro.com.co/") Colombia
+				option(value="https://www.claro.cr/") Costa Rica
+				option(value="https://www.claro.com.ec/") Ecuador
+				option(value="https://www.claro.com.sv/") El salvador
+				option(value="https://www.claro.com.es/") España
+				option(value="https://www.usclaro.com/") Estados Unidos
+				option(value="https://www.claro.com.gt/") Guatemala
+				option(value="https://www.claro.com.hn/") Honduras
+				option(value="https://www.claro.com.ni/") Nicaragua
+				option(value="https://www.claro.com.pa/") Panamá
+				option(value="https://www.claro.com.py/") Paraguay
+				option(value="https://www.claro.com.pe/") Perú
+				option(value="https://www.claropr.com/") Puerto Rico
+				option(value="https://www.claro.com.do/") Rep. Dominicana
+				option(value="https://www.claro.com.uy/") Uruguay
+
+			nav.claro-havas-header__top__countries__nav.fnNavCountries
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.ar/")
+					img(src=pathImage+"argentina.svg" loading="lazy")
+					| Argentina
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.br/")
+					img(src=pathImage+"brasil.svg" loading="lazy")
+					| Brasil
+				a.claro-havas-header__top__countries__nav__link(href="https://www.clarochile.cl/")
+					img(src=pathImage+"chile.svg" loading="lazy")
+					| Chile
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.co/")
+					img(src=pathImage+"colombia.svg" loading="lazy")
+					| Colombia
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.cr/")
+					img(src=pathImage+"costarica.svg" loading="lazy")
+					| Costa Rica
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.ec/")
+					img(src=pathImage+"ecuador.svg" loading="lazy")
+					| Ecuador
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.sv/")
+					img(src=pathImage+"elsalvador.svg" loading="lazy")
+					| El salvador
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.es/")
+					img(src=pathImage+"espana.svg" loading="lazy")
+					| España
+				a.claro-havas-header__top__countries__nav__link(href="https://www.usclaro.com/")
+					img(src=pathImage+"estadosunidos.svg" loading="lazy")
+					| Estados Unidos
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.gt/")
+					img(src=pathImage+"guatemala.svg" loading="lazy")
+					| Guatemala
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.hn/")
+					img(src=pathImage+"honduras.svg" loading="lazy")
+					| Honduras
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.ni/")
+					img(src=pathImage+"nicaragua.svg" loading="lazy")
+					| Nicaragua
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.pa/")
+					img(src=pathImage+"panama.svg" loading="lazy")
+					| Panamá
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.py/")
+					img(src=pathImage+"paraguay.svg" loading="lazy")
+					| Paraguay
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.pe/")
+					img(src=pathImage+"peru.svg" loading="lazy")
+					| Perú
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claropr.com/")
+					img(src=pathImage+"puertorico.svg" loading="lazy")
+					| Puerto Rico
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.do/")
+					img(src=pathImage+"repdominicana.svg" loading="lazy")
+					| Rep. Dominicana
+				a.claro-havas-header__top__countries__nav__link(href="https://www.claro.com.uy/")
+					img(src=pathImage+"uruguay.svg" loading="lazy")
+					| Uruguay
+
+
+	.claro-havas-header__principal
+
+		img.claro-havas-header__principal__mobile-button.fnHeaderShowMenu(src=pathImage+"menuMobile.svg" loading="lazy")
+
+		strong.claro-havas-header__principal__title
+			img(src=pathImage+"claro-logotipo.svg" loading="lazy")
+
+		nav.claro-havas-header__principal__nav.fnHeaderMenu
+
+			aside.claro-havas-header__principal__nav__in-mobile
+				b.claro-havas-header__principal__nav__in-mobile__title 
+					| Menu
+					img.fnHeaderHideMenu(src=pathImage+"close.svg" loading="lazy")
+
+				div.claro-havas-header__top__options
+					a.claro-havas-header__top__options__link.-active-(href="https://www.claro.com.pe/personas/") Personas
+					a.claro-havas-header__top__options__link(href="https://www.claro.com.pe/negocios/") Negocios
+					a.claro-havas-header__top__options__link(href="https://www.claro.com.pe/empresas/") Empresas
+
+				form.claro-havas-header__top__form(method="get" action="/buscador/" onsubmit="return (this.q.value == '') ? false:true;")
+					img.claro-havas-header__top__form__icon(src=pathImage+"search.svg" loading="lazy")
+					input.claro-havas-header__top__form__input(type="search" name="q" autocomplete="off" disabled placeholder="Buscar")
+
+			ul.claro-havas-header__principal__nav__list
+				li.claro-havas-header__principal__nav__item.fnHeaderSubMenu
+					strong.claro-havas-header__principal__nav__item__title.fnHeaderShowSubMenu ¿Qué necesitas saber?
+					ul.claro-havas-header__principal__nav__block
+						div.claro-havas-header__principal__nav__block__title-in-mobile
+							| ¿Qué necesitas saber?
+							span.fnHeaderItemClose
+								img(src=pathImage+"flechaRegreso.svg" loading="lazy")
+								| Regresar
+						li.claro-havas-header__principal__nav__block__item.fnHeaderNavItem(data-image=pathImage+"necesita_saber.jpg")
+							strong.claro-havas-header__principal__nav__block__item__title
+								a.claro-havas-header__principal__nav__block__item__title__link ¿Qué necesitas saber?
+								img(src=pathImage+"centro_de_ayuda.svg" loding="lazy")
+							a.claro-havas-header__principal__nav__block__item__link(href="/como-leer-tu-recibo-movil") ¿Cómo leer tu recibo móvil?
+							a.claro-havas-header__principal__nav__block__item__link(href="/lugares-de-pago") Lugares y medios de pago
+							a.claro-havas-header__principal__nav__block__item__link(href="/lugares-de-pago/debito-automatico") Afíliate al débito automático
+							a.claro-havas-header__principal__nav__block__item__link(href="/dudas-sobre-tu-facturacion") ¿Problemas con tu facturación?
+							a.claro-havas-header__principal__nav__block__item__link(href="/glosario-de-facturacion/") Glosario 
+							a.claro-havas-header__principal__nav__block__item__link(href="/Dudas-y-preguntas-frecuentes") Dudas y preguntas frecuentes
+						li.claro-havas-header__principal__nav__block__item
+							img.claro-havas-header__principal__nav__block__item__image.fnHeaderNavItemTargetImage(src=pathImage+"necesita_saber.jpg" loading="lazy")
+
+		nav.claro-havas-header__principal__nav-mobile
+			a.claro-havas-header__principal__nav-mobile__link(href="tel:080000200")
+				img(src=pathImage+"ventas.svg" loading="lazy")
+				| Ventas
+			a.claro-havas-header__principal__nav-mobile__link(href="https://tiendaclaro.pe/" target="_blank")
+				img(src=pathImage+"tienda.svg" loading="lazy")
+				| Tienda
+			a.claro-havas-header__principal__nav-mobile__link(href="https://play.google.com/store/apps/details?id=com.claro.pe.miclaro&hl=es_PE" target="_blank")
+				img(src=pathImage+"MiClaroMobile.svg" loading="lazy")
+				| Mi Claro
+
+		a.claro-havas-header__principal__mi-claro(href="https://mi.claro.com.pe/")
+			img(src=pathImage+"mi-claro.svg" loading="lazy")
+			| Mi Claro

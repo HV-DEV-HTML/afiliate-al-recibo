@@ -1,0 +1,1259 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 0;
+
+block content
+	.page9.internal(id="querybanca")
+		.page9__header.internal__header
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							.banner
+								.banner__image.banner1
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li 
+										a Lugares y medios de pago
+									li /
+									li Banca digital
+		.page9__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Banca Digital
+						.zone1__main
+							section
+								.menu
+									.menu__selected(@click="menu.show1 = !menu.show1" :class="{ 'show': menu.show1 }")
+										h3 {{ hash.selected.name }}
+									.menu__list(:class="[{ movil: menu.show1 }, { show: menu.show1 } ]")
+										a(v-for="(tab, iTab) in hash.tabs" :class="{ 'active': hash.selected.query == tab.query }" @click="chooseTab(tab)") {{ tab.name }}
+						.zone1__footer
+							article(:class="{ 'active': hash.selected.query == 'bancos' }")
+								section
+									.tab
+										.tab__header(v-if="hash.selected.options.length")
+											.menu
+												.menu__selected(@click="menu.show2 = !menu.show2" :class="{ 'show': menu.show2 }")
+													a(:class="[ 'active', 'b'+ hash.selected.active ]")
+												.menu__list(:class="[{ movil: menu.show2 }, { show: menu.show2 } ]")
+													a(v-for="(option, iOption) in hash.selected.options" :class="[{ active: iOption == hash.selected.active }, 'b'+ iOption ]" @click="chooseOption(iOption)")
+										.tab__main
+											.tab__main__option(:class="{ 'active': hash.selected.active == 0 }")
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][0].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,0,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][0].option[0]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick1" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/interbank_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Inicia sesión en la App de Interbank registrando tu número de tarjeta y documento de identidad. Si aún no la tienes descárgala desde Google Play o App Store.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/interbank_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Ingresa a la sección "Paga y Recarga", selecciona PAGO A INSTITUCIÓN O EMPRESA
+
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/interbank_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona CLARO y selecciona el servicio que deseas pagar, por ejemplo, "PAGOPORDNI". Ingresa el "Número de DNI" y ¡Listo!
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/interbank_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona el recibo que quieres pagar.
+
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/interbank_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Valida los datos del recibo en la pantalla de CONFIRMACIÓN DE PAGO e ingresa la clave de SMS que llegará a tu celular.
+													
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][0].option[1] }")
+														.accordion__subtitle(@click="openAccordion(0,0,1)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][0].option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick2" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la banca por internet de  
+																					a(href="https://interbank.pe/" target="_blank" tabindex="0") Interbank 
+																					| y selecciona la opción Personas.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Registra tu tarjeta y número de documento.
+
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa a la sección "Mis Operaciones", selecciona PAGO DE SERVICIOS.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Escribe CLARO y selecciona el servicio que deseas pagar, por ejemplo "PAGOPORDNI" Ingresa el "DNI" y ¡Listo!
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Selecciona el recibo que quieres cancelar y la cuenta de la cuál se va descontar el monto. Luego, haz clic en Siguiente.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/interbank_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Valida el monto a cancelar e ingresa la clave SMS de confirmación.
+													
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][0].option[2] }")
+														.accordion__subtitle(@click="openAccordion(0,0,2)")
+															a Vía Débito automático
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][0].option[2]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick3" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/interbank_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la página de 
+																					a(href="https://interbank.pe/" target="_blank" tabindex="0") Pago Automático  
+																					| de Interbank
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/interbank_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Completa tus datos en el formulario y haz clic en COMENCEMOS
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/interbank_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona la opción para recibir tu código de identificación; y luego coloca el código que te llego
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/interbank_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa tus datos en el formulario para la afiliación del servicio
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/interbank_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p ¡Listo! Tu servicio ya se encuentra afiliado al Débito Automático
+
+											.tab__main__option(:class="{ 'active': hash.selected.active == 1 }") 
+												//-.link
+													a(href="https://bcpzonasegurabeta.viabcp.com/#/iniciar-sesion" target="_blank") Recargar aqui
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][1].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,1,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][1].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick4" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Inicia sesión en la App del BANCA MÓVIL BCP registrando tu número de tarjeta y clave de internet. Si aún no la tienes descárgala desde Google Play o App Store.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p En el menú lateral izquierdo, selecciona la opción PAGO DE SERVICIOS. Nuevamente dale clic a PAGO DE SERVICIOS
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Coloca CLARO en el buscador y selecciona CLARO DNI
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Dale clic a 2 DNI, introduce tu número y dale clic a CONTINUAR.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Selecciona el recibo que quieres pagar y elige la cuenta o tarjeta a la cual quieres cargar el pago.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bcp_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Confirma tu operación con tu clave token y dale clic a CONTINUAR para obtener tu constancia.
+														
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][1].option[1] }")
+														.accordion__subtitle(@click="openAccordion(0,1,1)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][1].option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick5" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a 
+																					a(href="https://www.viabcp.com/" target="_blank" tabindex="0") https://www.viabcp.com 
+																					| y haz clic en el botón BANCA POR INTERNET.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Registra tu tarjeta.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa al menú PAGAR Y TRANSFERIR y selecciona PAGAR UN SERVICIO. Luego, haz clic en BUSCAR POR NOMBRE DE LA EMPRESA
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Escribe CLARO en el recuadro y luego selecciona la etiqueta DNI.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Escribe tu número de DNI y haz clic en SIGUIENTE.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bcp_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Elige tu cuenta y el tipo de pago para asignar el monto: PAGO TOTAL o PAGO PARCIAL. Luego, haz clic en siguiente.Escribe tu clave token y dale clic a PAGAR AHORA para obtener tu constancia.
+										
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][1].option[2] }")
+														.accordion__subtitle(@click="openAccordion(0,1,2)")
+															a Vía Débito automático
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][1].option[2]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick6" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/bcp_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa 
+																					a(href="https://interbank.pe/" target="_blank" tabindex="0") www.viabcp.com 
+																					| y haz clic en CUENTAS, luego en AFILIAR / DESAFILIAR AL DÉBITO AUTOMÁTICO
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/bcp_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Registra tu tarjeta y clave
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/bcp_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona AMERICA MÓVIL PERÚ S.A.C y completa los datos de la afilición.
+																		
+
+											.tab__main__option(:class="{ 'active': hash.selected.active == 2 }") 
+												//-.link
+													a(href="https://www.bbvacontinental.pe/" target="_blank") Recargar aqui
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][2].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,2,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][2].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick7" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bbva_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Inicia sesión en la App del BBVA Banco Continental ingresando tu DNI y CONTRASEÑA DE BANCA POR INTERNET. Si aún no tienes la App, descárgala desde Google Play o App Store.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bbva_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p En instituciones o empresas digita CLARO y selecciona CLARO DNI MN.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bbva_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa tu número de DNI.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bbva_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona el recibo que quieres cancelar.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bbva_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Elige la cuenta o tarjeta a la cual quieres cargar el pago.
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][2].option[1] }")
+														.accordion__subtitle(@click="openAccordion(0,2,1)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][2].option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick8" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bbva_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la banca por internet del 
+																					a(href="https://www.bbvacontinental.pe/" target="_blank" tabindex="0") BBVA 
+																					| y registra tu tarjeta.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bbva_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Selecciona la opción PAGO DE SERVICIOS.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bbva_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona TELEFONÍA MÓVIL y luego CLARO DNI
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bbva_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa el NÚMERO DE DNI y selecciona el recibo a cancelar
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/bbva_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Para terminar, ingresa la clave de SMS de confirmación.
+											.tab__main__option(:class="{ 'active': hash.selected.active == 3 }") 
+												//-.link
+													a(href="https://scotiaenlinea.scotiabank.com.pe/nuevaweb.htm" target="_blank") Recargar aqui
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][3].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,3,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][3].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick10" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/scotia_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Inicia tu sección en la APP del Scotiabank.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/scotia_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Elige la opción PAGAR en la pestaña Quiero. Luego, la opción TELÉFONO, CABLE E INTERNET.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/scotia_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Busca la EMPRESA y selecciona CLARO VARIOS. Luego, selecciona el tipo de servicio que deseas cancelar e ingresa tu NÚMERO DE DNI.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/scotia_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona el recibo que quieres cancelar y la cuenta o tarjeta a la cual quieres cargarla.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/scotia_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Confirma tu clave SMS y el pago de tu Recibo Claro habrá sido realizado con éxito.
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][3].option[1] }")
+														.accordion__subtitle(@click="openAccordion(0,3,1)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][3].option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick11" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/scotia_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la banca por internet del  
+																					a(href="https://www.scotiabank.com.pe/Personas/Default" target="_blank" tabindex="0") Scotiabank 
+																					| e ingresa tus datos.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/scotia_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Elige la opción PAGAR O RECARGAR y luego haz clic en TELÉFONO, CABLE E INTERNET.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/scotia_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p En empresa o insitución digita CLARO y selecciona CLARO VARIOS.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/scotia_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona CLARO DNI e ingresa el número de documento. Luego, haz clic en CONTINUAR.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/scotia_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Selecciona el recibo que quieres cancelar y haz clic en PAGAR. Para terminar, ingresa la CLAVE TOKEN y haz clic en EJECUTAR.
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][3].option[2] }")
+														.accordion__subtitle(@click="openAccordion(0,3,2)")
+															a Vía Débito automático
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][3].option[2]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick12" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/scotia_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la banca por internet de 
+																					a(href="https://interbank.pe/" target="_blank" tabindex="0") Scotiabank 
+																					| y selecciona la opción ACCEDER
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/scotia_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Elige la opción SERVICIO AL CLIENTE, luego seleccionar CARGO AUTOMÁTICO y haz clic en AFILIACIÓN
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/debito/scotia_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona AMERICA MÓVIL PERÚ S.A.C y completa los datos de la afilición.
+																		
+											.tab__main__option(:class="{ 'active': hash.selected.active == 4 }") 
+												//-.link
+													a(href="https://scotiaenlinea.scotiabank.com.pe/nuevaweb.htm" target="_blank") Recargar aqui
+												.accordion
+													
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][4].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,4,0)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][4].option[0]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick14" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/nacion_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Accede a la banca por internet del 
+																					a(href="https://www.scotiabank.com.pe/Personas/Default" target="_blank" tabindex="0") Banco de la Nación  
+																					| y selecciona la opción INGRESA A TUS CUENTAS.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/nacion_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Registra tu tarjeta.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/nacion_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa a pago de servicio y en la opción CELULAR selecciona la opción RECIBO CLARO.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/nacion_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Después, ingresa tu NÚMERO CELULAR y selecciona el recibo a cancelar.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/bancos/web/nacion_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Por último, ingresa los 6 dígitos de tu TOKEN y da clic en la opción pagar.
+													
+											.tab__main__option(:class="{ 'active': hash.selected.active == 5 }") 
+												//-.link
+													a(href="https://scotiaenlinea.scotiabank.com.pe/nuevaweb.htm" target="_blank") Recargar aqui
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][0][5].option[0] }")
+														.accordion__subtitle(@click="openAccordion(0,5,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][0][5].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick16" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la aplicación, selecciona la opción 
+																					strong Paga servicios.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Selecciona la categoría 
+																					strong telefonía 
+																					| y empresa 
+																					strong Claro.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Al seleccionar el servicio tendrás dos opciones: hacer el pago por 
+																					br
+																					strong Número de celular/Fijo o Código de cliente.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Si tienes tu código de cliente deberás ingresarlo.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Si tienes Número de celular/fijo deberás ingresarlo.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Selecciona la deuda a pagar o ingresa el monto de tu deuda.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_7.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 7
+																				p Confirma la operación con tu contraseña.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_8.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 8
+																				p Y listo, habrás hecho el pago de tu recibo Claro.
+																		.content__item
+																			figure
+																				img(src=path+'assets/bancos/app/bim_9.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 9
+																				p No olvides que recibirás un SMS confirmando el pago.
+													
+
+
+							article(:class="{ 'active': hash.selected.query == 'cajas-rurales' }")
+								section
+
+									.tab
+										.tab__header(v-if="hash.selected.options.length")
+											.menu
+												.menu__selected(@click="menu.show2 = !menu.show2" :class="{ 'show': menu.show2 }")
+													a(:class="[ 'active', 'c'+ hash.selected.active ]")
+												.menu__list(:class="[{ movil: menu.show2 }, { show: menu.show2 } ]")
+													a(v-for="(option, iOption) in hash.selected.options" :class="[{ active: iOption == hash.selected.active }, 'c'+ iOption ]" @click="chooseOption(iOption)")
+										.tab__main
+											.tab__main__option(:class="{ 'active': hash.selected.active == 0 }")
+												//-.link
+													a(href="https://bancaporinternet.interbank.pe/login" target="_blank") Recargar aqui
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][1][0].option[0] }")
+														.accordion__subtitle(@click="openAccordion(1,0,0)")
+															a Vía APP 
+																h5 Recargas
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][1][0].option[0]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick19" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/recargas/cusco_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Descarga e ingresa a la APP WAYKI.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/recargas/cusco_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Dale clic a la opción PAGOS y luego a la opción VOY A RECARGAR UN CELULAR.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/recargas/cusco_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa el NOMBRE DE LA EMPRESA, luego el NÚMERO CELULAR A RECARGAR, finalmente LA CUENTA CON SALDO A DEBITAR. 
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/recargas/cusco_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Verifica todos los datos e ingresa la CLAVE SMS que te llegará a tu celular, finalmente dar clic en CONFIRMAR.
+																		
+													
+													.accordion__item(:class="{ 'active': accordion['tabs'][1][0].option[1] }")
+														.accordion__subtitle(@click="openAccordion(1,0,1)")
+															a Vía APP 
+																h5 Pagos de Claro
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][1][0].option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick20" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajas/app/pagos/cusco_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Descarga e ingresa a la APP WAYKI.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajas/app/pagos/cusco_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Dale clic a la opción PAGOS y luego a la opción VOY A PAGAR UN SERVICIO.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajas/app/pagos/cusco_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Ingresa el NOMBRE DE LA EMPRESA, luego escoge PAGO POR DNI, finalmente ingresa el DNI DEL TITULAR DE LA DEUDA. 
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajas/app/pagos/cusco_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa la CLAVE SMS que te llegará a tu celular, finalmente dar clic a CONFIRMAR PAGO. 
+
+											.tab__main__option(:class="{ 'active': hash.selected.active == 1 }") 					
+
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][1][1].option[0] }")
+														.accordion__subtitle(@click="openAccordion(1,1,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][1][1].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick22" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresar al APP de CAJA HUANCAYO y registra los datos solicitados.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Selecciona la opción PAGOS, luego PAGO DE SERVICIOS.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Buscar en empresa AMERICA MOVIL - CLARO, Ingresar el “Número de celular” o “Teléfono fijo” y dale clic a SIGUIENTE.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Verificar el monto a pagar y confirmar.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Seleccionar la CUENTA DE CARGO, luego Ingresar la CLAVE DINÁMICA y darle clic a CONFIRMAR.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/huancayo_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Para finalizar se visualizará la CONSTANCIA DE PAGO DE SERVICIO, así mismo la constancia será enviada automáticamente al correo registrado.
+
+											.tab__main__option(:class="{ 'active': hash.selected.active == 2 }") 					
+
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][1][2].option[0] }")
+														.accordion__subtitle(@click="openAccordion(1,2,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][1][2].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick23" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa al APP de CAJA TRUJILLO y en el menú principal selecciona la opción PAGOS.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Selecciona la opción PAGO DE SERVICIOS.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Luego ingresa a la opción PAGO DE TELEFONÍA.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona OPERADOR DE CLARO, TIPO DE SERVICIO y CUENTA ORIGEN para cargar el pago.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Dar clic en la lupa para visualizar los pagos pendientes, luego dar clic al botón CONSULTAR.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Visualizarás el RESÚMEN DE PAGO, debes ingresar el CÓDIGO SMS que llegará a tu celular, luego dar clic al botón REALIZAR PAGO.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_7.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 7
+																				p Visualizarás la pantalla de PAGO EXITOSO.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/trujillo_8.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 8
+																				p Podrás grabar tu pago como FAVORITO y si deseas lo podrás compartir por redes.
+
+											.tab__main__option(:class="{ 'active': hash.selected.active == 3 }") 					
+
+												.accordion
+													.accordion__item(:class="{ 'active': accordion['tabs'][1][3].option[0] }")
+														.accordion__subtitle(@click="openAccordion(1,3,0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordion['tabs'][1][3].option[0]" :duration="300")
+															.accordion__info
+																.content
+																	vue-slick(ref="slick24" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa al App de CAJA AREQUIPA y en el menú inferior selecciona la opción PAGOS
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Selecciona la opción PAGO DE SERVICIOS E INSTITUCIONES
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Luego, ingresa a la opción TELEFONÍA
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Selecciona al operador: CLARO
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Selecciona el TIPO DE PAGO que deseas realizar, por ejemplo: “RECARGAS”.  Ingresa tu NÚMERO DE CONTRATO, luego haz clic en SIGUIENTE.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p Confirma la CUENTA DE CARGO, ingresa tu CLAVE DIGITAL (6 dígitos) y TOKEN, luego, haz clic en SIGUIENTE.
+																		.content__item
+																			figure
+																				img(src=path+'assets/cajas/app/arequipa_7.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 7
+																				p ¡Listo! Visualizarás la pantalla de PAGO EXITOSO.
+
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Consejos para un pago exitoso
+						.zone1__main
+							section
+								ul 
+									li 
+										span Asegúrate que la opción de compras por internet esté habilitada. Puedes activar esta opción en el aplicativo de tu banco.
+									li 
+										span Ingresa correctamente el CVV de 3 dígitos y fecha de vencimiento de tu tarjeta.
+									li 
+										span Revisa si tienes el saldo suficiente para completar la operación.
+									li 
+										span Si tu tarjeta es Scotiabank, asegúrate de tener un límite diario que permita realizar la operación. Recuerda que puedes cambiar este límite en el aplicativo de tu banco.
+									li 
+										span Si tu tarjeta es del Banco de la Nación, solo podrás hacer compras hasta 200 soles por operación.
+								figure
+									picture
+										source(srcset=path+'assets/digital/person_claro.jpg' media="(min-width: 600px)")
+										img(src=path+'assets/digital/person_claro.jpg' alt="MDN")
+			
+			.portlet3
+				.portlet3__align
+					.zone1
+						.zone1__header
+							section 
+								a(href="debito-automatico")
+									h3 Evita las colas y ahorra tiempo afiliando tu tarjeta al Débito Automático
+									span Ver más
+
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

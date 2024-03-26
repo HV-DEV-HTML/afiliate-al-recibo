@@ -1,0 +1,282 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 1;
+
+block content
+	.page2.internal
+		.page2__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__banner
+							.banner
+								.banner__image(data-banner1="imagen1")
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li Cómo leer tu recibo móvil
+		.page2__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 ¿Cómo leer tu recibo móvil?
+								p Haz clic en los círculos para conocer cada sección del recibo
+							section
+								//-p Haz clic en los círculos para conocer cada sección del recibo
+								h3 En este caso:
+								ul
+									li 
+										span Tu recibo del mes pasado no se emitió
+									li 
+										span Tu línea sufrió un bloqueo por cobranza porque pagaste después de la fecha de vencimiento.
+									li 
+										span Una vez realizado el pago, tu servicio se activó y lo usaste con normalidad.
+									li 
+										span El recargo de tu factura este mes, corresponde a los días que no te facturamos el mes anterior.
+						.zone1__main
+							hgroup 
+								h2 Haz clic en cada número para más información
+								//-p Haz clic en los círculos para conocer cada sección del recibo
+							section
+								ul(id="tabrecibo")
+									li.active
+										span(@click="openTab('tabrecibo','li',0)") Hoja 1
+									li
+										span(@click="openTab('tabrecibo','li',1)") Hoja 2
+						.zone1__footer
+							article(v-if="hiddens.tabrecibo == 0")
+								section
+									form.content
+										.content__image
+											figure
+												picture
+													source(srcset=path+'assets/recibos/recibo1.jpg' media="(min-width: 600px)")
+													img(src=path+'assets/recibos/recibo1.jpg' alt="MDN")
+										.content__info
+											.content__info__desktop
+												.point(style="--point-y: 100px;--point-x: 460px;")
+													.point__number
+														input(type="radio" class="check" id="point1" name="hoja1")
+														label(for="point1" class="expand" data-point="1") 
+														
+													.point__info(class="pleft")
+														hgroup
+															h3 Datos del recibo y cliente
+															p Se muestra el número de tu recibo, fecha de emisión, número celular y periodo de facturación. Asimismo como los datos principales del titular de la línea: DNI, número de cuenta y dirección.
+
+												.point(style="--point-y: 195px;--point-x: 160px;")
+													.point__number
+														input(type="radio" class="check" id="point2" name="hoja1")
+														label(for="point2" class="expand" data-point="2") 
+													.point__info(class="pright")
+														hgroup
+															h3 Historial facturado
+															p Puedes observar los últimos 6 meses y las variaciones en los montos facturados.
+
+												.point(style="--point-y: 205px;--point-x: 460px;")
+													.point__number
+														input(type="radio" class="check" id="point3" name="hoja1")
+														label(for="point3" class="expand" data-point="3") 
+													.point__info(class="pleft")
+														hgroup
+															h3 Total a pagar
+															p Puedes visualizar el monto total a pagar, la fecha de vencimiento y tu código de pago.
+
+												.point(style="--point-y: 350px;--point-x: 360px;")
+													.point__number
+														input(type="radio" class="check" id="point4" name="hoja1")
+														label(for="point4" class="expand" data-point="4") 
+													.point__info(class="pleft")
+														hgroup
+															h3 Cargos mensuales
+															p Aquí podrás ver tu plan contratado, el tipo de Límite de consumo y lo consumido según cada servicio: voz, RPC, datos, SMS, etc. Los precios incluyen IGV
+											.content__info__mobile
+												.point(style="--point-y: 50px;--point-x: 265px;" @click="goTo('#hoja1_point1');")
+													.point__number
+														label(data-point="1")
+												.point(style="--point-y: 105px;--point-x: 100px;" @click="goTo('#hoja1_point2');")
+													.point__number
+														label(data-point="2")
+												.point(style="--point-y: 105px;--point-x: 265px;" @click="goTo('#hoja1_point3');")
+													.point__number
+														label(data-point="3")
+												.point(style="--point-y: 195px;--point-x: 200px;" @click="goTo('#hoja1_point4');")
+													.point__number
+														label(data-point="4")
+												
+										.content__list
+											dl(id="hoja1_point1")
+												dt
+													span(data-point="1")
+													h3 Datos del recibo y cliente
+												dd
+													p Se muestra el número de tu recibo, fecha de emisión, número celular y periodo de facturación. Asimismo como los datos principales del titular de la línea: DNI, número de cuenta y dirección.
+											
+											dl(id="hoja1_point2")
+												dt
+													span(data-point="2")
+													h3 Historial facturado
+												dd
+													p Puedes observar los últimos 6 meses y las variaciones en los montos facturados.
+
+											dl(id="hoja1_point3")
+												dt
+													span(data-point="3")
+													h3 Total a pagar
+												dd
+													p Puedes visualizar el monto total a pagar, la fecha de vencimiento y tu código de pago.
+
+											dl(id="hoja1_point4")
+												dt
+													span(data-point="4")
+													h3 Cargos mensuales
+												dd
+													p Aquí podrás ver tu plan contratado, el tipo de Límite de consumo y lo consumido según cada servicio: voz, RPC, datos, SMS, etc. Los precios incluyen IGV
+
+							article(v-if="hiddens.tabrecibo == 1")
+								section
+									.content
+										.content__image
+											figure
+												picture
+													source(srcset=path+'assets/recibos/recibo2.jpg' media="(min-width: 600px)")
+													img(src=path+'assets/recibos/recibo2.jpg' alt="MDN")
+										.content__info
+											.content__info__desktop
+												.point(style="--point-y: 100px;--point-x: 460px;")
+													.point__number
+														input(type="radio" class="check" id="point1" name="hoja2")
+														label(for="point1" class="expand" data-point="1") 
+													.point__info(class="pleft")
+														hgroup
+															h3 Datos del recibo y cliente
+															p Se muestra el número de tu recibo, fecha de emisión, número celular y periodo de facturación. Asimismo como los datos principales del titular de la línea: DNI, número de cuenta y dirección.
+
+												.point(style="--point-y: 195px;--point-x: 160px;")
+													.point__number
+														input(type="radio" class="check" id="point2" name="hoja2")
+														label(for="point2" class="expand" data-point="2") 
+													.point__info(class="pright")
+														hgroup
+															h3 Historial facturado
+															p Puedes observar los últimos 6 meses y las variaciones en los montos facturados.
+
+												.point(style="--point-y: 205px;--point-x: 460px;")
+													.point__number
+														input(type="radio" class="check" id="point3" name="hoja2")
+														label(for="point3" class="expand" data-point="3") 
+													.point__info(class="pleft")
+														hgroup
+															h3 Total a pagar
+															p Puedes visualizar el monto total a pagar, la fecha de vencimiento y tu código de pago.
+
+												.point(style="--point-y: 350px;--point-x: 360px;" name="hoja2")
+													.point__number
+														input(type="radio" class="check" id="point4")
+														label(for="point4" class="expand" data-point="4") 
+													.point__info(class="pleft")
+														hgroup
+															h3 Cargos mensuales
+															p Aquí podrás ver tu plan contratado, el tipo de Límite de consumo y lo consumido según cada servicio: voz, RPC, datos, SMS, etc. Los precios incluyen IGV
+											.content__info__mobile
+												.point(style="--point-y: 50px;--point-x: 265px;" @click="goTo('#hoja2_point1');")
+													.point__number
+														label(data-point="1")
+												.point(style="--point-y: 105px;--point-x: 100px;" @click="goTo('#hoja2_point2');")
+													.point__number
+														label(data-point="2")
+												.point(style="--point-y: 105px;--point-x: 265px;" @click="goTo('#hoja2_point3');")
+													.point__number
+														label(data-point="3")
+												.point(style="--point-y: 195px;--point-x: 200px;" @click="goTo('#hoja2_point4');")
+													.point__number
+														label(data-point="4")
+												
+										.content__list
+											dl(id="hoja2_point1")
+												dt
+													span(data-point="1")
+													h3 Datos del recibo y cliente
+												dd
+													p Se muestra el número de tu recibo, fecha de emisión, número celular y periodo de facturación. Asimismo como los datos principales del titular de la línea: DNI, número de cuenta y dirección.
+											
+											dl(id="hoja2_point2")
+												dt
+													span(data-point="2")
+													h3 Historial facturado
+												dd
+													p Puedes observar los últimos 6 meses y las variaciones en los montos facturados.
+
+											dl(id="hoja2_point3")
+												dt
+													span(data-point="3")
+													h3 Total a pagar
+												dd
+													p Puedes visualizar el monto total a pagar, la fecha de vencimiento y tu código de pago.
+
+											dl(id="hoja2_point4")
+												dt
+													span(data-point="4")
+													h3 Cargos mensuales
+												dd
+													p Aquí podrás ver tu plan contratado, el tipo de Límite de consumo y lo consumido según cada servicio: voz, RPC, datos, SMS, etc. Los precios incluyen IGV
+												
+
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

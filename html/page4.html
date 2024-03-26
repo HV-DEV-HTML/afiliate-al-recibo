@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Conoce tu recibo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Telavox">
+    <script type="text/javascript" src="js/_library/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  </head>
+  <body>
+    <div class="layout" id="app">
+      <div class="layout__main">
+        <div class="page4 internal">
+          <div class="page4__header internal__header">
+            <div class="portlet2">
+              <div class="portlet2__align">
+                <div class="zone1">
+                  <div class="zone1__header">
+                    <section>
+                      <ul>
+                        <li> <a>Inicio</a></li>
+                        <li>/</li>
+                        <li>¿Dudas sobre tu recibo?</li>
+                      </ul>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page4__main">
+            <div class="portlet1">
+              <div class="portlet1__align">
+                <div class="zone1">
+                  <div class="zone1__header">
+                    <hgroup> 
+                      <h2>¿Dudas sobre tu recibo?</h2>
+                      <p>
+                         Sabemos lo importante que es entender tu recibo. Por eso, escogimos los casos <br/>más comunes sobre facturación y te los explicamos paso a paso.</p>
+                    </hgroup>
+                    <figure></figure>
+                  </div>
+                  <div class="zone1__main">
+                    <section id="facturation">
+                      <dl>
+                        <dt class="sub">
+                          <header><a><span>Mi recibo llegó con un monto mayor al habitual</span><sup></sup></a></header>
+                          <footer>
+                            <blockquote>
+                              <h3>Otras razones</h3>
+                              <ul>
+                                <li><a><span>1.1 Realicé el pago de mi recibo de servicios después de la fecha de vencimiento</span><sup> </sup></a></li>
+                                <li><a><span>1.2 Compré o activé paquetes adicionales a mi plan</span><sup> </sup></a></li>
+                                <li><a><span>1.3 Compré o activé servicios adicionales a mi plan</span><sup> </sup></a></li>
+                                <li><a><span>1.4 Solicité generar consumos adicionales a mi plan</span><sup> </sup></a></li>
+                                <li><a><span>1.5 Viajé fuera del Perú y realicé consumos por Roaming</span><sup> </sup></a></li>
+                                <li><a><span>1.6 Solicité un cambio a un plan mayor </span><sup> </sup></a></li>
+                                <li><a><span>1.7 Usé el servicio el mes anterior y no me cobraron</span><sup> </sup></a></li>
+                              </ul>
+                            </blockquote>
+                          </footer>
+                        </dt>
+                        <dd><a @click="openVideo('https://www.youtube.com/embed/zRWqpMAhS14?rel=0');">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/play_video.png" media="(min-width: 600px)"/><img src="assets/play_video.png" alt="MDN"/>
+                              </picture>
+                            </figure></a>
+                          <blockquote>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/zRWqpMAhS14?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                          </blockquote>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>
+                          <header><a href="https://www.w3schools.com/tags/tag_template.asp" target="_blank"><span>Mi recibo llegó con un monto negativo</span><sup></sup></a></header>
+                        </dt>
+                        <dd><a @click="openVideo('https://www.youtube.com/embed/2bnrYVfw1gs?rel=0');">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/play_video3.png" media="(min-width: 600px)"/><img src="assets/play_video.png" alt="MDN"/>
+                              </picture>
+                            </figure></a>
+                          <blockquote>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/2bnrYVfw1gs?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                          </blockquote>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt class="sub">
+                          <header><a><span>Mi recibo llegó con un monto menor al habitual</span><sup></sup></a></header>
+                          <footer>
+                            <blockquote>
+                              <h3>Otras razones</h3>
+                              <ul>
+                                <li><a><span>1.1 Solicité un cambio a un plan menor</span><sup> </sup></a></li>
+                                <li><a><span>1.2 Me devolvieron los dias que no tuve servicio</span><sup> </sup></a></li>
+                              </ul>
+                            </blockquote>
+                          </footer>
+                        </dt>
+                        <dd><a @click="openVideo('https://www.youtube.com/embed/xbXEyQ4Rzds?rel=0');">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/play_video2.png" media="(min-width: 600px)"/><img src="assets/play_video.png" alt="MDN"/>
+                              </picture>
+                            </figure></a>
+                          <blockquote>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/xbXEyQ4Rzds?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                          </blockquote>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>
+                          <header><a><span>Conoce tu primer Recibo</span><sup></sup></a></header>
+                        </dt>
+                        <dd>
+                          <h4>Video explicativo</h4><a @click="openVideo('https://www.youtube.com/embed/aFDRAsuzBzE?rel=0');">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/play_video.png" media="(min-width: 600px)"/><img src="assets/play_video.png" alt="MDN"/>
+                              </picture>
+                            </figure></a>
+                          <blockquote>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/aFDRAsuzBzE?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+                          </blockquote>
+                        </dd>
+                      </dl>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <modal name="mVideo" :width="900" :height="'auto'" :adaptive="true">
+        <div class="video">
+          <div class="video__header">
+            <button @click="$modal.hide('mVideo');modal.show = false;">X</button>
+          </div>
+          <div class="video__iframe">
+            <iframe width="560" height="315" :src="modalUrl + '&amp;autoplay=1'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+          </div>
+        </div>
+      </modal>
+    </div>
+    <div class="load_ing" id="load_er"><img src="https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7e3e6f3b-2d43-4906-948c-25d3d00aa81e-loadingClaro.gif" alt=""></div>
+    <script type="text/javascript" src="js/portal/vue3.js"> </script>
+    <script type="text/javascript" src="js/portal/vue3-demi.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-core.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-validators.js"> </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz"></script>
+    <script type="text/javascript" src="js/library/vue2-transitions.min.js"></script>
+    <script type="text/javascript" src="js/library/toastr.js"></script>
+    <script type="text/javascript" src="js/library/lodash.js"></script>
+    <script type="text/javascript" src="js/library/vee-validate.js"></script>
+    <script type="text/javascript" src="js/library/vue-scrollto.js"></script>
+    <script type="text/javascript" src="js/library/slick.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-slide-up-down.umd.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-slick.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-modal.js"></script>
+    <script type="text/javascript" src="js/datacontent.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+  </body>
+</html>

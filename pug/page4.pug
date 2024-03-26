@@ -1,0 +1,206 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 1;
+
+block content
+	.page4.internal
+		.page4__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__banner
+							.banner
+								.banner__image(data-banner1="imagen1")
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li ¿Dudas sobre tu recibo?
+		.page4__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 ¿Dudas sobre tu recibo?
+								p 
+									| Sabemos lo importante que es entender tu recibo. Por eso, escogimos los casos 
+									br
+									| más comunes sobre facturación y te los explicamos paso a paso.
+							figure
+							
+						.zone1__main
+							section#facturation
+								dl
+									dt.sub
+										header
+											a
+												span Mi recibo llegó con un monto mayor al habitual
+												sup
+										footer
+											blockquote
+												h3 Otras razones
+												ul
+													li
+														a
+															span 1.1 Realicé el pago de mi recibo de servicios después de la fecha de vencimiento
+															sup 
+													li
+														a
+															span 1.2 Compré o activé paquetes adicionales a mi plan
+															sup 
+													li
+														a
+															span 1.3 Compré o activé servicios adicionales a mi plan
+															sup 
+													li
+														a
+															span 1.4 Solicité generar consumos adicionales a mi plan
+															sup 
+													li
+														a
+															span 1.5 Viajé fuera del Perú y realicé consumos por Roaming
+															sup 
+													li
+														a
+															span 1.6 Solicité un cambio a un plan mayor 
+															sup 
+													li
+														a
+															span 1.7 Usé el servicio el mes anterior y no me cobraron
+															sup 
+												
+									dd
+										a(@click="openVideo('https://www.youtube.com/embed/zRWqpMAhS14?rel=0');")
+											figure
+												picture
+													source(srcset=path+'assets/play_video.png' media="(min-width: 600px)")
+													img(src=path+'assets/play_video.png' alt="MDN")
+										blockquote
+											iframe(width="560" height="315" src="https://www.youtube.com/embed/zRWqpMAhS14?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+								dl
+									dt
+										header
+											a(href="https://www.w3schools.com/tags/tag_template.asp" target="_blank")
+												span Mi recibo llegó con un monto negativo
+												sup
+									dd
+										a(@click="openVideo('https://www.youtube.com/embed/2bnrYVfw1gs?rel=0');")
+											figure
+												picture
+													source(srcset=path+'assets/play_video3.png' media="(min-width: 600px)")
+													img(src=path+'assets/play_video.png' alt="MDN")
+										blockquote
+											iframe(width="560" height="315" src="https://www.youtube.com/embed/2bnrYVfw1gs?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+								dl
+									dt.sub
+										header
+											a
+												span Mi recibo llegó con un monto menor al habitual
+												sup
+										footer
+											blockquote
+												h3 Otras razones
+												ul
+													li
+														a
+															span 1.1 Solicité un cambio a un plan menor
+															sup 
+													li
+														a
+															span 1.2 Me devolvieron los dias que no tuve servicio
+															sup 
+									dd
+										a(@click="openVideo('https://www.youtube.com/embed/xbXEyQ4Rzds?rel=0');")
+											figure
+												picture
+													source(srcset=path+'assets/play_video2.png' media="(min-width: 600px)")
+													img(src=path+'assets/play_video.png' alt="MDN")
+										blockquote
+											iframe(width="560" height="315" src="https://www.youtube.com/embed/xbXEyQ4Rzds?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+
+
+								dl
+									dt
+										header
+											a
+												span Conoce tu primer Recibo
+												sup
+										//-footer
+											blockquote
+												p.v1 Revisa la fecha de activación de tu línea y la fecha de tu ciclo regular.
+												p.v1 El monto excedente corresponde a los días de servicio fuera del ciclo regular (prorrateo).
+												p.v1 En tu siguiente ciclo, se considerará el monto total de tu servicio contratado*
+													br
+													| * Considerar servicios adicionales y límite de consumo.
+									dd
+										h4 Video explicativo
+										a(@click="openVideo('https://www.youtube.com/embed/aFDRAsuzBzE?rel=0');")
+											figure
+												picture
+													source(srcset=path+'assets/play_video.png' media="(min-width: 600px)")
+													img(src=path+'assets/play_video.png' alt="MDN")
+										blockquote
+											iframe(width="560" height="315" src="https://www.youtube.com/embed/aFDRAsuzBzE?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+								
+								
+								
+
+								
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

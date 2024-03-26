@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Entretenimiento_30x30</title>
+    <defs>
+        <polygon id="path-1" points="0 0 7.10526316 0 7.10526316 13.9066076 0 13.9066076"></polygon>
+    </defs>
+    <g id="Entretenimiento_30x30" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(0.500000, 3.000000)">
+            <g id="TV">
+                <polygon id="Path" stroke="#424242" fill="#FF8300" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" points="12.5580357 21.4738095 16.4419643 21.4738095 17.0892857 24.0630952 11.9107143 24.0630952"></polygon>
+                <line x1="11.047619" y1="24.0630952" x2="17.952381" y2="24.0630952" id="Path" stroke="#424242" stroke-linecap="square"></line>
+                <path d="M28.2846177,21.3684211 L0.689869335,21.3684211 C0.306606738,21.3684211 0,21.023782 0,20.5929602 L0,0.775470056 C0,0.344648232 0.306606738,0 0.689869335,0 L28.3101641,0 C28.6934434,0 29,0.344648232 29,0.775470056 L29,20.5929602 C28.9744536,21.023782 28.667897,21.3684211 28.2846177,21.3684211 Z" id="Path" stroke="#424242" fill-rule="nonzero"></path>
+                <rect id="Rectangle" fill="#FF8300" x="1.38095238" y="1.7952381" width="26.2380952" height="17.952381"></rect>
+            </g>
+            <g id="Fill-1-Clipped" transform="translate(10.850000, 3.700000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="path-2"></g>
+                <path d="M7.10531114,0 L4.92368445,0 C4.91948601,2.96637414 4.91528758,4.88781782 4.91108915,7.85431191 C3.97375858,4.95943112 3.03534842,3.04290561 2.09465911,0 L0,0 L0,13.9066556 C0.707016424,13.8060131 1.46429411,13.7095691 2.17215022,13.6172035 C2.17418946,10.7105671 2.17622871,8.92383316 2.17814799,6.01707684 C3.15230482,8.87813021 3.75124153,10.5656612 4.72251944,13.2845676 C5.48399556,13.1975999 6.3205637,13.0905998 7.08275955,13.0132287 C7.09031673,8.67552576 7.09775396,4.33770291 7.10531114,0" id="Fill-1" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

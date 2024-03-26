@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Conoce tu recibo</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Telavox">
+    <script type="text/javascript" src="js/_library/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css" charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  </head>
+  <body>
+    <div class="layout" id="app">
+      <div class="layout__main">
+        <div class="page7 internal" id="querycanales">
+          <div class="page7__header internal__header">
+            <div class="portlet1">
+              <div class="portlet1__align">
+                <div class="zone1">
+                  <div class="zone1__header">
+                    <div class="banner">
+                      <div class="banner__image banner1">
+                        <div class="banner__image__link disable"><a>Ingresa aquí</a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="portlet2">
+              <div class="portlet2__align">
+                <div class="zone1">
+                  <div class="zone1__header">
+                    <section>
+                      <ul>
+                        <li> <a>Inicio</a></li>
+                        <li>/</li>
+                        <li>Lugares y medios de pago</li>
+                      </ul>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page7__main">
+            <div class="portlet1">
+              <div class="portlet1__align">
+                <div class="zone1">
+                  <div class="zone1__header">
+                    <hgroup> 
+                      <h2>Lugares de pago</h2>
+                    </hgroup>
+                  </div>
+                  <div class="zone1__main">
+                    <section>
+                      <ul id="tabcanales">
+                        <li class="active"><span @click="openTab('tabcanales','li',0,['canales','online'])">Canales online</span></li>
+                        <li><span @click="openTab('tabcanales','li',1,['canales','presenciales'])">Canales presenciales</span></li>
+                      </ul>
+                    </section>
+                  </div>
+                  <div class="zone1__footer">
+                    <article v-if="hiddens.tabcanales == 0">
+                      <hgroup>
+                        <h3>Paga tu recibo rápido y fácil sin salir de casa</h3>
+                      </hgroup>
+                      <section><a class="content">
+                          <div class="content__header">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/lugares/mi-claro.svg" media="(min-width: 600px)"/><img src="assets/lugares/mi-claro.svg" alt="MDN" style="--fix-img: 130px;"/>
+                              </picture>
+                              <figcaption>
+                                <h3>Mi Claro</h3>
+                              </figcaption>
+                            </figure>
+                          </div>
+                          <div class="content__main">
+                            <p>Realiza tus consultas de deuda, saldo o compra de paquetes desde la comodidad de tu casa.</p>
+                          </div>
+                          <div class="content__footer">
+                            <p>Ver más</p>
+                          </div></a><a class="content">
+                          <div class="content__header">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/lugares/banca-digital.svg" media="(min-width: 600px)"/><img src="assets/lugares/banca-digital.svg" alt="MDN" style="--fix-img: 57px;"/>
+                              </picture>
+                              <figcaption>
+                                <h3>Banca digital</h3>
+                              </figcaption>
+                            </figure>
+                          </div>
+                          <div class="content__main">
+                            <p>Paga tus recibos desde las aplicaciones o web de tus bancos.</p>
+                          </div>
+                          <div class="content__footer">
+                            <p>Ver más</p>
+                          </div></a><a class="content">
+                          <div class="content__header">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/lugares/debito-automatico.svg" media="(min-width: 600px)"/><img src="assets/lugares/debito-automatico.svg" alt="MDN" style="--fix-img: 57px;"/>
+                              </picture>
+                              <figcaption>
+                                <h3>Débito automático</h3>
+                              </figcaption>
+                            </figure>
+                          </div>
+                          <div class="content__main">
+                            <p>Evita las colas y moras afiliando el pago de tus servicios a una de tus tarjetas.</p>
+                          </div>
+                          <div class="content__footer">
+                            <p>Ver más</p>
+                          </div></a></section>
+                      <blockquote> 
+                        <h4>¿Tienes una empresa?</h4>
+                        <p>
+                           Encuentra más información de los lugares de pago <a>aquí</a></p>
+                      </blockquote>
+                    </article>
+                    <article v-if="hiddens.tabcanales == 1">
+                      <hgroup>
+                        <h3>Más opciones para pagar tu recibo</h3>
+                      </hgroup>
+                      <section><a class="content">
+                          <div class="content__header">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/lugares/puntos-autorizados.svg" media="(min-width: 600px)"/><img src="assets/lugares/puntos-autorizados.svg" alt="MDN" style="--fix-img: 57px;"/>
+                              </picture>
+                              <figcaption>
+                                <h3>Puntos autorizados</h3>
+                              </figcaption>
+                            </figure>
+                          </div>
+                          <div class="content__main">
+                            <p>Realiza tus pagos en nuestros puntos autorizados.</p>
+                          </div>
+                          <div class="content__footer">
+                            <p>Ver más</p>
+                          </div></a><a class="content">
+                          <div class="content__header">
+                            <figure>
+                              <picture>
+                                <source srcset="assets/lugares/cajeros-claro.svg" media="(min-width: 600px)"/><img src="assets/lugares/cajeros-claro.svg" alt="MDN" style="--fix-img: 57px;"/>
+                              </picture>
+                              <figcaption>
+                                <h3>Cajeros Claro</h3>
+                              </figcaption>
+                            </figure>
+                          </div>
+                          <div class="content__main">
+                            <p>Paga tus servicios en nuestros cajeros.</p>
+                          </div>
+                          <div class="content__footer">
+                            <p>Ver más</p>
+                          </div></a></section>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <modal name="mVideo" :width="900" :height="'auto'" :adaptive="true">
+        <div class="video">
+          <div class="video__header">
+            <button @click="$modal.hide('mVideo');modal.show = false;">X</button>
+          </div>
+          <div class="video__iframe">
+            <iframe width="560" height="315" :src="modalUrl + '&amp;autoplay=1'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>
+          </div>
+        </div>
+      </modal>
+    </div>
+    <div class="load_ing" id="load_er"><img src="https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7e3e6f3b-2d43-4906-948c-25d3d00aa81e-loadingClaro.gif" alt=""></div>
+    <script type="text/javascript" src="js/portal/vue3.js"> </script>
+    <script type="text/javascript" src="js/portal/vue3-demi.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-core.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-validators.js"> </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz"></script>
+    <script type="text/javascript" src="js/library/vue2-transitions.min.js"></script>
+    <script type="text/javascript" src="js/library/toastr.js"></script>
+    <script type="text/javascript" src="js/library/lodash.js"></script>
+    <script type="text/javascript" src="js/library/vee-validate.js"></script>
+    <script type="text/javascript" src="js/library/vue-scrollto.js"></script>
+    <script type="text/javascript" src="js/library/slick.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-slide-up-down.umd.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-slick.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/library/vue-modal.js"></script>
+    <script type="text/javascript" src="js/datacontent.js"></script>
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+  </body>
+</html>

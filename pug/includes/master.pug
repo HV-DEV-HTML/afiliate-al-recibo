@@ -1,0 +1,120 @@
+include mixin
+
+//- - var path = "https://static.claro.com.pe/landings/havas/2023/technights/v1/";
+//- var path = "https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/"; 
+- var path = "";
+
+//- let pathImage = './public/images/';
+//- let pathCSS = './public/css/';
+//- let pathCSSComponent = './components/';
+//- let pathJSComponent = './components/';
+
+block vars
+doctype
+html(lang='es')
+	head
+		title #{title}
+		meta(http-equiv='Content-Type' content='text/html;charset=UTF-8')
+		meta(name='viewport' content='width=device-width,initial-scale=1')
+		meta(name="description" content="Telavox")
+
+		script(type='text/javascript' src= path+'js/_library/jquery.js')
+		//-script(type='text/javascript' src=path+"js/library/pug.js")
+
+		if css == 1
+			+block_css
+
+		//-link(rel="stylesheet" type='text/css' href=pathCSS+"reset.css")
+		//-link(rel="stylesheet" type='text/css' href=pathCSSComponent+"header/header.css")
+		//-link(rel="stylesheet" type='text/css' href=pathCSSComponent+"footer/footer.css")
+
+		//-link(rel='stylesheet' type='text/css' href=path+'css/common.css' charset="utf-8")
+
+		//-link(rel="preload" href=path+"css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'")
+		link(rel='stylesheet' type='text/css' href=path+'css/common.css' charset="utf-8")
+
+		link(rel="preconnect" href="https://fonts.gstatic.com")
+		//-noscript
+			link(rel="stylesheet" href=path+"css/common.css")
+
+		//-link(rel='preload' href=path+'fonts/AMX-Bold.woff2' as='font' type='font/woff2' crossorigin)
+		//-link(rel='preload' href=path+'fonts/AMX-Regular.woff2' as='font' type='font/woff2' crossorigin)
+		//-link(href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet")
+
+	body
+		//-#teleport-target
+		.layout#app()
+			//-include ../../components/header/header.pug
+			.layout__main
+				+block_content
+			//-include ../../components/footer/footer.pug
+
+			if modal == 1
+				+block_modal
+				//-transition(name='fade')
+					.layout__modal(v-if='modal.show' v-bind:class="{active: modal.show}")
+						.overlay
+							.box
+								.box__inset
+									+block_modal
+		.load_ing#load_er
+			img(src='https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7e3e6f3b-2d43-4906-948c-25d3d00aa81e-loadingClaro.gif' alt='')
+
+
+		//-script(type="importmap").
+			{
+				"imports": {
+					"vue": "./js/library/vue.esm-browser.js",
+					"vue": "https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js",
+					"vue3-sfc-loader.esm": "./js/library/vue3-sfc-loader.esm.js",
+					"vueDemi": "https://cdn.jsdelivr.net/npm/vue-demi",
+					"vuelidate": "https://cdn.jsdelivr.net/npm/@vuelidate/core",
+					"vuelidateValidators": "https://cdn.jsdelivr.net/npm/@vuelidate/validators"
+						"vue-recaptcha-v3": "https://cdn.jsdelivr.net/npm/vue-recaptcha-v3@2.0.1/+esm"
+				}
+			}
+
+		//- script(type='text/javascript' src='https://unpkg.com/vue@3/dist/vue.global.js') 
+		script(type='text/javascript' src=path+"js/portal/vue3.js") 
+		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js') 
+		//- script(type='text/javascript' src=path+"js/portal/vue3-sfc-loader.js") 		
+		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue-demi') 
+		script(type='text/javascript' src=path+"js/portal/vue3-demi.js") 
+		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/@vuelidate/core') 
+		script(type='text/javascript' src=path+"js/portal/vuelidate3-core.js") 
+		//- script(type='text/javascript' src="https://cdn.jsdelivr.net/npm/@vuelidate/validators") 
+		script(type='text/javascript' src=path+"js/portal/vuelidate3-validators.js") 
+
+		//-script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue3-mobile-detection@1.0.5/+esm') 
+		//-script(type='text/javascript' src=path+"js/portal/vue3-carousel.js") 
+
+		//-script(type='text/javascript' src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6")
+
+		//-script(type='text/javascript' src='https://unpkg.com/vue3-carousel@latest') 
+		//- script(type="importmap").
+			{
+				"imports": {
+					//- "vue": "https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js",
+					//- "vue3-sfc-loader.esm": "https://unpkg.com/vue3-sfc-loader/dist/vue3-sfc-loader.esm.js",
+					//- "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/index.mjs",
+					//- "vuelidate": "https://cdn.jsdelivr.net/npm/@vuelidate/core/dist/index.esm.js",
+					//- "vuelidateValidators": "https://cdn.jsdelivr.net/npm/@vuelidate/validators/dist/index.esm.js",
+					"vue-final-modal": "https://cdn.jsdelivr.net/npm/vue-final-modal@3.4.11/+esm"
+				}
+			}
+		//-script(type="importmap").
+			{
+				"imports": {
+					//- "vue": "https://unpkg.com/vue@3.2.37/dist/vue.esm-browser.prod.js",
+					//- "vue3-sfc-loader.esm": "https://unpkg.com/vue3-sfc-loader/dist/vue3-sfc-loader.esm.js",
+					//- "vue-demi": "https://cdn.jsdelivr.net/npm/vue-demi/lib/index.mjs",
+					//- "vuelidate": "https://cdn.jsdelivr.net/npm/@vuelidate/core/dist/index.esm.js",
+					//- "vuelidateValidators": "https://cdn.jsdelivr.net/npm/@vuelidate/validators/dist/index.esm.js",
+					"vue3-carousel": "https://cdn.jsdelivr.net/npm/vue3-carousel@0.3.1/+esm"
+				}
+			}
+
+		if script == 1
+			+block_javascript
+		//- script(type='text/javascript' src=path+"header/header.js")
+		//-script(type='text/javascript' src=pathJSComponent+"footer/footer.js")

@@ -1,0 +1,165 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 1;
+
+block content
+	.page7.internal(id="querycanales")
+		.page7__header.internal__header
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							.banner
+								.banner__image.banner1
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li Lugares y medios de pago
+		.page7__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Lugares de pago
+						.zone1__main
+							section
+								ul(id="tabcanales")
+									li.active
+										span(@click="openTab('tabcanales','li',0,['canales','online'])") Canales online
+									li
+										span(@click="openTab('tabcanales','li',1,['canales','presenciales'])") Canales presenciales
+						.zone1__footer
+							article(v-if="hiddens.tabcanales == 0")
+								hgroup
+									h3 Paga tu recibo rápido y fácil sin salir de casa
+								section
+									
+									a.content
+										.content__header
+											figure
+												picture
+													source(srcset=path+'assets/lugares/mi-claro.svg' media="(min-width: 600px)")
+													img(src=path+'assets/lugares/mi-claro.svg' alt="MDN" style="--fix-img: 130px;")
+												figcaption
+													h3 Mi Claro
+										.content__main
+											p Realiza tus consultas de deuda, saldo o compra de paquetes desde la comodidad de tu casa.
+										.content__footer
+											p Ver más
+									a.content
+										.content__header
+											figure
+												picture
+													source(srcset=path+'assets/lugares/banca-digital.svg' media="(min-width: 600px)")
+													img(src=path+'assets/lugares/banca-digital.svg' alt="MDN" style="--fix-img: 57px;")
+												figcaption
+													h3 Banca digital
+										.content__main
+											p Paga tus recibos desde las aplicaciones o web de tus bancos.
+										.content__footer
+											p Ver más
+									a.content
+										.content__header
+											figure
+												picture
+													source(srcset=path+'assets/lugares/debito-automatico.svg' media="(min-width: 600px)")
+													img(src=path+'assets/lugares/debito-automatico.svg' alt="MDN" style="--fix-img: 57px;")
+												figcaption
+													h3 Débito automático
+										.content__main
+											p Evita las colas y moras afiliando el pago de tus servicios a una de tus tarjetas.
+										.content__footer
+											p Ver más
+								blockquote 
+									h4 ¿Tienes una empresa?
+									p 
+										| Encuentra más información de los lugares de pago 
+										a aquí
+
+							article(v-if="hiddens.tabcanales == 1")
+								hgroup
+									h3 Más opciones para pagar tu recibo
+								section
+									
+									a.content
+										.content__header
+											figure
+												picture
+													source(srcset=path+'assets/lugares/puntos-autorizados.svg' media="(min-width: 600px)")
+													img(src=path+'assets/lugares/puntos-autorizados.svg' alt="MDN" style="--fix-img: 57px;")
+												figcaption
+													h3 Puntos autorizados
+										.content__main
+											p Realiza tus pagos en nuestros puntos autorizados.
+										.content__footer
+											p Ver más
+									a.content
+										.content__header
+											figure
+												picture
+													source(srcset=path+'assets/lugares/cajeros-claro.svg' media="(min-width: 600px)")
+													img(src=path+'assets/lugares/cajeros-claro.svg' alt="MDN" style="--fix-img: 57px;")
+												figcaption
+													h3 Cajeros Claro
+										.content__main
+											p Paga tus servicios en nuestros cajeros.
+										.content__footer
+											p Ver más
+					
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

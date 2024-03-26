@@ -1,0 +1,1702 @@
+/*.color($color: 'null'){
+
+	.color_atributos1 ($color) when (iscolor($color)) {
+			 color: $color;
+		}
+
+		.color_atributos1($color);
+}*/
+/*@mixin fondo-degrade($direccion: left,$inicio: #ffffff,$fin: #000000) {
+		background-color: $inicio;
+		background-image: -webkit-linear-gradient($direccion, $inicio, $fin);
+		background-image: -moz-linear-gradient($direccion, $inicio, $fin);
+		background-image: -o-linear-gradient($direccion, $inicio, $fin);
+		background-image: -ms-linear-gradient($direccion, $inicio, $fin);
+		background-image: linear-gradient($direccion, $inicio, $fin);
+}*/
+/*
+
+.sample {
+		font-size: 30rem;
+
+		@include breakpoint(medium) {
+				font-size: 22rem;
+		}
+}
+
+
+.element {
+		font-size: 30rem;
+}
+
+@media (min-width: 992px) {
+		.element {
+				font-size: 22rem;
+		}
+}
+
+*/
+/* Flexbox */
+/*@mixin flex {
+  display:-webkit-box;
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display:flex;
+}
+
+@mixin flex-direction($direction) {
+  -webkit-flex-direction:$direction;
+  -moz-flex-direction:$direction;
+  -ms-flex-direction:$direction;
+  flex-direction:$direction;
+}
+
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap:$wrap;
+  -moz-flex-wrap:$wrap;
+  -ms-flex-wrap:$wrap;
+  flex-wrap:$wrap;
+}
+
+@mixin flex-align-items($align) {
+  -webkit-flex-align:$align;
+  -moz-flex-align:$align;
+  -ms-flex-align:$align;
+  -webkit-align-items:$align;
+  -webkit-box-align:$align;
+  align-items:$align;
+}
+
+@mixin flex-justify-content($justify) {
+  -webkit-justify-content:$justify;
+  -moz-justify-content:$justify;
+  -ms-justify-content:$justify;
+  justify-content:$justify;
+}
+
+@mixin flex-grow($grow) {
+  -webkit-flex-grow:$grow;
+  -moz-flex-grow:$grow;
+  -ms-flex-grow:$grow;
+  flex-grow:$grow;
+}
+
+@mixin flex-order($order) {
+  -webkit-box-ordinal-group:$order;
+  -moz-box-ordinal-group:$order;
+  -ms-flex-order:$order;
+  -webkit-order:$order;
+  order:$order;
+}
+
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+  -moz-align-self: $align;
+  -ms-align-self: $align;
+  align-self: $align;
+}*/
+@import url(https://fonts.googleapis.com/css?family=Anton|Bevan|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap);
+@font-face {
+  font-family: "AMX-Bold";
+  src: url("../fonts/AMX-Bold.eot?") format("eot"), url("../fonts/AMX-Bold.woff2") format("woff2"), url("../fonts/AMX-Bold.woff") format("woff"), url("../fonts/AMX-Bold.ttf") format("truetype"), url("../fonts/AMX-Bold.svg#AMX-Bold") format("svg");
+  font-display: swap;
+}
+@font-face {
+  font-family: "AMX-Regular";
+  src: url("../fonts/AMX-Regular.eot?") format("eot"), url("../fonts/AMX-Regular.woff2") format("woff2"), url("../fonts/AMX-Regular.woff") format("woff"), url("../fonts/AMX-Regular.ttf") format("truetype"), url("../fonts/AMX-Regular.svg#AMX-Regular") format("svg");
+  font-display: swap;
+}
+/******************** variables ********************/
+/*$breakpoints: (
+  movil  		: 480px,
+  movil-h 	: 640px,
+  tablet 		: 769px,
+  tablet-h  : 1025px,
+  tablet-w  : 1344px,
+  laptop  	: 1367px
+);*/
+/*$path: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets";
+$path-netflix: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets/banners/netflix";
+$path-fibraoptica: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets/banners/fibraoptica";*/
+.u-modal-form {
+  /*position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.2);
+  // width: 100%;
+  width: 100%;
+  height: 100vh;
+  opacity: 1;
+  // max-width: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;*/
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.u-modal-form__main {
+  background-color: #fff;
+  border-radius: 32px;
+  padding: 0px 0px;
+  position: relative;
+  width: 800px;
+  margin: auto;
+  overflow: hidden;
+  /*@media screen and (max-width: $tablet-h) {
+    width: 400px;
+    margin: 0 auto;
+  }
+  @media screen and (min-width: $movil) {
+    width: 90%;
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main {
+    width: 600px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main {
+    width: 90%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] {
+  padding-left: 240px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] {
+    padding: 240px 0 0 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] {
+    padding: 200px 0 0 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=form]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: url("./68da9db0-eda3-4991-aa59-4b84ea94abe6-modal.png") no-repeat center top #ee122c;
+  background-size: 100%;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form]:before {
+    width: 100%;
+    height: 200px;
+    background: url("./4dcc5ce4-2626-4e9c-a517-5c8fe61a29b0-modalmobile.png") no-repeat center top #ee122c;
+    background-size: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form]:before {
+    width: 100%;
+    height: 180px;
+    background: url("./4dcc5ce4-2626-4e9c-a517-5c8fe61a29b0-modalmobile.png") no-repeat center top #ee122c;
+    background-size: cover;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] button.close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  float: none;
+  text-shadow: none;
+  opacity: inherit;
+  width: 14px;
+  height: 14px;
+  z-index: 1;
+  /*@include to(tablet) {
+    top: -160px;
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] button.close:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background: url("./b62a3b7c-7e3c-48f9-91a2-cfd422d6f2f2-icon-close-black.svg") no-repeat center top;
+  background-size: 100%;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] button.close:before {
+    background: url("./084e7362-1d53-40b6-ba4c-96e38b3dd722-close-white.svg") no-repeat center top;
+    background-size: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup {
+  padding: 50px 0px 0px 40px;
+  text-align: left;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup {
+    padding: 0px 0px 0px 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup {
+    padding: 0px 0px 0px 0px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup:before {
+  content: "";
+  width: 96px;
+  height: 96px;
+  display: block;
+  background: url("../assets/usericono.png") no-repeat center top;
+  background-size: 100%;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  margin-left: -48px;
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup:before {
+    width: 76px;
+    height: 76px;
+    background-size: 100%;
+    margin-left: -38px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup h3 {
+  font: normal 600 24px "Roboto";
+  color: #222222;
+  line-height: 32px;
+  position: relative;
+  display: table;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 10px;
+  /*@include to(tablet-h) {
+    font-size: em(28);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h3 {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup h3 span.phone:before {
+  content: "\f095";
+  display: inline-block;
+  margin-right: 0px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 20px;
+  font-weight: 700;
+  color: #13bdde;
+  position: relative;
+  top: 1px;
+  left: 0px;
+}
+.u-modal-form__main .content__option[data-option=form] hgroup h3 a {
+  color: #13bdde;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+.u-modal-form__main .content__option[data-option=form] hgroup h4 {
+  font: normal 600 20px "Roboto";
+  color: #000000;
+  margin: 60px 0 40px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h4 {
+    margin: 35px 0 25px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h4 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h4 {
+    margin: 35px 0 25px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup h4 {
+    margin: 25px 0 15px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup p {
+  font: normal 300 15px "Roboto";
+  color: #222222;
+  /*@include to(tablet-h) {
+    font-size: em(18);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] hgroup p a {
+  color: #0fbddf !important;
+  font: normal 600 18px "Roboto";
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] hgroup p {
+    font-size: 13px;
+  }
+  .u-modal-form__main .content__option[data-option=form] hgroup p br {
+    display: none;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form {
+  background: none;
+  padding: 0 76px 0 40px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form {
+    padding: 0px 36px 0px 36px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form {
+    padding: 0 5%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form hgroup {
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form hgroup {
+    padding-bottom: 10px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form hgroup h1 {
+  font: normal 600 48px "AMX-Bold";
+  color: #ffffff;
+  margin-bottom: 40px;
+  line-height: 43px;
+  /*@include to(tablet-h) {
+    font-size: em(16);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form hgroup h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form hgroup h1 {
+    line-height: 35px;
+    margin-bottom: 15px;
+  }
+  .u-modal-form__main .content__option[data-option=form] .form hgroup h1 br {
+    display: none;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form hgroup h3 {
+  font: normal 400 22px "Roboto";
+  color: #ffffff;
+  line-height: 20px;
+  /*@include to(tablet-h) {
+    font-size: em(16);
+  }
+  @include to(tablet) {
+    font-size: em(14);
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form hgroup h3 {
+    line-height: 25px;
+  }
+  .u-modal-form__main .content__option[data-option=form] .form hgroup h3 br {
+    display: none;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__text1 {
+  font: normal 500 14px "Roboto";
+  color: #353535;
+}
+.u-modal-form__main .content__option[data-option=form] .form__label2 {
+  font: normal 600 11px "Roboto";
+  color: #283342;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 10px;
+  -webkit-transform: translate(0, -25px) scale(1);
+          transform: translate(0, -25px) scale(1);
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form__label2 {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__label2 {
+    font-size: 10px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__label2 span {
+  font-weight: 500;
+  margin-left: 5px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1 {
+  overflow: hidden;
+  border-radius: 8px 8px 8px 8px;
+  border: 1px solid #D8D8D8;
+  background-color: #ffffff;
+  padding: 0 14px;
+  position: relative;
+  height: 100%;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1:before {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 13.1l-8-8 2.1-2.2 5.9 5.9 5.9-5.9 2.1 2.2z'/%3E%3C/svg%3E");
+  background-size: auto;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid {
+  border: solid 1px #dc3545;
+  background-color: #fcf3f3;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select {
+  background: #fcf3f3 url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/dec02708-0cba-45ab-ae9a-8891641fd8bf-invalid.png") no-repeat 95% center;
+  color: #dc3545;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select {
+    background-position: 92% center;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select::-webkit-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select::-moz-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select:-ms-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select::-ms-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.invalid select::placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid {
+  border: solid 1px #28a745;
+  background-color: #f3fffc;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select {
+  background: #f3fffc url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7f3c32d9-4bfa-4e6d-ba20-8c223cc2deca-valid.png") no-repeat 95% center;
+  color: #006B4F;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select {
+    background-position: 92% center;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select::-webkit-input-placeholder {
+  color: #006B4F;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select::-moz-placeholder {
+  color: #006B4F;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select:-ms-input-placeholder {
+  color: #006B4F;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select::-ms-input-placeholder {
+  color: #006B4F;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__groupselect1.valid select::placeholder {
+  color: #006B4F;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form__select1 {
+  font: normal 500 14px "Roboto";
+  color: #353535;
+  /*@include to(tablet-h) {
+    font-size: em(16);
+  }
+
+  @include to(tablet) {
+    font-size: em(14);
+  }
+
+  @include to(movil) {
+    font-size: em(12);
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 {
+  display: table;
+  position: relative;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div {
+  display: table;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div input[type=checkbox] {
+  display: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div input[type=checkbox]:checked + label b {
+  background-color: #0fbfdf;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div input[type=checkbox]:checked + label b:before {
+  content: "\f00c";
+  display: inline-block;
+  margin-right: 0px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 15px;
+  color: #ffffff;
+  position: relative;
+  top: 1px;
+  left: 0px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 div input[type=checkbox]:checked + label b:before {
+    font-size: 12px;
+    top: -4px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div label {
+  display: table-cell;
+  vertical-align: top;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div label b {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  font: normal 500 14px "Roboto";
+  line-height: 22px;
+  text-align: center;
+  vertical-align: middle;
+  color: #000000;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  border: 1px solid #0fbfdf;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 div label b {
+    width: 16px;
+    height: 16px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 div label b:hover {
+  color: #000000;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small {
+  display: table-cell;
+  font: normal 400 14px "Roboto";
+  color: #000000;
+  vertical-align: middle;
+  padding-left: 10px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 small {
+    font-size: 12px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a {
+  color: #0FBDDF;
+  text-decoration: underline;
+  cursor: pointer;
+  position: relative;
+  font-weight: 600;
+  /*&.active[aria-label]:hover:after{
+    opacity: 1;
+    pointer-events: none;
+  }*/
+  /*&.active[aria-label]:hover:before{
+    opacity: 1;
+    pointer-events: none;
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a {
+    position: static;
+    margin-left: 0px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a[aria-label]:after {
+  pointer-events: none;
+  -webkit-transition: all 0.18s ease-out 0.18s;
+  transition: all 0.18s ease-out 0.18s;
+  content: attr(aria-label);
+  padding: 12px 12px;
+  position: absolute;
+  white-space: normal;
+  opacity: 0;
+  background: #0Fbfdf;
+  color: #ffffff;
+  width: 380px;
+  font-size: 12px;
+  border-radius: 5px;
+  left: calc(50% - 190px);
+  bottom: 20px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a[aria-label]:after {
+    width: 280px;
+    left: calc(50% - 140px);
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a[aria-label]:hover:after {
+  opacity: 1;
+  pointer-events: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a.active[aria-label]:after {
+  opacity: 1;
+  pointer-events: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a[aria-label]:before {
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: #0Fbfdf;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.18s ease-out 0.18s;
+  transition: all 0.18s ease-out 0.18s;
+  content: "";
+  position: absolute;
+  z-index: 10;
+  left: calc(50% - 8px);
+  bottom: 4px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a[aria-label]:hover:before {
+  opacity: 1;
+  pointer-events: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a.active[aria-label]:before {
+  opacity: 1;
+  pointer-events: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a span {
+  font: normal 400 12px "Roboto";
+  color: #ffffff;
+  width: 400px;
+  padding: 12px 12px;
+  background-color: #0Fbfdf;
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  display: none;
+  top: 21px;
+  z-index: 10;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a span {
+    width: 215px;
+    /*top: 0px;
+      bottom: 0px;*/
+    margin-left: -70px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a span:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #0Fbfdf;
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  margin-left: -10px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a:hover span {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a:hover span {
+    display: none;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__checkbox1 small a.active span {
+  display: block;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 {
+  margin: 5px 0;
+  display: table;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 {
+    margin: 20px 0 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 input[type=checkbox] {
+  display: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 input[type=checkbox]:checked + label {
+  background-color: #0097ae;
+  color: #ffffff;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 input[type=checkbox]:checked + label:before {
+  content: "\f058";
+  display: inline-block;
+  margin-right: 0px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 15px;
+  color: #ffffff;
+  position: relative;
+  top: 1px;
+  left: 0px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 label {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  font: normal 600 14px "Roboto";
+  line-height: 22px;
+  text-align: center;
+  vertical-align: middle;
+  color: #000000;
+  border: solid 1px #008fa5;
+  cursor: pointer;
+  border-radius: 3px 3px 3px 3px;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 label:hover {
+  background-color: #e1e4e8;
+  color: #000000;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div {
+  vertical-align: middle;
+  padding-left: 10px;
+  display: table-cell;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div {
+    font-size: 12px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div p {
+  font: normal 300 17px "Roboto";
+  color: #666666;
+  display: inline-block;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div p a {
+  color: #000000;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div p a:hover {
+  color: #000000;
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip.active span {
+  display: block;
+  /*@include from(movil) {
+    width: 300px;
+    margin-left: -150px;
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip {
+    display: block;
+    /*display: table;
+    margin-top: 10px;
+    margin-left: 60px;
+    margin: 10px auto 10px;
+    //display: block;
+    left: -8%;*/
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+}
+@media screen and (min-width: 481px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip:hover span {
+    display: block;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip span {
+  font: normal 400 12px "Roboto";
+  color: #000000;
+  width: 600px;
+  padding: 10px 15px;
+  border: solid 1px #0Fbfdf;
+  background-color: #fff;
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  margin-left: -300px;
+  display: none;
+  text-align: center;
+  border-radius: 5px 5px 5px 5px;
+  /*@include to(movil) {
+    width: 280px;
+    margin-left: -100px;
+  }
+  @include to(325px) {
+    width: 230px;
+    margin-left: -102px;
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip span {
+    margin-left: -62%;
+    width: 280px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip span:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #0Fbfdf;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  margin-left: -10px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__customCheckbox1 div .tooltip span:before {
+    left: 38px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons {
+  width: 100%;
+  padding: 26px 0px 40px 0;
+  /*@include to(tablet) {
+    padding: 26px 0px 40px 0;
+  }*/
+  /*@include to(movil-h) {
+    padding: 0px 0px 20px 0;
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__buttons {
+    padding: 10px 0px 20px 0;
+    text-align: center;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1 {
+  font: normal 600 14px "Roboto";
+  border: 0;
+  color: #979797;
+  padding: 0px 0px 0px 0px;
+  cursor: default;
+  width: 200px;
+  line-height: 50px;
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #f0f0f0;
+  border-radius: 30px 30px 30px 30px;
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  display: table;
+  margin: 0 0 0 auto;
+  /*&:before {
+    content: "\f105";
+    @include icon(0px);
+    font-size: 22px;
+    font-weight: 600;
+    color: $color_b1;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form__buttons .button1 {
+    width: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1:focus {
+  outline: none;
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1:hover {
+  -webkit-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  -webkit-filter: saturate(0.6);
+  -moz-filter: saturate(0.6);
+  -ms-filter: saturate(0.6);
+  -o-filter: saturate(0.6);
+  filter: saturate(0.6);
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1.active {
+  background-color: #EE122C;
+  color: #ffffff;
+  cursor: pointer;
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1.active:hover {
+  background-color: #FA253F;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1.btnContinue {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+}
+@media screen and (max-width: 1024px) {
+  .u-modal-form__main .content__option[data-option=form] .form__buttons .button1.btnContinue {
+    right: 0px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1.btnBack {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: transparent;
+  color: #0FBDDF;
+  font-weight: 600;
+  font-size: 18px;
+  width: auto;
+  padding: 12px 0px 12px 35px;
+  cursor: pointer;
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button1.btnBack:before {
+  content: "\f177";
+  display: inline-block;
+  margin-right: 0px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 22px;
+  font-weight: 500;
+  color: #0FBDDF;
+  position: absolute;
+  top: 30px;
+  left: 5px;
+}
+.u-modal-form__main .content__option[data-option=form] .form__buttons .button2 {
+  font: normal 600 14px "AMX-Bold";
+  color: #4acde7;
+  border: 0px;
+  background: url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/18c8ca86-baee-4cc9-b59d-4bcef62e4f3d-arrow_left.svg") no-repeat left 2px;
+  padding: 0 0 0 25px;
+  display: table;
+  margin: 30px auto 0;
+  /*&:before{
+    content:'';
+    display: block;
+    width: 14px;
+    height: 9px;
+    background: url("https://static.claro.com.pe/landings/havas/2023/portabilidad/v1/assets/arrow_left.svg") no-repeat center top;
+    margin-bottom: 10px;
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] .form__error {
+  font: normal 400 12px "Roboto";
+  color: #ff3300;
+  margin-top: 4px;
+  display: block;
+}
+.u-modal-form__main .content__option[data-option=form] .form span.error {
+  font: normal 400 12px "Roboto";
+  color: #ff3300;
+  margin-top: 4px;
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form span.error {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form {
+    -webkit-align-self: flex-end;
+    -ms-align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -ms-flex-pack: space-between;
+  padding: 20px 0 10px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form fieldset {
+    padding: 10px 0 10px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl {
+  width: 100%;
+  margin: 5px 0 0px 0;
+  position: relative;
+  /*@include to(movil) {
+    width: auto;
+    margin: 10px auto 0px;
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.type1 {
+  margin: 10px 0 0px 0;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.type1 {
+    margin: 5px 0 0px 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.type2 {
+  width: 49%;
+  margin: 10px 0 0px 0;
+  /*@include to(laptop) {
+    margin-bottom: 20px;
+  }*/
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.type2 {
+    width: 100%;
+    margin: 5px 0 0px 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.type3 {
+  margin: 30px 0 0px 0;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.type3 {
+    margin: 15px 0 0px 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row1 {
+  width: 48%;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row2 {
+  width: 100%;
+  height: auto;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row2 dt div {
+  width: 49.5%;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.row2 dt div {
+    width: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row2 dd {
+  padding: 10px 0 30px;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row2 dd span {
+  font: normal 200 15px "Roboto";
+  color: #ffffff;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.row2 {
+    width: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl.row3 {
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.row3 {
+    padding: 0px 0px 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl.row3.row-hv {
+    width: 298px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text],
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number],
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email] {
+  width: 100%;
+  height: 40px;
+  -webkit-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
+  border-radius: 8px 8px 8px 8px;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid #D8D8D8;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #ffffff;
+  outline: none;
+  padding: 0px 18px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text],
+  .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number],
+  .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email] {
+    width: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid:-webkit-autofill, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid:-webkit-autofill:hover, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid:-webkit-autofill:focus, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid:-webkit-autofill:active,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid:-webkit-autofill,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid:-webkit-autofill:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid:-webkit-autofill:focus,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid:-webkit-autofill:active,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid:-webkit-autofill,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid:-webkit-autofill:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid:-webkit-autofill:focus,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fcf3f3 inset !important;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].valid:-webkit-autofill, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].valid:-webkit-autofill:hover, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].valid:-webkit-autofill:focus, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].valid:-webkit-autofill:active,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].valid:-webkit-autofill,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].valid:-webkit-autofill:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].valid:-webkit-autofill:focus,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].valid:-webkit-autofill:active,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].valid:-webkit-autofill,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].valid:-webkit-autofill:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].valid:-webkit-autofill:focus,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].valid:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f3fffc inset !important;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid {
+  border: solid 1px #dc3545;
+  background: #fcf3f3 url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/dec02708-0cba-45ab-ae9a-8891641fd8bf-invalid.png") no-repeat 97% center;
+  color: #dc3545;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid::-webkit-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid::-webkit-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid::-webkit-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid::-moz-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid::-moz-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid::-moz-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid:-ms-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid:-ms-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid:-ms-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid::-ms-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid::-ms-input-placeholder, .u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid::-ms-input-placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].invalid::placeholder,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].invalid::placeholder,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].invalid::placeholder {
+  color: #dc3545;
+  opacity: 1;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text].valid,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number].valid,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email].valid {
+  border: solid 1px #28a745;
+  background: #f3fffc url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7f3c32d9-4bfa-4e6d-ba20-8c223cc2deca-valid.png") no-repeat 97% center;
+  color: #006B4F;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=text]:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=number]:hover,
+.u-modal-form__main .content__option[data-option=form] .form dl dd input[type=email]:hover {
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(216, 216, 216, 0.4);
+  box-shadow: 0px 0px 1px 1px rgba(216, 216, 216, 0.4);
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd .form__label1 {
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 4px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: #91979E;
+  font: normal 400 18px "Roboto";
+  /*@include to(tablet-h) {
+    font-size: em(16);
+  }
+  @include to(tablet) {
+    font-size: em(15);
+  }*/
+  /*@include to(movil) {
+    font-size: em(15);
+  }*/
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd .form__label1 span {
+  font-weight: 500;
+  margin-left: 5px;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd select {
+  width: 100%;
+  background-color: #ffffff;
+  /*height: 37px;
+  line-height: 37px;*/
+  /*&:-webkit-autofill,
+  &:-webkit-autofill:hover, 
+  &:-webkit-autofill:focus, 
+  &:-webkit-autofill:active  {
+      -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }*/
+  width: 100%;
+  height: 40px;
+  -webkit-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  /*@include redondeado(8px, 8px, 8px, 8px);
+  @include sombra(0px, 0px, 1px, 1px, 255, 255, 255, 0.1);
+  border: 1px solid #D8D8D8;
+  box-shadow: none;
+  background-color: #ffffff;*/
+  outline: none;
+  /*&:hover {
+    @include sombra(0px, 0px, 1px, 1px, 216, 216, 216, 0.4);
+    @include transicion(all, 0.2s, ease, 0s);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl dd select {
+    width: 100%;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd select.invalid:-webkit-autofill, .u-modal-form__main .content__option[data-option=form] .form dl dd select.invalid:-webkit-autofill:hover, .u-modal-form__main .content__option[data-option=form] .form dl dd select.invalid:-webkit-autofill:focus, .u-modal-form__main .content__option[data-option=form] .form dl dd select.invalid:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fcf3f3 inset !important;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dd select.valid:-webkit-autofill, .u-modal-form__main .content__option[data-option=form] .form dl dd select.valid:-webkit-autofill:hover, .u-modal-form__main .content__option[data-option=form] .form dl dd select.valid:-webkit-autofill:focus, .u-modal-form__main .content__option[data-option=form] .form dl dd select.valid:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f3fffc inset !important;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dt.checkbox {
+  height: 25px;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=form] .form dl dt.checkbox {
+    height: auto;
+    margin-bottom: 5px;
+  }
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dt blockquote {
+  margin: 0px;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dt p {
+  font: normal 400 13px "Roboto";
+  color: #ffffff;
+  margin-top: 10px;
+  line-height: 19px;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dt p a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.u-modal-form__main .content__option[data-option=form] .form dl dt p a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.u-modal-form__main .content__option[data-option=info] {
+  padding: 50px 40px;
+  position: relative;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] {
+    padding: 60px 40px 40px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] {
+    padding: 50px 25px 0px;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] button.close {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: none;
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+  float: none;
+  text-shadow: none;
+  opacity: inherit;
+  width: 14px;
+  height: 14px;
+}
+.u-modal-form__main .content__option[data-option=info] button.close:before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background: url("./b62a3b7c-7e3c-48f9-91a2-cfd422d6f2f2-icon-close-black.svg") no-repeat center top;
+  background-size: 100%;
+}
+.u-modal-form__main .content__option[data-option=info] hgroup {
+  text-align: left;
+  position: relative;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup {
+    padding: 0px 0px 0px 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup {
+    padding: 0px 0px 0px;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] hgroup:before {
+  content: "";
+  width: 96px;
+  height: 96px;
+  display: block;
+  background: url("../assets/usericono.png") no-repeat center top;
+  background-size: 100%;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  margin-left: -48px;
+  display: none;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup:before {
+    width: 76px;
+    height: 76px;
+    background-size: 100%;
+    margin-left: -38px;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] hgroup h3 {
+  font: normal 600 24px "Roboto";
+  color: #222222;
+  line-height: 32px;
+  position: relative;
+  display: table;
+  text-align: left;
+  width: 100%;
+  /*@include to(tablet-h) {
+    font-size: em(28);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h3 {
+    font-size: 22px;
+    line-height: 28px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h3 {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] hgroup h3 span.phone:before {
+  content: "\f095";
+  display: inline-block;
+  margin-right: 0px;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+  font-size: 20px;
+  font-weight: 700;
+  color: #13bdde;
+  position: relative;
+  top: 1px;
+  left: 0px;
+}
+.u-modal-form__main .content__option[data-option=info] hgroup h3 a {
+  color: #13bdde;
+  margin-left: 5px;
+  text-decoration: underline;
+}
+.u-modal-form__main .content__option[data-option=info] hgroup h4 {
+  font: normal 600 20px "Roboto";
+  color: #000000;
+  margin: 60px 0 40px;
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h4 {
+    margin: 35px 0 25px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h4 {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h4 {
+    margin: 35px 0 25px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup h4 {
+    margin: 25px 0 15px;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] hgroup p {
+  font: normal 300 15px "Roboto";
+  color: #222222;
+  /*@include to(tablet-h) {
+    font-size: em(18);
+  }*/
+}
+@media screen and (max-width: 768px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup p {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] hgroup p a {
+  color: #0fbddf !important;
+  font: normal 600 18px "Roboto";
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] hgroup p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  .u-modal-form__main .content__option[data-option=info] hgroup p br {
+    display: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] header {
+    max-height: 320px;
+    overflow-y: scroll;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] header p {
+  font: normal 400 14px "Roboto";
+  color: #333333;
+  line-height: 20px;
+  margin: 0px;
+  /*@include to(tablet-h) {
+    font-size: em(18);
+  }
+  @include to(tablet) {
+    font-size: em(17);
+  }*/
+}
+.u-modal-form__main .content__option[data-option=info] header p a {
+  color: #0fbddf;
+  font-weight: 600;
+}
+.u-modal-form__main .content__option[data-option=info] header p a:hover {
+  text-decoration: underline;
+  color: #0fbddf;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] header p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .u-modal-form__main .content__option[data-option=info] header p br {
+    display: none;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] footer {
+  padding: 50px 0px 0px 0;
+  text-align: right;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] footer {
+    padding: 28px 0 30px 0;
+  }
+}
+.u-modal-form__main .content__option[data-option=info] footer a {
+  font: normal 600 16px "Roboto";
+  color: #ffffff;
+  background: #da291c;
+  line-height: 20px;
+  padding: 13.5px 28px;
+  line-height: 20px;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 32px;
+  outline: none;
+  font: normal 600 16px "Roboto";
+  display: inline-block;
+}
+.u-modal-form__main .content__option[data-option=info] footer a:hover {
+  background-color: #FA253F;
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+@media screen and (max-width: 480px) {
+  .u-modal-form__main .content__option[data-option=info] footer a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.modal-form-enter-from {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.modal-form-enter-from .u-modal-form__main {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: -webkit-transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: transform 0.8s cubic-bezier(1, 0.5, 0.8, 1), -webkit-transform 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.modal-form-leave-to {
+  opacity: 0;
+  -webkit-transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: opacity 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+.modal-form-leave-to .u-modal-form__main {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: -webkit-transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/*.modal-form-enter-from .u-modal-form__main,
+.modal-form-leave-to .u-modal-form__main {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  //transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+  //transform: scale(0.3) translateY(-50%);
+}*/
+/*.modal-form-enter-active,
+.modal-form-leave-active {
+  transition: opacity .4s linear;
+  opacity: 0;
+}
+
+.modal-form-enter,
+.modal-form-leave-to {
+  opacity: 0;
+}
+
+.modal-form-enter-active .u-modal-form__main,
+.modal-form-leave-active .u-modal-form__main {
+  transition: transform 0.4s cubic-bezier(0.5, 0, 0.5, 1), opacity 0.4s linear;
+}
+
+.modal-form-enter .u-modal-form__main,
+.modal-form-leave-to .u-modal-form__main {
+  opacity: 0;
+  transform: scale(0.3) translateY(-50%);
+}*/

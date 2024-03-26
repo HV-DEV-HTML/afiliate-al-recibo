@@ -1,0 +1,629 @@
+.layout {
+
+	&__main {
+
+		.page5 {
+
+			&__header {
+
+				/*.portlet1{
+					&__align{
+						width: 100%;
+						overflow: hidden;
+					}
+					.section1{
+						padding-bottom: 60px;
+						&__banner{
+							background-color: #ff0000;
+							position: relative;
+
+							.slick-dots {
+								position: absolute;
+								bottom: -35px;
+								@include to(movil) {
+									display: block;
+									bottom: -40px;
+								}
+							}
+
+							.slick-dots li {
+								width: 10px;
+								height: 10px;
+								margin: 0 7px;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button {
+								width: 10px;
+								height: 10px;
+								
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button:before {
+								width: 10px;
+								height: 10px;
+								// border: solid 1px #ee122c;
+								border: none;
+								background-color: #d8d8d8;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li.slick-active button:before {
+								color: #869791;
+								opacity: 1;
+								background: transparent;
+								background: #869791;
+							}
+							
+							.banner{
+								
+								&__image{
+									background-repeat: no-repeat;
+									background-position: center center;
+									//background-size: cover;
+
+									width: 100%;
+									height: 480px;
+
+									position: relative;
+									display: block;
+									margin: 0 auto;
+
+									&[data-banner1]{
+										background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Desktop-1920x480-general.jpg");
+									}
+									&[data-banner2]{
+										background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Desktop-1920x480-recibo_por_email.jpg");
+									}
+									&[data-banner3]{
+										background-image: url("#{$path}/banners/home/Banner-Landing-debito-Desktop-1920x480.jpg");
+									}
+
+									&__link{
+										max-width: 1200px;
+										margin: 0 auto;
+										height: 100%;
+										position: relative;
+
+										&.disable{
+											visibility: hidden;
+										}
+
+										a{
+											font: normal 400 em(18) $font1;
+											position: absolute;
+											bottom: 0;
+											left: 0;
+											margin-bottom: 100px;
+											display: inline-block;
+											vertical-align: top;
+											color: #fff;
+											background: #EE122C;
+											border-radius: 32px;
+											padding: 10px 40px;
+											cursor: pointer;
+										}
+									}
+								}
+								
+							}
+						}
+					}
+
+				}
+
+				.portlet2{
+					&__align{
+						width: 100%;
+						max-width: 1238px;
+						margin: 0 auto;
+						@include to(tablet-h) {
+							padding: 0 20px;
+						}
+						@include to(movil) {
+							background-color: #f3f3f3;
+							box-shadow: 0 3px 7px rgb(0 0 0 / 15%);
+						}
+					}
+					.zone1{
+						padding: 30px 0;
+						@include to(movil) {
+							padding: 15px 0;
+						}
+						&__header{
+							section{
+								ul{
+									@include flexbox;
+									@include flex-wrap(wrap);
+									li{
+										font: normal 300 em(16) $font1;
+										color: #abaeaf;
+										margin-right: 8px;
+										a{
+											color: #3fc3e9;
+											&:hover{
+												color: #3fc3e9;
+											}
+										}
+									}
+								}
+							}
+						}
+						
+					}
+				}*/
+
+			}
+
+			&__main {
+
+				.portlet1 {
+					&__align {
+						width: 100%;
+						max-width: 760px;
+						margin: 0 auto;
+						padding: 40px 0 70px;
+
+						@include to(tablet-h) {
+							padding: 40px 30px 70px;
+						}
+					}
+
+					.zone1 {
+						&__header {
+
+							hgroup {
+								text-align: center;
+								padding-bottom: 20px;
+
+								h2 {
+									font: normal 500 em(28) $font1;
+									color: #000000;
+									line-height: 22px;
+									padding-bottom: 15px;
+
+									@include to(movil) {
+										font-size: em(20);
+										height: auto;
+
+										br {
+											display: none;
+										}
+									}
+								}
+
+								p {
+									font: normal 300 em(15) $font1;
+									color: #000000;
+									line-height: 22px;
+									padding-bottom: 15px;
+
+									@include to(movil) {
+										font-size: em(20);
+										height: auto;
+
+										br {
+											display: none;
+										}
+									}
+								}
+							}
+
+						}
+
+						&__main {
+							section {
+								width: 230px;
+								margin: 0 auto;
+								padding: 5px 10px;
+								background-color: #f4f4f4;
+								border-radius: 20px;
+
+								.menu {
+									@include flexbox;
+
+									width: 210px;
+
+									.slide-arrow {
+										background-color: transparent;
+										border: 0px;
+
+										cursor: pointer;
+
+										&.slick-disabled {
+											visibility: hidden;
+										}
+
+										&:before {
+											content: '';
+											display: block;
+											width: 8px;
+											height: 16px;
+										}
+									}
+
+									.prev-arrow {
+										position: absolute;
+										left: -40px;
+
+										&:before {
+											background: url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/17a7016b-29fe-4dfa-acc5-a7626efa561c-arrow-left.png") no-repeat center top;
+										}
+									}
+
+									.next-arrow {
+										position: absolute;
+										right: -40px;
+
+										&:before {
+											background: url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/838216c7-f4f0-4160-a38b-51ec3b2b34c8-arrow-right.png") no-repeat center top;
+										}
+									}
+
+									&__item {
+										width: 20px;
+										height: 20px;
+										border-radius: 50%;
+										background-color: #f4f4f4;
+										//text-align: center;
+										@include flexbox;
+										//@include justify-content(center);
+										//@include align-items(center);
+										margin: 0 5px;
+
+										&.active {
+											background-color: #da252c;
+
+											p {
+												color: #ffffff;
+											}
+										}
+
+										p {
+											width: 20px;
+											@include align-self(center);
+											font: normal 400 em(15) $font1;
+											color: #6f6f6f;
+											text-align: center;
+										}
+									}
+								}
+
+							}
+						}
+
+						&__footer {
+							padding: 50px 0 0 0;
+
+							section {
+								border-top: 1px solid #d5d7d8;
+
+								dl {
+									position: relative;
+									padding: 30px 0 30px;
+									border-bottom: 1px solid #d5d7d8;
+
+									dt {
+										padding-bottom: 15px;
+
+										h3 {
+											font: normal 500 em(18) $font1;
+											color: #000000;
+										}
+									}
+
+									dd {
+										p {
+											font: normal 300 em(16) $font1;
+											color: #555555;
+										}
+									}
+								}
+							}
+
+						}
+					}
+				}
+
+			}
+
+		}
+
+
+	}
+
+
+
+	&__modal {
+		.page1 {
+			//@include sombra($x: 0px, $y: 0px, $prop: 0px, $blur: 14px, $r:165, $g:165, $b:165, $alpha: 0.5);
+			//width: 100%;
+			max-width: 500px;
+			margin: auto;
+			position: relative;
+			padding: 50px;
+			background-color: $color_b1;
+			border: 3px solid #da160d;
+			//@include opacidad(bg, #6e767d, 0.8,claro);
+			@include redondeado(10px, 10px, 10px, 10px);
+
+			/*@include to(tablet) {
+				max-width: 740px;
+			}*/
+
+			@include to(movil) {
+				width: auto;
+				padding: 100px 20px 20px 20px;
+				margin: 0 auto;
+				height: calc(100vh);
+				//padding: 0px 0px;
+				//@include redondeado(0px, 0px, 0px, 0px);
+				overflow-y: auto;
+			}
+
+			.section1 {
+				&__header {
+					.title {
+						&:before {
+							content: '';
+							display: block;
+							height: 85px;
+							background: url("#{$path}/pg1_confirmation.svg") no-repeat center top;
+							margin-bottom: 10px;
+						}
+
+						//padding-bottom: 10px;
+						margin-bottom: 10px;
+
+						h3 {
+							font: normal 600 em(30) $font1;
+							color: #333333;
+							text-align: center;
+
+							span {
+								font: normal 400 em(10) $font1;
+								color: #b1b1b1;
+							}
+						}
+					}
+				}
+
+				&__main {
+					.content {
+						float: none !important;
+
+						p {
+							font: normal 400 em(22) $font1;
+							color: #555555;
+							text-align: center;
+						}
+					}
+				}
+
+			}
+
+			&__close {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				z-index: 2;
+				cursor: pointer;
+				width: 48px;
+				height: 52px;
+				background: url("#{$path}/pg1_closemodal.png") no-repeat center top;
+				font: normal em(18) $font1;
+				color: white;
+				text-indent: -9999px;
+
+				/*@include to(movil) {
+					top: -48px;
+					right: 0px;
+				}*/
+				@include to(movil) {
+					width: 100%;
+					height: auto;
+					padding: 8px 0;
+					top: 0px;
+					right: 0px;
+					text-indent: 0px;
+					background: #da272c;
+					position: fixed;
+					text-align: center;
+				}
+
+				@include from-to(movil, tablet-h) {
+					//width: 5%;
+				}
+			}
+		}
+
+		.page2 {
+			//@include sombra($x: 0px, $y: 0px, $prop: 0px, $blur: 14px, $r:165, $g:165, $b:165, $alpha: 0.5);
+			//width: 100%;
+			max-width: 580px;
+			margin: auto;
+			position: relative;
+			padding: 50px 50px 40px 50px;
+			//background-color: $color_b1;
+			//border: 3px solid #2197ae;
+			//@include opacidad(bg, #6e767d, 0.8,claro);
+			@include redondeado(10px, 10px, 10px, 10px);
+
+			//background: url("#{$path}/confeti.svg") no-repeat center center;
+			//background-size: cover;
+			background-color: #fff;
+
+			@include to(movil) {
+				padding: 30px 30px 20px 30px;
+			}
+
+			/*@include to(tablet) {
+				max-width: 740px;
+			}*/
+
+			/*@include to(movil) {
+				width: auto;
+				padding: 100px 20px 20px 20px;
+				margin: 0 auto;
+				height: calc(100vh);
+				//padding: 0px 0px;
+				//@include redondeado(0px, 0px, 0px, 0px);
+		    overflow-y: auto;
+			}*/
+
+			.section1 {
+				&__header {
+					hgroup {
+						text-align: center;
+						/*&:before{
+							content:'';
+							display: block;
+							height: 102px;
+							background: url("#{$path}/exclamation.svg") no-repeat center top;
+							background-size: contain;
+							margin: 5px 0 20px;
+						}*/
+						//padding-bottom: 10px;
+						margin-bottom: 10px;
+
+						h3 {
+							font: normal 500 em(24) $font1;
+							color: #333333;
+							text-align: center;
+							margin-bottom: 20px;
+
+							@include to(movil) {
+								font-size: em(20);
+							}
+
+							span {
+								font: normal 400 em(10) $font1;
+								color: #b1b1b1;
+							}
+						}
+
+						p {
+							font: normal 400 em(14) $font1;
+							color: #222222;
+							line-height: 20px;
+
+							@include to(movil) {
+								font-size: em(12);
+							}
+						}
+
+						a {
+							color: #0fbddf;
+
+							&:hover {
+								color: #0fbddf;
+								text-decoration: underline;
+							}
+						}
+					}
+
+					.info {
+						h3 {
+							font: normal 400 em(20) $font1;
+							color: #555555;
+							text-align: center;
+
+							strong {
+								span {
+									color: #da272c;
+								}
+							}
+						}
+					}
+				}
+
+				&__main {
+					.content {
+						padding: 20px 0 15px 0;
+
+						a {
+							font: normal 300 em(18) $font1;
+							color: $color_t1;
+							text-align: center;
+							background-color: #0fbfdf;
+							padding: 12px 35px 12px 35px;
+							//border: 1px solid #ffffff;
+							border: none;
+							display: table;
+							margin: 0 auto;
+
+							@include redondeado(4px, 4px, 4px, 4px);
+							@include transicion(all, 0.2s, ease, 0s);
+							//@include sombra(0px,0px, 1px);
+
+							position: relative;
+
+							&.inactive {
+								background-color: #cccccc;
+							}
+
+							/*@include to(tablet) {
+								width: 100%;
+							}*/
+
+							/*&:before {
+								content: "\f105";
+				        @include icon(0px);
+				        font-size: 22px;
+				        color: $color_b1;
+				        position: absolute;
+				        top: 15px;
+				        right: 35px;
+				      }*/
+						}
+					}
+				}
+
+			}
+
+			&__close {
+				position: absolute;
+				top: 5px;
+				right: 5px;
+				z-index: 2;
+				cursor: pointer;
+				width: 48px;
+				height: 52px;
+				background: url("#{$path}/pg1_closemodal.png") no-repeat center top;
+				font: normal em(18) $font1;
+				color: white;
+				text-indent: -9999px;
+
+				/*@include to(movil) {
+					top: -48px;
+					right: 0px;
+				}*/
+				@include to(movil) {
+					width: 100%;
+					height: auto;
+					padding: 8px 0;
+					top: 0px;
+					right: 0px;
+					text-indent: 0px;
+					background: #da272c;
+					position: fixed;
+					text-align: center;
+				}
+
+				@include from-to(movil, tablet-h) {
+					//width: 5%;
+				}
+			}
+		}
+	}
+}

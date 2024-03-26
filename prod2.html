@@ -1,0 +1,646 @@
+[Plugin:ifInRange from="[PageInfo value='firstItemOnPage']"]
+<div class="portlet" data-portlet="claroafiliate">
+  <div class="section" data-section="data-section">
+    <div class="section__align">
+      <div class="section__header">
+        <hgroup>
+          <h2>[EditableProperty context="autofill" type="sitearea" field="title"][Property context="autofill"
+            type="sitearea" field="title"][/EditableProperty]</h2>
+          [Plugin:NotEquals text1="" text2="[Property context="autofill" type="sitearea" field="description"]"]
+          <p>[EditableProperty context="autofill" type="sitearea" field="description"][Property context="autofill"
+            type="sitearea" field="description"][/EditableProperty]</p>
+          [/Plugin:NotEquals]
+        </hgroup>
+      </div>
+      <div class="section__main">
+        <div class="slider">
+          <div class="slider__main" id="slider_claroafiliate">
+            [/Plugin:ifInRange]
+            [Plugin:ifInRange from="1" to="30"]
+            <div class="slider__item">
+              [IfEditMode]<span style="position: relative; padding-right: 30px;">[Component
+                name="claro-diseno-pe/cmp-edicion-linea/fixed-inline-edit-list"]</span>[/IfEditMode]
+              <div class="slider__content">
+                <figure>
+                  [Plugin:NotEquals text1="" text2="[Element context="autofill" type="content" key="txtContent2"
+                  htmlencode="false"]"]
+                  [Element context="autofill" type="content" key="txtContent2" htmlencode="false"]
+                  [/Plugin:NotEquals]
+                  [Element context="autofill" type="content" key="txtImage" htmlencode="false"]
+                  <figcaption>
+                    [Element context="autofill" type="content" key="txtContent1" htmlencode="false"]
+                  </figcaption>
+                </figure>
+                <!-- [Plugin:NotEquals text1="" text2="[Element context='autofill' type='content' key='linkButton']"] -->
+                <blockquote>
+                  <!-- [Element context='autofill' type='content' key='linkButton'] -->
+                  <a> Quiero afiliarme </a>
+                </blockquote>
+                <!-- [/Plugin:NotEquals] -->
+              </div>
+            </div>
+            [/Plugin:ifInRange]
+            [Plugin:ifInRange from="[PageInfo value='lastItemOnPage']"]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /********** begin claroafiliate **********/
+  .portlet[data-portlet=claroafiliate] p,
+  .portlet[data-portlet=claroafiliate] h1,
+  .portlet[data-portlet=claroafiliate] h2,
+  .portlet[data-portlet=claroafiliate] h3,
+  .portlet[data-portlet=claroafiliate] h4,
+  .portlet[data-portlet=claroafiliate] h5,
+  .portlet[data-portlet=claroafiliate] h6 {
+    margin: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] ul,
+  .portlet[data-portlet=claroafiliate] li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] dl,
+  .portlet[data-portlet=claroafiliate] dd,
+  .portlet[data-portlet=claroafiliate] dt {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] table,
+  .portlet[data-portlet=claroafiliate] td {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] img {
+    border: 0 none;
+  }
+
+  .portlet[data-portlet=claroafiliate] a,
+  .portlet[data-portlet=claroafiliate] a:hover {
+    outline: medium none;
+    text-decoration: none;
+  }
+
+  .portlet[data-portlet=claroafiliate] br {
+    clear: both;
+  }
+
+  .portlet[data-portlet=claroafiliate] form,
+  .portlet[data-portlet=claroafiliate] fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] footer,
+  .portlet[data-portlet=claroafiliate] header,
+  .portlet[data-portlet=claroafiliate] hgroup,
+  .portlet[data-portlet=claroafiliate] menu,
+  .portlet[data-portlet=claroafiliate] nav,
+  .portlet[data-portlet=claroafiliate] output,
+  .portlet[data-portlet=claroafiliate] ruby,
+  .portlet[data-portlet=claroafiliate] section,
+  .portlet[data-portlet=claroafiliate] summary,
+  .portlet[data-portlet=claroafiliate] time,
+  .portlet[data-portlet=claroafiliate] mark,
+  .portlet[data-portlet=claroafiliate] audio,
+  .portlet[data-portlet=claroafiliate] video {
+    margin: 0;
+    padding: 0;
+  }
+
+  .portlet[data-portlet=claroafiliate] *,
+  .portlet[data-portlet=claroafiliate] *:after,
+  .portlet[data-portlet=claroafiliate] *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] {
+    padding: 80px 0 0px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] {
+      padding: 64px 0 0px 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] {
+      padding: 48px 0 0px 0;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__align {
+    width: 1160px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__align {
+      width: 100%;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup {
+      padding-bottom: 32px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup {
+      padding-bottom: 24px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup h2 {
+    font: normal 700 32px "AMX";
+    color: #000000;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup h2 {
+      font-size: 24px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup p {
+    font: normal 400 18px "Roboto";
+    color: #000000;
+    margin-top: 16px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__header hgroup p {
+      font-size: 16px;
+      margin-top: 12px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider {
+    width: 1160px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider {
+      width: 870px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider {
+      width: 580px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider {
+      width: 100vw;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main {
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 30px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-track {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    height: 100%;
+    padding: 20px 0px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-list {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-list {
+      padding-left: 20px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-dots {
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-top: 0px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-dots li {
+    width: 16px;
+    height: 16px;
+    margin: 0 5px;
+    border-radius: 50%;
+    border: 1px solid #b9b9b9;
+    background: #ffffff;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-dots li button {
+    width: 14px;
+    height: 14px;
+    padding: 0px;
+    position: relative;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-dots li button:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: block;
+    border: transparent;
+    margin-top: -4px;
+    margin-left: -4px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-dots li.slick-active button::before {
+    background: #da291c;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-prev {
+    position: absolute;
+    display: block;
+    height: 38px;
+    width: 38px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    left: -6%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index: 1;
+    margin-top: -10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-prev {
+      left: -6%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-prev {
+      left: -10%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-prev {
+      left: -6%;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-prev:before {
+    content: "";
+    background: url("https://www.claro.com.pe/portal/pe/recursos_contenido/canje_arrow_slider_left.png") no-repeat left top;
+    height: inherit;
+    width: inherit;
+    display: block;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-next {
+    position: absolute;
+    display: block;
+    height: 38px;
+    width: 38px;
+    line-height: 0px;
+    font-size: 0px;
+    cursor: pointer;
+    background: transparent;
+    color: transparent;
+    top: 50%;
+    right: -6%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    padding: 0;
+    border: none;
+    outline: none;
+    z-index: 1;
+    margin-top: -10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-next {
+      right: -6%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-next {
+      right: -10%;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-next {
+      right: -6%;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-next:before {
+    content: "";
+    background: url("https://www.claro.com.pe/portal/pe/recursos_contenido/canje_arrow_slider_right.png") no-repeat left top;
+    height: inherit;
+    width: inherit;
+    display: block;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-slide {
+    width: 290px;
+    margin: 0 10px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-slide {
+      width: 277px;
+      margin: 0 10px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__main .slick-slide>div {
+    width: inherit;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item {
+    width: inherit;
+    height: 320px;
+    background-color: #ffffff;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    /*//@include to(tablet) {
+		margin: 0px 15px;
+		//}
+
+		@include to(movil) {
+			margin: 0px 15px;
+		}*/
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure {
+    padding: 0 0px 0px;
+    margin: 0px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure h4 {
+    font: normal 700 18px "Roboto";
+    color: #283342;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure h4 {
+      font: normal 700 16px "Roboto";
+      color: #283342;
+      line-height: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure figcaption {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure figcaption h3 {
+    font: normal 700 16px "Roboto";
+    color: #283342;
+    line-height: 18px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure figcaption p {
+    font: normal 400 16px "Roboto";
+    color: #283342;
+    line-height: 20px;
+    margin-top: 15px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item figure figcaption p {
+      font: normal 400 14px "Roboto";
+      line-height: 20px;
+    }
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item blockquote {
+    width: 100%;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0px;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item blockquote a {
+    /*width: 120px;
+		padding: 10px 20px;
+		display: block;
+		border-radius: 24px;
+		background-color: #ffffff;
+		border: 1px solid #DA291C;*/
+    font: normal 700 16px "Roboto";
+    color: #da291c;
+    line-height: 40px;
+    text-align: center;
+    height: fit-content;
+    border: 1px solid #DA291C;
+    border-radius: 20px;
+    display: block;
+    width: 190px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item blockquote a:hover {
+    background-color: #DA291C;
+    color: #fff;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px 20px;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__content.active {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+
+  .portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__content:hover {
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /********** end claroafiliate **********/
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    function sliderResize(slider) {
+
+      window.addEventListener("resize", function () {
+
+        //slider.forEach(function(e){
+        $(slider).slick('resize')
+        //})
+
+      }, false);
+
+    }
+
+    const $slider_claroafiliate = $("#slider_claroafiliate");
+
+    $slider_claroafiliate.slick({
+      dots: true,
+      arrows: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        /*{
+          breakpoint: 2600,
+          settings: "unslick",
+        },*/
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            //dots: true,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            variableWidth: true,
+            slidesToShow: 1,
+            arrows: false,
+            slidesToScroll: 1,
+            //dots: true,
+          }
+        }
+        /*{
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          }
+        },
+        {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }*/
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+
+
+    const anclas = document.querySelectorAll('.portlet[data-portlet=claroafiliate] .section[data-section] .section__main .slider__item blockquote a');
+
+    anclas.forEach(function (e, i) {
+      e.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      })
+    })
+  })
+</script>
+
+[/Plugin:ifInRange]

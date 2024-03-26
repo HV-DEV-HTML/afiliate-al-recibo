@@ -1,0 +1,171 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 0;
+
+block content
+	.page11.internal
+		.page11__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							.banner
+								.banner__image.banner1
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li 
+										a Lugares y medios de pago
+									li /
+									li Cajeros Claro
+		.page11__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Cajeros Claro
+						.zone1__footer
+							article.active
+								section
+									.tab
+										.tab__main
+											.tab__main__option.active
+												.accordion
+													.accordion__item
+														.accordion__container
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick8" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p En esta pantalla elige la opción PAGA TU RECIBO.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Luego selecciona la opción SERVICIO MÓVIL.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Luego TELEFONÍA MÓVIL.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa los 9 dígitos de tu número celular y dale clic a CONTINUAR.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Selecciona PAGO TOTAL para pagar el integro de tu recibo o PAGO PARCIAL para realizar un abono.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro6.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 6
+																				p 
+																					| En la escotilla inferior, ingresa los billetes desde S/ 10 a más. 
+																					br
+																					| IMPORTANTE: Los ATM no aceptan monedas, solo billetes. Si dan vuelto.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro7.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 7
+																				p Una vez que el depósito haya sido recibido dale clic a CONTINUAR.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/cajeros/cajeros_claro8.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 8
+																				p Retira tu constancia de pago.
+
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

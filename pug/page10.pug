@@ -1,0 +1,234 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 0;
+
+block content
+	.page10.internal
+		.page10__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							.banner
+								.banner__image.banner1
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li 
+										a Lugares y medios de pago
+									li /
+									li Mi Claro
+		.page10__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							figure
+									img(src=path+'assets/mi_claro.svg' class="ima1" alt='')
+						.zone1__footer
+							article.active
+								section
+									.tab
+										.tab__main
+											.tab__main__option.active
+												.accordion
+													.accordion__item(:class="{ 'active': accordionExtra1.option[0] }")
+														.accordion__subtitle(@click="openAccordionExtra1(0)")
+															a Vía APP 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordionExtra1.option[0]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick7" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure
+																				img(src=path+'assets/miclaro/app/miclaro_app_1.png' class="ima1" alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a la App. Si cuentas con una línea Claro, accede sólo con tu número de celular. No necesitas registrarte.
+																		.content__item
+																			figure
+																				img(src=path+'assets/miclaro/app/miclaro_app_2.png' class="ima1" alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p Ubica el icono de Pagos en la barra inferior de la pantalla y dale clic.  
+																		.content__item
+																			figure
+																				img(src=path+'assets/miclaro/app/miclaro_app_3.png' class="ima1" alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona el o los recibos que deseas pagar y dale clic a Pagar.
+																		.content__item
+																			figure
+																				img(src=path+'assets/miclaro/app/miclaro_app_4.png' class="ima1" alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa los datos de tu tarjeta de crédito. Recuerda que tienes como máximo 10 minutos para completar el pago. 
+																		.content__item
+																			figure
+																				img(src=path+'assets/miclaro/app/miclaro_app_5.png' class="ima1" alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Finalmente podrás verificar el pago exitoso de tu recibo. Una constancia se enviará a tu correo personal. 
+													.accordion__item(:class="{ 'active': accordionExtra1.option[1] }")
+														.accordion__subtitle(@click="openAccordionExtra1(1)")
+															a Vía Web 
+																h5 Sin comisión
+															i
+														slide-up-down(class="accordion__container" :active="accordionExtra1.option[1]" :duration="300")
+															.accordion__info
+																.content.web
+																	vue-slick(ref="slick8" :options="slickOptions.mode4" class="content__list")
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/miclaro/web/miclaro1.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 1
+																				p Ingresa a 
+																					a(href="https://miclaro.com.pe" target="_blank" tabindex="0") miclaro.com.pe. 
+																					| Coloca tu usuario y contraseña.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/miclaro/web/miclaro2.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 2
+																				p En la pantalla de Inicio podrás visualizar tu deuda pendiente. Dale clic a PAGAR.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/miclaro/web/miclaro3.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 3
+																				p Selecciona el/los recibos que deseas pagar y dale clic a PAGAR SELECCIONADOS. También puedes utilizar el botón superior PAGAR TODA LA DEUDA.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/miclaro/web/miclaro4.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 4
+																				p Ingresa los datos de tu tarjeta VISA y dale clic a PAGAR. Recuerda que tienes como máximo 10 minutos para completar el pago.
+																		.content__item
+																			figure.web
+																				img(src=path+'assets/miclaro/web/miclaro5.png' alt='')
+																			figcaption
+																				.circle
+																					.circle__inner
+																						.circle__wrapper
+																							.circle__content 5
+																				p Imprime tu constancia de pago o dale clic a finalizar para volver a la pantalla principal.
+
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							hgroup 
+								h2 Consejos para un pago exitoso
+						.zone1__main
+							section
+								ul 
+									li 
+										span Asegúrate que la opción de compras por internet esté habilitada. Puedes activar esta opción en el aplicativo de tu banco.
+									li 
+										span Ingresa correctamente el CVV de 3 dígitos y fecha de vencimiento de tu tarjeta.
+									li 
+										span Revisa si tienes el saldo suficiente para completar la operación.
+									li 
+										span Si tu tarjeta es Scotiabank, asegúrate de tener un límite diario que permita realizar la operación. Recuerda que puedes cambiar este límite en el aplicativo de tu banco.
+									li 
+										span Si tu tarjeta es del Banco de la Nación, solo podrás hacer compras hasta 200 soles por operación.
+								figure
+									picture
+										source(srcset=path+'assets/digital/person_claro.jpg' media="(min-width: 600px)")
+										img(src=path+'assets/digital/person_claro.jpg' alt="MDN")
+			
+			.portlet3
+				.portlet3__align
+					.zone1
+						.zone1__header
+							section 
+								a(href="debito-automatico")
+									h3 Evita las colas y ahorra tiempo afiliando tu tarjeta al Débito Automático
+									span Ver más
+
+
+block modal
+	modal(name="mVideo" :width="900" :height="'auto'" :adaptive="true")
+		.video
+			.video__header
+				button(@click="$modal.hide('mVideo');modal.show = false;") X
+			.video__iframe
+				iframe(
+					width="560"
+					height="315"
+					:src="modalUrl + '&autoplay=1'"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen)
+	
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

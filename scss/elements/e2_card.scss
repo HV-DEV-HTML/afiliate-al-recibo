@@ -1,0 +1,314 @@
+@mixin e2_card($name){
+  
+  .e2-#{$name}-card {
+    width: 350px;
+    padding: 15px 0 18px 0;
+    margin: 0 16px;
+
+    $root: &;
+    
+    &__item{
+      background-color: #ffffff;
+      box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.10);
+      border-radius: 15px;
+      padding: 0px 0px;
+      //overflow: hidden;
+
+      &--type1 {
+
+        /*#{$root}__main{
+          min-height: 158px;
+          dl{
+            dd{
+              justify-content: space-between;
+            }
+          }
+        }*/
+        
+      }
+
+      &--type2 {
+
+        /*#{$root}__header{
+          hgroup{
+            h4{
+              flex: initial;
+            }
+          }
+        }
+
+        #{$root}__main{
+          min-height: 158px;
+          dl{
+            dd{
+              justify-content: space-between;
+            }
+          }
+        }*/
+        
+      }
+
+      &--type3 {
+        
+        /*#{$root}__main{
+          min-height: 208px;
+          dl{
+            dd{
+              justify-content: center;
+              flex-wrap: wrap;
+            }
+          }
+        }*/
+
+      }
+    }
+    
+    &__header{
+      padding: 0px 0 20px 0;
+      margin: 0 30px; 
+      position: relative;
+      border-bottom: 1px solid #D6D6D6;
+      hgroup{
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+        //display: flex;
+        //flex-wrap: wrap;
+        //align-self: flex-end;
+        //justify-content: center;
+        h2{
+          font: normal 700 35px $font2;
+          color: #000000;
+          line-height: 40px
+        }
+        h3{
+          font: normal 700 30px $font2;
+          color: #DA291C;
+          line-height: 35px;
+          span{
+            color: #000000;
+          }
+        }
+        p{
+          font: normal 400 12px $font1;
+          color: #000000;
+        }
+      }
+
+      blockquote{
+        margin: 0px;
+        padding-top: 15px;
+        h4{
+          width: 200px;
+          height: 30px;
+          position: relative;
+          margin-bottom: 10px;
+          text-align: center;
+          margin: 0 auto;
+          &:before{
+            content: "";
+            width: inherit;
+            height: inherit;
+            display: block;
+            background-color: #FB8003;
+            transform: skew(-15deg);
+            position: absolute;
+            z-index: 0;
+          }
+          &:after{
+            width: inherit;
+            height: inherit;
+            content: attr(data-plus);
+            font: normal 700 12px "Roboto";
+            line-height: 30px;
+            color: #ffffff;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+          }
+        }
+      };
+      
+      &--highlight{
+        width: 160px;
+        padding: 0 10px;
+        height: 35px;
+        background-color: #0fbddf;
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        border-radius: 0px 0px 8px 8px;
+        text-align: center;
+        &:before{
+          width: 4px;
+          height: 4px;
+          background-color: #17798c;
+          border-radius: 4px 0px 0px 0px;
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0px;
+          left: -4px;
+        }
+        &:after{
+          width: 4px;
+          height: 4px;
+          background-color: #17798c;
+          border-radius: 0px 4px 0px 0px;
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0px;
+          right: -4px;
+        }
+        p{
+          font: normal 400 14px $font2;
+          color: #ffffff;
+          line-height: 35px;
+        }
+      }
+
+      
+    }
+    &__main{
+      //display: flex;
+      padding: 30px 0px 30px 0px;
+      margin: 0 30px;
+      dl{
+        width: 100%;
+        margin-bottom: 10px;
+        /*align-self: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;*/
+        dt{
+          text-align: center;
+          h2{
+            font: normal 500 35px $font2;
+            color: #DA291C;
+            line-height: 32px;
+            span{
+              color: #000000;
+            }
+          }
+          h3{
+            font: normal 500 28px $font2;
+            color: #DA291C;
+            line-height: 32px;
+          }
+          h4{
+            font: normal 500 24px $font2;
+            color: #DA291C;
+            line-height: 24px;
+          }
+
+          p{
+            font: normal 700 16px $font2;
+            color: #000000;
+            margin-top: 5px;
+          }
+          
+          picture{
+            padding-top: 5px;
+            display: block;
+            img{
+             ///-width: 29px;
+            }
+          }
+        }
+        dd{
+          text-align: center;
+          padding-top: 20px;
+
+          h5{
+            font: normal 700 16px $font2;
+            color: #000000;
+            line-height: 18px;
+          }
+
+          p{
+            font: normal 400 16px $font1;
+            color: #000000;
+            margin-top: 10px;
+          }
+
+          picture{
+            padding-top: 10px;
+            display: block;
+            img{
+             ///-width: 29px;
+            }
+          }
+
+        }
+      }
+    }
+    &__footer{
+      background: #F9F9F9;
+      border-radius: 0 0 15px 15px;
+      //overflow: hidden;
+      blockquote{
+        margin: 0px;
+        padding: 30px;
+        text-align: center;
+        p{
+          font: normal 400 12px $font1;
+          color: #91979E;
+        }
+      }
+      button{
+        align-self: flex-start;
+        font: normal 600 14px $font1;
+        border: 0;
+        color: #ffffff;
+        padding: 0px 0px 0px 0px;
+        cursor: default;
+        width: 180px;
+        line-height: 40px;
+        cursor: pointer;
+        //@include align-self(center);
+        background-color: #DA291C;
+        //@include fondo-degrade(180deg, $color_b4 30%, $color_b5 80% );
+        //@include redondeado(4px, 4px, 4px, 4px);
+        @include redondeado(30px, 30px, 30px, 30px);
+        //@include sombra-texto(0, 1px, 1px, #333);
+        //@include sombra(0px, 0px, 1px, 5px);
+        @include transicion(all, 0.4s, ease, 0s);
+
+        display: table;
+        margin: 0 auto;
+
+        @include to(movil) {
+          width: 100%;
+        }
+
+        /*&:before {
+          content: "\f105";
+          @include icon(0px);
+          font-size: 22px;
+          font-weight: 600;
+          color: $color_b1;
+          position: absolute;
+          top: 14px;
+          right: 20px;
+        }*/
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover {
+          @include transicion(all, 0.4s, ease, 0s);
+          @include filtro(3, .6);
+          transform: translateY(-1px);
+          transition-duration: 0.25s;
+        }
+      }
+    }
+
+    @content;
+
+  }
+
+}

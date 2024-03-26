@@ -1,0 +1,186 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 0;
+
+block content
+	.page6.internal
+		.page6__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__banner
+							.banner
+								.banner__image(data-banner1="imagen1")
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li Preguntas frecuentes
+		.page6__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup
+								h2 Dudas y preguntas frecuentes
+						.zone1__main
+							section#questions
+								dl
+									dt
+										header
+											a
+												span Tengo una deuda antigua ¿Qué puedo hacer?
+												sup
+										footer
+											blockquote
+												p 
+													| Si mantienes una deuda antigua y quieres regularizar el pago pendiente, solicita tu código de cliente o customer ID llamando a 123 o acercándote a un Centro de Atención al Cliente con tu documento de identidad. También puedes solicitar información sobre el detalle de la misma. 
+												br
+												p
+													| Puedes realizar el pago en el mismo Centro de atención o en establecimientos afiliados indicando la letra H + código del cliente. 
+												br
+												p
+													| Ejemplo: H10003438
+								dl
+									dt
+										header
+											a
+												span ¿Puedo refinanciar una deuda?
+												sup
+										footer
+											blockquote
+												p 
+													| Si puedes. El servicio de financiamiento puede ser por uno o más recibos con deuda. El monto mínimo a financiar es de S/ 50 y la cuota mínima a pagar es S/20. Sin embargo, debes considerar lo siguiente: 
+												br
+												p.v1 El monto a financiar puede ser por el cargo fijo, servicios o una penalidad.
+												p.v1 Para acceder al financiamiento, debes haber cancelado el segundo recibo emitido.
+												p.v1 Se pueden financiar documentos vencidos y no vencidos.
+												p.v1 El financiamiento procede una vez cada 365 días, el conteo no es anual.
+												p.v1 El financiamiento se realiza mínimo en 1 cuota y máximo en 12 cuotas.
+												p.v1 Debes pagar la cuota inicial en un plazo máximo de 48 horas, de lo contrario la solicitud será anulada.
+												br
+												p
+													| Puedes solicitar el financiamiento de tu deuda en un Centro de Atención al Cliente vía call Center llamando al 123 desde un móvil Claro o 0800-00123 desde un teléfono fijo.
+
+								dl
+									dt
+										header
+											a
+												span ¿Cómo sé que Límite de consumo tiene mi línea?
+												sup
+										footer
+											blockquote
+												p 
+													| Puedes consultar el límite de consumo de tu línea a través de los siguientes canales:
+												br
+												p.v1 Llamando al 123, opción 2, opción 9
+												p.v1 Acercándote a cualquier Centro de Atención al Cliente
+												p.v1 Verificando la opción en tu recibo
+
+								dl
+									dt
+										header
+											a
+												span Olvidé cuándo vence mi recibo
+												sup
+										footer
+											blockquote
+												p 
+													| Recuerda que la fecha de vencimiento es a 15 o 18 días contando desde la fecha de emisión. Conoce la fecha de vencimiento de tu último recibo, monto facturado y deuda total ingresando a la nueva 
+													strong APP Mi Claro, 
+													| opción Recibos.
+
+								dl
+									dt
+										header
+											a
+												span No recuerdo dónde pagar
+												sup
+										footer
+											blockquote
+												p 
+													| Recuerda que puedes realizar tus pagos vía online a través de la banca por internet.
+												br
+												p
+													a(href="http://conoceturecibo.claro.com.pe/lugares-de-pago" target="_blank") Conoce más aquí >
+
+								dl
+									dt
+										header
+											a
+												span No me llegó el recibo
+												sup
+										footer
+											blockquote
+												p 
+													| Puedes revisar en línea la información de tu último recibo y deuda total en la nueva APP Mi Claro, opción Recibos. Asimismo puedes visualizar el historial de los mismos ingresando a 
+													a(href="https://miclaro.com.pe/" target="_blank") miclaro.com.pe
+												br
+												p 
+													| Sé parte del cambio, cuida el medio ambiente y afíliate GRATIS al envío de recibo por email 
+													a(href="https://catalogo.claro.com.pe/forma/365/recibo-correo" target="_blank") aquí.
+
+block modal
+	.page1(v-if='modal.page0')
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__header
+				.title
+					h3 Gracias
+			.section1__main
+				.content
+					p Te avisaremos cuando esté disponible
+						//br
+						//br
+						//| #YoSoyClaroClub
+	.page2(v-if='modal.page0')
+		.page2__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__header
+				hgroup
+					h3 Tratamiento de Datos Personales
+					p Otorga su consentimiento a AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia y departamento de Lima (en adelante CLARO), para utilizar los datos personales que ha registrado, con la finalidad de recibir información sobre productos y/o servicios que ha solicitado mediante este formulario. Es oportuno mencionarle que sus datos personales serán registrados en nuestro Banco de Datos que ha sido declarado a la Autoridad Nacional de Protección de Datos Personales.
+					p Usted podrá revocar su consentimiento y/o ejercer los derechos ARCO (Acceso, Rectificación, Cancelación y Oposición); en los puntos de atención designados para tal efecto o a través del siguiente 
+						a(href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank") enlace.
+					p CLARO garantiza por su parte, el respeto y observancia al ejercicio de dichos derechos. Para mayor información revisa nuestra 
+						a(href="https://www.claro.com.pe/personas/movil/proteccion_datos/" target="_blank") Política de Seguridad
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

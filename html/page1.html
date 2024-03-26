@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Radware</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Perumin">
+    <link rel="stylesheet" type="text/css" href="components/modal/modal-dist.css" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/common-dist.css" charset="utf-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+  </head>
+  <body>
+    <div class="layout" id="app" v-cloak>
+      <div class="layout__main">
+        <div class="page1">
+          <div class="page1__header">
+            <div class="portlet1">
+              <div class="portlet1__align">
+                <div class="zone1">
+                  <div class="zone1__main">
+                    <div class="content">
+                      <div class="content__header">
+                        <hgroup>
+                          <h2>
+                             DDoS Summit: <br/>Ataque y defensa en la línea de fuego</h2>
+                          <h3>{{ day.location }}</h3>
+                          <p v-html="day.description"> </p>
+                        </hgroup>
+                      </div>
+                      <div class="content__footer" :class="{ 'active': message }">
+                        <form class="e1-perumin-form" ref="form1" method="POST" v-if="message==false" novalidate="novalidate" autocomplete="nope" action="https://svc-formulario-prd-public.k8s-tienda-virtual-d4fa2262c61265a03678a9a8bfbdc84a-0000.us-south.containers.appdomain.cloud/claro/form/add-formulario">
+                          <hgroup>
+                            <h3>¡Inscríbete para el evento!</h3>
+                          </hgroup>
+                          <fieldset>
+                            <dl class="e1-perumin-form--type1">
+                              <dd>
+                                <input class="e1-perumin-form__text1" type="text" placeholder="Nombre y apellido*" autocomplete="nope" v-model="v1$.nombre.$model" :class="{ 'invalid': v1$.nombre.$error, 'valid': !v1$.nombre.$invalid, }"/>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type1">
+                              <dd>
+                                <input class="e1-perumin-form__text1" type="text" placeholder="Número de celular*" autocomplete="nope" v-model="v1$.celular.$model" maxlength="9" @keypress="isNumber($event)" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }"/>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type1">
+                              <dd>
+                                <input class="e1-perumin-form__text1" type="text" placeholder="Correo electrónico*" autocomplete="nope" v-model="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }"/>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type1">
+                              <dd>
+                                <input class="e1-perumin-form__text1" type="text" placeholder="Nombre de empresa" autocomplete="nope" v-model="v1$.empresa.$model"/>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type1">
+                              <dd>
+                                <input class="e1-perumin-form__text1" type="text" placeholder="Número de RUC" autocomplete="nope" v-model="v1$.ruc.$model" maxlength="11" @keypress="isNumber($event)"/>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type3">
+                              <dt>
+                                <div class="e1-perumin-form__message">
+                                  <p>*Campos obligatorios</p>
+                                </div>
+                              </dt>
+                              <dd>
+                                <div class="e1-perumin-form__checkbox1">
+                                  <div>
+                                    <input type="checkbox" v-model="v1$.terminos.$model" @change="v1$.terminos.$touch()" id="tratamiento"/>
+                                    <label for="tratamiento"><b></b></label><small>Autorizo el <em @click="modal1=true">tratamiento de mis datos personales.</em></small>
+                                  </div>
+                                </div>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type3">
+                              <dd>
+                                <div class="e1-perumin-form__checkbox1">
+                                  <div>
+                                    <input type="checkbox" v-model="v1$.promociones.$model" @change="v1$.promociones.$touch()" id="promociones"/>
+                                    <label for="promociones"><b></b></label><small>Quiero recibir <em @click="modal2=true">promociones y beneficios</em> de Claro.</small>
+                                  </div>
+                                </div>
+                              </dd>
+                            </dl>
+                            <dl class="e1-perumin-form--type1">
+                              <dt>
+                                <div class="e1-perumin-form__buttons">
+                                  <button class="e1-perumin-form__buttons--type1" @click="submitForm1" type="button" :disabled="v1$.$invalid" :class="{ 'active': !v1$.$invalid }">Enviar</button>
+                                </div>
+                              </dt>
+                            </dl>
+                          </fieldset>
+                        </form>
+                        <div class="message" v-else="">
+                          <h3>Usted ya a sido registrado al evento, gracias por participar.</h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <custom-modal :cshow="modal1" @close="modal1 = false">
+        <template v-slot:main="">
+          <div class="e1-perumin-modal" data-option="info">
+            <hgroup>
+              <h3>Tratamiento de datos personales </h3>
+            </hgroup>
+            <header>
+              <p>Autorizo a AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicol&aacute;s Arriola N&deg; 480, Santa Catalina, La Victoria, provincia y departamento de Lima (CLARO), para tratar mis datos personales y registrarlos en el Banco de Datos Personales &ldquo;Clientes&rdquo; de su titularidad, con la finalidad de llamarme o enviarme mensajes de texto (SMS), mensajes electr&oacute;nicos y/o correos electr&oacute;nicos con contenido informativo, publicitario y/o promocional sobre los productos y/o servicios que he solicitado mediante este formulario. Declaro conocer que (i) mis datos ser&aacute;n registrados por el tiempo necesario para cumplir con la finalidad expuesta, o hasta que decida revocar mi autorizaci&oacute;n, (ii) CLARO podr&aacute; compartir su informaci&oacute;n con terceros encargados del tratamiento de sus datos personales, (iii) mi autorizaci&oacute;n resulta facultativa, pero en caso de negativa, la finalidad expuesta no podr&aacute; realizarse, (iv) podr&eacute; ejercer los derechos ARCO (Acceso, Rectificaci&oacute;n, Cancelaci&oacute;n y Oposici&oacute;n); en los puntos de atenci&oacute;n designados para tal efecto o a trav&eacute;s del siguiente <a href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank">enlace. </a></p><br/>
+              <p>Para consultar el detalle de los encargados de tratamiento y mayor informaci&oacute;n, revisa nuestra <a href="https://www.claro.com.pe/proteccion-datos/" target="_blank">Pol&iacute;tica de Privacidad </a></p>
+            </header>
+            <footer><a class="e1-perumin-modal__btn-default" @click="modal1 = false">Entendido</a></footer>
+          </div>
+        </template>
+      </custom-modal>
+      <custom-modal :cshow="modal2" @close="modal2 = false">
+        <template v-slot:main="">
+          <div class="e1-perumin-modal" data-option="info">
+            <hgroup>
+              <h3>Quiero recibir promociones y beneficios de Claro</h3>
+            </hgroup>
+            <header>
+              <p>En aplicaci&oacute;n del art&iacute;culo 58 e) de la Ley N&deg; 29571, solicito , mediante mi consentimiento libre, previo, informado, expreso e inequ&iacute;voco, que AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicol&aacute;s Arriola N&deg; 480, Santa Catalina, La Victoria, provincia y departamento de Lima (CLARO), me contacte con fines publicitarios por llamadas, mensajes de texto (SMS), mensajes electr&oacute;nicos, correos electr&oacute;nicos y/o por cualquier otro medio an&aacute;logo de comunicaci&oacute;n, sobre cualquier producto y/o servicio de CLARO a la l&iacute;nea telef&oacute;nica y/o correo electr&oacute;nico utilizados para completar este formulario.</p><br/>
+              <p>Declaro conocer que (i) mis datos ser&aacute;n registrados en el Banco de Datos Personales &ldquo;Clientes&rdquo; de CLARO para cumplir con la finalidad expuesta hasta que decida revocar mi consentimiento, (ii) CLARO podr&aacute; compartir mi informaci&oacute;n con terceros encargados del tratamiento de sus datos personales, (iii) mi consentimiento resulta facultativo, pero en caso de negativa, la finalidad expuesta no podr&aacute; realizarse, (iv) podr&eacute; ejercer los derechos ARCO (Acceso, Rectificaci&oacute;n, Cancelaci&oacute;n y Oposici&oacute;n); en los puntos de atenci&oacute;n designados para tal efecto o a trav&eacute;s del siguiente <a href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank">enlace. </a>Podr&eacute; consultar el detalle de los encargados de tratamiento y mayor informaci&oacute;n, revisando la <a href="https://www.claro.com.pe/proteccion-datos/" target="_blank">Pol&iacute;tica de Privacidad.</a></p>
+            </header>
+            <footer><a class="e1-perumin-modal__btn-default" @click="modal2 = false">Entendido</a></footer>
+          </div>
+        </template>
+      </custom-modal>
+      <custom-modal :cshow="modal3" @close="modal3 = false">
+        <template v-slot:main="">
+          <div class="e1-perumin-modal e1-perumin-modal--type1" data-option="info">
+            <hgroup>
+              <h3>
+                 ¡Gracias por registrarte al {{ day.title }}!</h3>
+            </hgroup>
+            <header>
+              <p>Para que no se te olvide la fecha y hora del evento, te invitamos a vincularlo/agendarlo a tu calendario favorito.</p>
+            </header>
+            <footer v-if="isMobile()"><a class="btn-event" :href="day.link_outlook_mobile" target="_blank" rel="nofollow"><img src="assets/commons/icono_outlook.svg"/><span>Añadir a Outlook</span></a><a class="btn-event" :href="day.link_google" target="_blank" rel="nofollow"><img src="assets/commons/icono_gmail.svg"/><span>Añadir a Google</span></a></footer>
+            <footer v-else=""><a class="btn-event" :href="day.link_outlook_desktop" target="_blank" rel="nofollow"><img src="assets/commons/icono_outlook.svg"/><span>Añadir a Outlook</span></a><a class="btn-event" :href="day.link_google" target="_blank" rel="nofollow"><img src="assets/commons/icono_gmail.svg"/><span>Añadir a Google</span></a></footer>
+          </div>
+        </template>
+      </custom-modal>
+    </div>
+    <div class="load_ing" id="load_er"><img src="https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7e3e6f3b-2d43-4906-948c-25d3d00aa81e-loadingClaro.gif" alt=""></div>
+    <script type="text/javascript" src="js/portal/vue3-dist.js"> </script>
+    <script type="text/javascript" src="js/portal/vue3-demi.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-core.js"> </script>
+    <script type="text/javascript" src="js/portal/vuelidate3-validators.js"> </script>
+    <script type="module" src="js/main.js" async="async"></script>
+  </body>
+</html>

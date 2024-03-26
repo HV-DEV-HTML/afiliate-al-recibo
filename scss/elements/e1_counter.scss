@@ -1,0 +1,344 @@
+@mixin e1_counter($name){
+  
+  .e1-#{$name}-counter {
+    width: 100%;
+    position: relative;
+    background-color: #0433FF;
+    height: 60px;
+    overflow: hidden;
+
+    &.sticky{
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    $root: &;
+
+    &__link{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 1;
+      width: 100%;
+      height: inherit;
+      //background-color: #0fbddf;
+      opacity: 0;
+      cursor: pointer;
+      //display: none;
+    }
+
+    &__close{
+      position: absolute;
+      top: 0px;
+      right: -8%;
+      height: 100%;
+      display: flex;
+      pointer-events: auto;
+      z-index: 2;
+      //cursor: pointer;
+      
+
+      @include to(tablet-h) {
+        right: -4%;
+      }
+
+      @include to(tablet) {
+        right: 0%;
+      }
+
+      &:before{
+        content: '';
+        width: 12px;
+        height: 12px;
+        background: url("#{$path}/close.png");
+        background-size: cover;
+        display: block;
+        position: relative;
+        align-self: center;
+       
+      }
+    }
+    
+    &__item{
+      width: 90%;
+      max-width: 1240px;
+      height: inherit;
+      margin: 0 auto;
+      //position: relative;
+
+      display: flex;
+			//flex-wrap: wrap;
+			justify-content: center;
+
+      @include to(tablet) {
+        width: 96%;
+      }
+
+      
+      //box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.10);
+      //border-radius: 15px;
+      //padding: 0px 0px;
+      //overflow: hidden;
+
+      &--type1 {
+
+        /*#{$root}__main{
+          min-height: 158px;
+          dl{
+            dd{
+              justify-content: space-between;
+            }
+          }
+        }*/
+        
+      }
+
+      &--type2 {
+
+        /*#{$root}__header{
+          hgroup{
+            h4{
+              flex: initial;
+            }
+          }
+        }
+
+        #{$root}__main{
+          min-height: 158px;
+          dl{
+            dd{
+              justify-content: space-between;
+            }
+          }
+        }*/
+        
+      }
+
+      &--type3 {
+        
+        /*#{$root}__main{
+          min-height: 208px;
+          dl{
+            dd{
+              justify-content: center;
+              flex-wrap: wrap;
+            }
+          }
+        }*/
+
+      }
+    }
+
+    #{$root}__group{
+      width: 96%;
+      max-width: 960px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      @include to(tablet) {
+        width: 100%;
+      }
+    }
+    
+    &__header{
+      display: flex;
+      height: inherit;
+      flex-grow: 0;
+      img{
+        display: block;
+        height: 36px;
+        align-self: center;
+        @include to(tablet) {
+          height: 29px;
+        }
+
+        @include to(movil) {
+          height: 22px;
+        }
+      }
+      /*&:before {
+
+        content: '';
+        width: 128px;
+        height: 36px;
+        //background: url("#{$path}/cyberwow.svg");
+        background-image: attr(data-image-src);
+        //content: attr(data-image-src url);
+        background-size: cover;
+        display: block;
+        align-self: center;
+        @include to(tablet) {
+          width: 105px;
+          height: 29px;
+        }
+
+        @include to(movil) {
+          width: 78px;
+          height: 22px;
+        }
+      }*/
+
+    }
+    &__main{
+      display: flex;
+      flex-grow: 3;
+      justify-content: center;
+      margin: 0 auto;
+
+
+      @include to(movil) {
+        flex-direction: column;
+      }
+     
+      &__title{
+        padding-right: 20px;
+        @include to(tablet) {
+          padding-right: 15px;
+        }
+        @include to(movil) {
+          padding-right: 0px;
+          margin: 0 auto;
+        }
+        h3{
+          font: normal 400 18px $font3;
+          color: #ffffff;
+          line-height: 60px;
+          
+          @include to(tablet) {
+            font-size: 15px;
+          }
+          @include to(movil) {
+            font-size: 11px;
+            line-height: 30px;
+          }
+        }
+      }
+
+      &__content{
+        display: flex;
+        flex-wrap: wrap;
+        .hidden{
+          @include to(movil) {
+            display: none;
+          }  
+        }
+        @include to(movil) {
+          margin: 0 auto;
+        }
+        dl{
+          display: flex;
+          flex-wrap: wrap;
+ 
+          dt{
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+           
+            h4{
+              font: normal 500 36px $font2;
+              color: #ffffff;
+              line-height: 65px;
+              @include to(tablet) {
+                font-size: 28px;
+              }
+              @include to(movil) {
+                font-size: 28px;
+                line-height: 25px;
+              }
+            }
+            &:after{
+              width: inherit;
+              height: inherit;
+              content: attr(data-top);
+              font: normal 400 6px $font3;
+              display: block;
+              padding: 10px 0 0 2px;
+              margin-right: -10px;
+              color: #ffffff;
+              
+              @include to(movil) {
+                padding: 0px 0 0 0px;
+                margin-top: -5px;
+                font-size: 5px;
+              }
+            }
+          } 
+          dd{
+            margin: 0 5px;
+            h4{
+              font: normal 500 25px $font2;
+              color: #ffffff;
+              line-height: 65px;
+              @include to(tablet) {
+                font-size: 18px;
+              }
+              @include to(movil) {
+                font-size: 18px;
+                line-height: 25px;
+              }
+            }
+          }
+        }
+      }
+
+    }
+    &__footer{
+      flex-grow: 0;
+      display: flex;
+      @include to(tablet-h) {
+        padding: 0 0 0 1%;
+      }
+      @include to(tablet) {
+        padding: 0 5% 0 0;
+      }
+      @include to(movil) {
+        padding: 0 8% 0 0;
+      }
+      a{
+        font: normal 400 16px $font2;
+        color: #0433FF;
+        line-height: 40px;
+        display: table;
+        border-radius: 20px;
+        background-color: #ffffff;
+        align-self: center;
+        padding: 0 16px;
+        @include to(tablet) {
+          font-size: 15px;
+          line-height: 36px;
+        }
+
+        @include to(movil) {
+          font-size: 11px;
+          padding: 0 10px;
+          line-height: 30px;
+        }
+        span{
+          display: table-cell;
+        }
+        &:after {
+
+          content: '';
+          width: 22px;
+          height: 24px;
+          background: url("#{$path}/arrow_forward.svg") no-repeat right 13px;
+          //background-size: cover;
+          display: table-cell;
+          @include to(tablet) {
+            background-position: right 11px;
+          }
+          @include to(movil) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @content;
+
+  }
+
+}

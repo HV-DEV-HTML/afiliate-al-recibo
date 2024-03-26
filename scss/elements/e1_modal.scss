@@ -1,0 +1,290 @@
+@mixin e1_modal($name) {
+
+  .e1-#{$name}-modal {
+
+    $root: &;
+
+    &[data-option="info"] {
+
+
+      position: relative;
+
+      @include to(tablet) {
+        padding: 60px 40px 40px;
+      }
+
+      @include to(movil) {
+        padding: 40px 25px 0px;
+      }
+
+      /*button.close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: none;
+        border: 0px;
+        margin: 0px;
+        padding: 0px;
+        cursor: pointer;
+        float: none;
+        text-shadow: none;
+        opacity: inherit;
+        width: 14px;
+        height: 14px;
+
+        &:before {
+          content: "";
+          width: 14px;
+          height: 14px;
+          display: inline-block;
+          background: url("./b62a3b7c-7e3c-48f9-91a2-cfd422d6f2f2-icon-close-black.svg") no-repeat center top;
+          background-size: 100%;
+
+          @include to(tablet) {
+            //background: url("./084e7362-1d53-40b6-ba4c-96e38b3dd722-close-white.svg") no-repeat center top;
+            //background-size: 100%;
+          }
+        }
+
+        @include to(tablet) {
+          //top: 20px;
+        }
+      }*/
+
+      hgroup {
+
+        text-align: left;
+        position: relative;
+
+        margin-bottom: 20px;
+
+        @include to(tablet) {
+          padding: 0px 0px 0px 0px;
+        }
+
+        @include to(movil) {
+          padding: 0px 0px 0px;
+        }
+
+
+
+        &:before {
+          content: "";
+          width: 96px;
+          height: 96px;
+          display: block;
+          //margin: -40px auto 0;
+          background: url("#{$path}/usericono.png") no-repeat center top;
+          background-size: 100%;
+          position: absolute;
+          top: -50px;
+          left: 50%;
+          margin-left: -48px;
+          display: none;
+
+          @include to(movil) {
+            width: 76px;
+            height: 76px;
+            background-size: 100%;
+            margin-left: -38px;
+            //margin: 20px auto;
+          }
+        }
+
+        h3 {
+          font: normal 700 24px $font1;
+          color: #222222;
+          line-height: 32px;
+          position: relative;
+          display: table;
+          width: 100%;
+
+
+
+          //margin-bottom: 20px;
+          /*@include to(tablet-h) {
+            font-size: em(28);
+          }*/
+          @include to(tablet) {
+            font-size: 22px;
+            line-height: 28px;
+            //text-align: center;
+          }
+
+          @include to(movil) {
+            font-size: 20px;
+            line-height: 24px;
+            text-align: left;
+            //margin-bottom: 10px;
+          }
+
+          span.phone {
+            &:before {
+              content: "\f095";
+              @include icon(0px);
+              font-size: 20px;
+              font-weight: 700;
+              color: #13bdde;
+              position: relative;
+              top: 1px;
+              left: 0px;
+            }
+          }
+
+          a {
+            color: #13bdde;
+            margin-left: 5px;
+            text-decoration: underline;
+          }
+        }
+
+        h4 {
+          font: normal 600 20px $font1;
+          color: #000000;
+          margin: 60px 0 40px;
+
+          @include to(tablet) {
+            margin: 35px 0 25px;
+          }
+
+          @include to(tablet-h) {
+            font-size: 18px;
+          }
+
+          @include to(tablet) {
+            //font-size: em(16);
+            margin: 35px 0 25px;
+          }
+
+          @include to(movil) {
+            //font-size: em(16);
+            margin: 25px 0 15px;
+          }
+        }
+
+        p {
+          font: normal 300 15px $font1;
+          color: #222222;
+          //margin-top: 8px;
+          //margin-bottom: 16px;
+
+          /*@include to(tablet-h) {
+            font-size: em(18);
+          }*/
+          @include to(tablet) {
+            font-size: 15px;
+            //text-align: center;
+          }
+
+          @include to(movil) {
+            font-size: 12px;
+            text-align: center;
+          }
+
+          a {
+            color: #0fbddf !important;
+            font: normal 600 18px $font1;
+          }
+
+          @include to(movil) {
+            font-size: 13px;
+            margin-bottom: 15px;
+
+            //padding: 0 10px;
+            br {
+              display: none;
+            }
+          }
+        }
+      }
+
+      header {
+
+        @include to(movil) {
+          max-height: calc(50vh);
+          overflow-y: scroll;
+        }
+
+        p {
+          font: normal 400 14px $font1;
+          color: #333333;
+          line-height: 20px;
+          margin: 0px;
+
+          a {
+            color: #0fbddf;
+            font-weight: 600;
+
+            &:hover {
+              text-decoration: underline;
+              color: #0fbddf;
+            }
+          }
+
+          /*@include to(tablet-h) {
+            font-size: em(18);
+          }
+          @include to(tablet) {
+            font-size: em(17);
+          }*/
+          @include to(movil) {
+            font-size: 13px;
+            line-height: 18px;
+
+            //margin-bottom: 10px;
+            br {
+              display: none;
+            }
+          }
+        }
+
+      }
+
+      footer {
+
+        //padding: 28px 48px 30px 0;
+        padding: 50px 0px 0px 0;
+        text-align: right;
+
+        @include to(movil) {
+          padding: 28px 0 30px 0;
+        }
+
+        #{$root}__btn-default {
+          font: normal 600 16px $font1;
+          color: #ffffff;
+          background: #da291c;
+          line-height: 20px;
+          padding: 13.5px 28px;
+          line-height: 20px;
+          //height: 48px !important;
+          display: inline-block;
+          cursor: pointer;
+          border: none;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+          border-radius: 32px;
+          outline: none;
+          font: normal 600 16px $font1;
+          display: inline-block;
+
+          &:hover {
+            background-color: #FA253F;
+            transform: translateY(-1px);
+            transition-duration: 0.25s;
+          }
+
+          @include to(movil) {
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+      }
+
+    }
+
+    @content;
+
+  }
+
+}

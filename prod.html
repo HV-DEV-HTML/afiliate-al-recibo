@@ -1,0 +1,1113 @@
+[Plugin:ifInRange from="[PageInfo value='firstItemOnPage']"]
+<div class="layout" id="app">
+  <div class="layout__main">
+    <div class="page1">
+      <div class="portlet" data-portlet="bannerform">
+        [IfEditMode]<span style="position: relative; padding-right: 30px;">[Component
+          name="claro-diseno-pe/cmp-edicion-linea/fixed-inline-edit-list"]</span>[/IfEditMode]
+        <div class="section" data-section="data-section">
+          <div class="section__modals" id="modaltratamiento">
+            <div class="section__modals__modal">
+              <div class="section__modals__modal-close"></div>
+              <hgroup class="section__modals__modal-group">
+                <h4 class="section__modals__modal-group-title">Tratamiento de mis datos personales</h4>
+              </hgroup>
+              <div class="section__modals__modal-main">
+                <p class="section__modals__modal-main-text">Autorizo a AMERICA MOVIL PERU S.A.C. con domicilio en Av.
+                  Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia y departamento de Lima (CLARO), para
+                  tratar mis datos personales y registrarlos en el Banco de Datos Personales “Clientes” de su
+                  titularidad, con la finalidad de llamarme o enviarme mensajes de texto (SMS), mensajes electrónicos
+                  y/o correos electrónicos con contenido informativo, publicitario y/o promocional sobre los productos
+                  y/o servicios que he solicitado mediante este formulario. Declaro conocer que (i) mis datos serán
+                  registrados por el tiempo necesario para cumplir con la finalidad expuesta, o hasta que decida revocar
+                  mi autorización, (ii) CLARO podrá compartir su información con terceros encargados del tratamiento de
+                  sus datos personales, (iii) mi autorización resulta facultativa, pero en caso de negativa, la
+                  finalidad expuesta no podrá realizarse, (iv) podré ejercer los derechos ARCO (Acceso, Rectificación,
+                  Cancelación y Oposición); en los puntos de atención designados para tal efecto o a través del
+                  siguiente <a href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank"
+                    title="">enlace.</a></p><br />
+                <p class="section__modals__modal-main-text">Para consultar el detalle de los encargados de tratamiento y
+                  mayor información, revisa nuestra <a href="https://www.claro.com.pe/proteccion-datos/" target="_blank"
+                    title="">Política de Privacidad.</a></p>
+              </div>
+              <div class="section__modals__modal-footer">
+                <button class="section__modals__modal-footer-close">Entendido</button>
+              </div>
+            </div>
+          </div>
+          <div class="section__modals" id="modalpromociones">
+            <div class="section__modals__modal">
+              <div class="section__modals__modal-close"></div>
+              <hgroup class="section__modals__modal-group">
+                <h4 class="section__modals__modal-group-title">Solicitud para recibir publicidad de Claro</h4>
+              </hgroup>
+              <div class="section__modals__modal-main">
+                <p class="section__modals__modal-main-text">En aplicación del artículo 58 e) de la Ley N° 29571,
+                  solicito , mediante mi consentimiento libre, previo, informado, expreso e inequívoco, que AMERICA
+                  MOVIL PERU S.A.C. con domicilio en Av. Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia
+                  y departamento de Lima (CLARO), me contacte con fines publicitarios por llamadas, mensajes de texto
+                  (SMS), mensajes electrónicos, correos electrónicos y/o por cualquier otro medio análogo de
+                  comunicación, sobre cualquier producto y/o servicio de CLARO a la línea telefónica y/o correo
+                  electrónico utilizados para completar este formulario.</p><br />
+                <p class="section__modals__modal-main-text">Declaro conocer que (i) mis datos serán registrados en el
+                  Banco de Datos Personales “Clientes” de CLARO para cumplir con la finalidad expuesta hasta que decida
+                  revocar mi consentimiento, (ii) CLARO podrá compartir mi información con terceros encargados del
+                  tratamiento de sus datos personales, (iii) mi consentimiento resulta facultativo, pero en caso de
+                  negativa, la finalidad expuesta no podrá realizarse, (iv) podré ejercer los derechos ARCO (Acceso,
+                  Rectificación, Cancelación y Oposición); en los puntos de atención designados para tal efecto o a
+                  través del siguiente <a href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/"
+                    target="_blank" title="">enlace. </a>Podré consultar el detalle de los encargados de tratamiento y
+                  mayor
+                  información, revisando la <a href="https://www.claro.com.pe/proteccion-datos/" target="_blank"
+                    title="">Política de Privacidad.</a></p>
+              </div>
+              <div class="section__modals__modal-footer">
+                <button class="section__modals__modal-footer-close">Entendido</button>
+              </div>
+            </div>
+          </div>
+          <picture class="section__banner">
+            [Element context="autofill" type="content" key="HV.Imagen" htmlencode="false"]
+          </picture>
+          <div class="section__align">
+            <div class="content">
+              <form class="formBC" action="[Element context=" autofill" type="content" key="HV.API" htmlencode="false"
+                ]" method="POST" ref="form1" @submit.prevent="submitForm1">
+                <hgroup class="formBC__group">
+                  <h1 class="formBC__group-title">Afíliate al recibo digital</h1>
+                  <p class="formBC__group-text">
+                    Es gratuito y reduce el consumo de papel.</p>
+                  <p class="formBC__group-text">
+                    Completa tus datos ahora:</p>
+                </hgroup>
+                <div class="formBC__main">
+                  <input type="hidden" name="form_id" value="167" />
+                  <input type="hidden" name="form_name" value="Recibo digital por correo" />
+                  <dl class="type1">
+                    <dd>
+                      <input class="formBC__main-input" type="text" name="nombre_y_apellido"
+                        placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model"
+                        :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }" />
+                    </dd>
+                  </dl>
+                  <dl class="type2">
+                    <dd>
+                      <select class="formBC__main-select" autocomplete="nope" v-model.trim="v1$.type_documento.$model"
+                        :class="{ 'invalid': v1$.type_documento.$error, 'valid': !v1$.type_documento.$invalid, }"
+                        name="tipo_de_documento">
+                        <option value="" disabled="disabled" selected="selected">Tipo de documento</option>
+                        <option value="DNI">DNI </option>
+                        <option value="RUC">RUC </option>
+                        <option value="CE">Carnet de Extranjería</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                      </select>
+                    </dd>
+                  </dl>
+                  <dl class="type3">
+                    <dd>
+                      <input class="formBC__main-input" type="text" autocomplete="nope"
+                        v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento"
+                        :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }"
+                        name="numero_de_documento" placeholder="Número de documento" @keypress="isNumber($event)"
+                        :maxlength="lgthTypeDocument" />
+                    </dd>
+                  </dl>
+                  <dl class="type1">
+                    <dd>
+                      <input class="formBC__main-input" type="text" autocomplete="nope"
+                        v-model.trim="v1$.celular.$model"
+                        :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }"
+                        name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)"
+                        maxlength="9" />
+                    </dd>
+                  </dl>
+                  <dl class="type1">
+                    <dd>
+                      <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.correo.$model"
+                        :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }"
+                        name="correo_electronico" placeholder="Correo electrónico" />
+                    </dd>
+                  </dl>
+                  <dl class="type4">
+                    <dd>
+                      <div class="formBC__main-checkbox">
+                        <input type="checkbox" id="tratamiento" value="Sí" v-model="v1$.tratamiento.$model"
+                          @change="v1$.tratamiento.$touch()" name="autorizo_el_tratamiento_de_mis_datos_personales" />
+                        <label class="formBC__main-checkbox-label" for="tratamiento"> <b> </b></label><small
+                          class="formBC__main-checkbox-text">
+                          Autorizo el <em class="ctopen">tratamiento de mis datos personales.</em></small>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl class="type4">
+                    <dd>
+                      <div class="formBC__main-checkbox">
+                        <input type="checkbox" id="promociones" v-model="v1$.promociones.$model"
+                          @change="v1$.promociones.$touch()" value="Sí"
+                          name="quiero_recibir_promociones_y_beneficios_de_claro" />
+                        <label class="formBC__main-checkbox-label" for="promociones"> <b> </b></label><small
+                          class="formBC__main-checkbox-text">
+                          Quiero recibir <em class="ctopen">promociones y beneficios</em> de Claro.</small>
+                      </div>
+                    </dd>
+                  </dl>
+                </div>
+                <div class="formBC__footer">
+                  <button class="formBC__footer-action" id="btnAction" type="submit"
+                    :disabled="v1$.$invalid &amp;&amp; !disabled" :class="{ 'active': !v1$.$invalid }">Quiero
+                    afiliarme</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="load_ing" id="load_er"><img
+    src="https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7e3e6f3b-2d43-4906-948c-25d3d00aa81e-loadingClaro.gif"
+    alt=""></div>
+
+<style type="text/css">
+  @charset "UTF-8";
+  /* Library  */
+  /*!
+   *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
+   *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+   */
+  /* FONT PATH
+   * -------------------------- */
+  @import url(https://fonts.googleapis.com/css?family=Anton|Bevan|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap);
+
+  @font-face {
+    font-family: "FontAwesome";
+    src: url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0");
+    src: url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("https://netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  #app:not([v-cloak])~.load_ing {
+    display: none;
+  }
+
+  #app~#load_er.over_lay {
+    display: -ms-grid;
+    display: grid;
+  }
+
+  #app .v--modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .portlet[data-portlet=bannerform] {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] {
+      height: 660px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .portlet[data-portlet=bannerform] .section__banner {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .portlet[data-portlet=bannerform] .section__banner img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__banner img {
+      -o-object-position: top;
+      object-position: top;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100000;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal {
+    width: 92%;
+    max-width: 800px;
+    margin: 3% auto 0;
+    padding: 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-close {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 64 64'%3E%3Cpath d='m16 13a1 1 0 0 0-3 3l16 16-16 16a1 1 0 0 0 3 3l16-16 16 16a1 1 0 0 0 3-3l-16-16 16-16a1 1 0 0 0-3-3l-16 16z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E") center center no-repeat;
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin: 15px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-group {
+    padding: 40px 40px 0px;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-group-title {
+    font: normal 700 24px "AMX";
+    line-height: normal;
+    color: #000;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__modals__modal-group-title {
+      font-size: 18px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-main {
+    padding: 0 40px 0px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__modals__modal-main {
+      max-height: 300px;
+      overflow: hidden;
+      overflow-y: scroll;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-main-text {
+    font: normal 400 16px "Roboto";
+    line-height: normal;
+    color: #000;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__modals__modal-main-text {
+      font-size: 14px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-main-text a {
+    color: #008fa5;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-footer {
+    padding: 0 0 40px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__modals__modal-footer {
+      padding-bottom: 20px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__modals__modal-footer-close {
+    float: right;
+    width: 130px;
+    margin-right: 40px;
+    cursor: pointer;
+    font: normal 700 16px "Roboto";
+    line-height: 45px;
+    color: #fff;
+    background-color: #da291c;
+    border: none;
+    border-radius: 32px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__modals__modal-footer-close {
+      width: calc(100% - 80px);
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    max-width: 1400px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+
+  @media screen and (max-width: 1599px) {
+    .portlet[data-portlet=bannerform] .section__align {
+      max-width: 1280px;
+      width: 90%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align {
+      max-width: 100%;
+      width: 100%;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
+      align-items: flex-end;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content {
+    width: 544px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    background: #FFF;
+    padding: 30px 0;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content {
+      padding: 22px 0;
+      width: 484px;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align .content {
+      max-width: 326px;
+      padding: 15px 0;
+      margin: 0 auto 15px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC {
+    margin: 0 auto;
+    width: calc(100% - 94px);
+    gap: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -ms-flex-pack: space-between;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC {
+      width: calc(100% - 44px);
+      gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC {
+      gap: 10px;
+      width: calc(100% - 40px);
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__group {
+    text-align: left;
+    width: 100%;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__group-title {
+    font: normal 700 30px "AMX";
+    line-height: 113%;
+    color: #000;
+    margin-bottom: 15px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__group-title {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 13px;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__group-title {
+      font-size: 18px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__group-text {
+    font: normal 400 16px "Roboto";
+    line-height: 113%;
+    color: #000;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__group-text {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type1 {
+    width: 100%;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type2 {
+    width: 40%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type2 {
+      width: 100%;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type3 {
+    width: 58%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type3 {
+      width: 100%;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type4 {
+    width: 100%;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text],
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #91979E;
+    padding-left: 10px;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text]:focus,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select:focus {
+    outline: none;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid:-webkit-autofill,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid:-webkit-autofill:hover,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid:-webkit-autofill:focus,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid:-webkit-autofill:active,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid:-webkit-autofill,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid:-webkit-autofill:hover,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid:-webkit-autofill:focus,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #fcf3f3 inset !important;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].valid:-webkit-autofill,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].valid:-webkit-autofill:hover,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].valid:-webkit-autofill:focus,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].valid:-webkit-autofill:active,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.valid:-webkit-autofill,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.valid:-webkit-autofill:hover,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.valid:-webkit-autofill:focus,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.valid:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #f3fffc inset !important;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid {
+    border: solid 1px #dc3545;
+    background: #fcf3f3 url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/dec02708-0cba-45ab-ae9a-8891641fd8bf-invalid.png") no-repeat calc(100% - 8px) center;
+    color: #dc3545;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid::-webkit-input-placeholder,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid::-webkit-input-placeholder {
+    color: #dc3545;
+    opacity: 1;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid::-moz-placeholder,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid::-moz-placeholder {
+    color: #dc3545;
+    opacity: 1;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid:-ms-input-placeholder,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid:-ms-input-placeholder {
+    color: #dc3545;
+    opacity: 1;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid::-ms-input-placeholder,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid::-ms-input-placeholder {
+    color: #dc3545;
+    opacity: 1;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].invalid::placeholder,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.invalid::placeholder {
+    color: #dc3545;
+    opacity: 1;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text].valid,
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select.valid {
+    border: solid 1px #28a745;
+    background: #f3fffc url("https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/7f3c32d9-4bfa-4e6d-ba20-8c223cc2deca-valid.png") no-repeat calc(100% - 8px) center;
+    color: #006B4F;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #91979E;
+    background: #FFF;
+    padding-left: 10px;
+    margin-bottom: 12px;
+    font: normal 400 15px "Roboto";
+    line-height: normal;
+    color: #000;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input::-webkit-input-placeholder {
+    color: #75787C;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input::-moz-placeholder {
+    color: #75787C;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input:-ms-input-placeholder {
+    color: #75787C;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input::-ms-input-placeholder {
+    color: #75787C;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input::placeholder {
+    color: #75787C;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input:focus {
+    outline: none;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main-input {
+      margin-bottom: 8px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent url("https://static.claro.com.pe/img/arrow-bottom.svg") no-repeat calc(100% - 10px) center;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #91979E;
+    padding-left: 16px;
+    margin-bottom: 12px;
+    font: normal 400 15px "Roboto";
+    line-height: normal;
+    color: #000;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox {
+    margin-top: 15px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox {
+      margin-top: 11px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox input[type=checkbox] {
+    display: none;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox input[type=checkbox]:checked+label b {
+    background-color: #0fbfdf;
+    color: #ffffff;
+    -webkit-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox input[type=checkbox]:checked+label b:before {
+    content: "\f00c";
+    display: inline-block;
+    margin-right: 0px;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    font-size: 13px;
+    color: #ffffff;
+    position: relative;
+    top: 0px;
+    left: 0px;
+  }
+
+  @media screen and (max-width: 480px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox input[type=checkbox]:checked+label b:before {
+      font-size: 12px;
+      top: -1px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-label {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-label b {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    font: normal 600 13px "Roboto";
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    color: #000000;
+    border: solid 1px #008fa5;
+    cursor: pointer;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-label b:hover {
+    background-color: #e1e4e8;
+    color: #000000;
+    -webkit-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-text {
+    display: table-cell;
+    font: normal 400 14px "Roboto";
+    color: #000;
+    vertical-align: middle;
+    padding-left: 10px;
+  }
+
+  @media screen and (max-width: 640px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-text {
+      font-size: 13px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main-checkbox-text em {
+    color: #0fbfdf;
+    text-decoration: underline;
+    font-weight: 700;
+    font-style: normal;
+    cursor: pointer;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__footer {
+    width: 100%;
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__footer-action {
+    cursor: not-allowed;
+    border: none;
+    border-radius: 25px;
+    background-color: #cecbcb;
+    color: #E4E4E4;
+    width: 197px;
+    height: 50px;
+    color: #FFF;
+    text-align: center;
+    font: normal 700 15px "Roboto";
+    line-height: normal;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .portlet[data-portlet=bannerform] .section__align .content .formBC__footer-action {
+      width: 100%;
+      height: 45px;
+    }
+  }
+
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__footer-action.active {
+    background-color: #EE122C;
+    color: #ffffff;
+    cursor: pointer;
+  }
+</style>
+<script type="text/javascript" src="/portal/pe/recursos_tema/genericos/vue3.js"> </script>
+<script type="text/javascript" src="/portal/pe/recursos_tema/genericos/vue3-demi.js"> </script>
+<script type="text/javascript" src="/portal/pe/recursos_tema/genericos/vuelidate3-core.js"> </script>
+<script type="text/javascript" src="/portal/pe/recursos_tema/genericos/vuelidate3-validators.js"> </script>
+<script type="module">
+  const {
+    createApp,
+    ref,
+    reactive,
+    toRef,
+    computed,
+    onMounted
+  } = Vue;
+  const { required, minLength, maxLength, numeric } =
+    VuelidateValidators;
+  const { useVuelidate } = Vuelidate;
+
+
+
+  const isNumber = (evt) => {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
+      evt.preventDefault();
+    } else {
+      return true;
+    }
+  }
+  const validName = (name) => {
+    let validNamePattern = new RegExp("^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+(?:[-'\\s][a-zA-ZñÑáéíóúÁÉÍÓÚ]+)*$");
+    if (validNamePattern.test(name)) {
+      // console.log("validName",name)
+      return true;
+    }
+    return false;
+  }
+
+  const validEmail = (name) => {
+    let validNamePattern = new RegExp(
+      /^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i
+    )
+    // let validNamePattern = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)
+    if (validNamePattern.test(name)) {
+      return true
+    }
+    return false
+  }
+
+  const validPhone = (name) => {
+    let validNamePattern = new RegExp(
+      /^9[\d]{8}$/
+    )
+    if (validNamePattern.test(name)) {
+      // console.log('validPhone', name)
+      return true
+    }
+    return false
+  }
+
+  const validateDocument = (value, kind) => {
+
+    if (kind.type_documento.value === "DNI") {
+      if (value.split("").length === 8) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+
+    if (kind.type_documento.value === "Pasaporte") {
+      if (value.split("").length === 12) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    if (kind.type_documento.value === "CE") {
+      if (value.split("").length === 12) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    if (kind.type_documento.value === "RUC") {
+      let ruc = value.replace(/[-.,[\]()\s]+/g, '')
+      if (
+        !(
+          (ruc >= 1e10 && ruc < 11e9) ||
+          (ruc >= 15e9 && ruc < 18e9) ||
+          (ruc >= 2e10 && ruc < 21e9)
+        )
+      ) {
+        return false
+      }
+      let suma
+      let i
+      for (suma = -(ruc % 10 < 2), i = 0; i < 11; i++, ruc = (ruc / 10) | 0)
+        suma += (ruc % 10) * ((i % 7) + ((i / 7) | 0) + 1)
+      if (suma % 11 === 0) {
+        return suma % 11 === 0
+      }
+    }
+  }
+
+  const modal1 = ref(false);
+  const modal2 = ref(false);
+  const modal3 = ref(false);
+  const form1 = ref(null);
+  const disabled = ref(false);
+  const limit = ref(8)
+
+  const app = createApp({
+    components: {},
+    setup() {
+
+      const isMobile = () => screen.width <= 760;
+
+      /* Form */
+
+      onMounted(() => {
+        register1.nombres = "";
+        register1.type_documento = '';
+        register1.documento = "";
+        register1.correo = "";
+        register1.celular = "";
+        register1.tratamiento = false;
+        register1.promociones = false;
+        disabled.value = false;
+      })
+
+      const register1 = reactive({
+        nombres: "",
+        type_documento: '',
+        documento: "",
+        correo: "",
+        celular: "",
+        tratamiento: false,
+        promociones: false,
+      });
+
+      const rules1 = {
+        nombres: {
+          required,
+          name_validation: {
+            $validator: validName,
+          },
+        },
+        type_documento: {
+          required,
+        },
+        documento: {
+          required,
+          numeric,
+          name_validation: {
+            $validator: validateDocument
+          }
+        },
+        celular: {
+          required,
+          numeric,
+          name_validation: {
+            $validator: validPhone,
+          },
+          min: minLength(9),
+        },
+        correo: {
+          required,
+          //email
+          name_validation: {
+            $validator: validEmail,
+          },
+        },
+        tratamiento: {
+          required(val) {
+            return val;
+          },
+        },
+        promociones: {
+          /*required(val) {
+            return val
+          }*/
+        },
+      };
+
+      const lgthTypeDocument = computed(() => {
+        switch (register1.type_documento) {
+          case "DNI":
+            return 8;
+          case "RUC":
+            return 11;
+          case "Pasaporte":
+            return 12;
+          case "CE":
+            return 12;
+          case "":
+            return 0;
+        }
+      })
+
+      const v1$ = useVuelidate(rules1, {
+        nombres: toRef(register1, "nombres"),
+        type_documento: toRef(register1, "type_documento"),
+        documento: toRef(register1, "documento"),
+        correo: toRef(register1, "correo"),
+        celular: toRef(register1, "celular"),
+        tratamiento: toRef(register1, "tratamiento"),
+        promociones: toRef(register1, "promociones"),
+      });
+
+
+      const submitForm1 = () => {
+        v1$.value.$touch();
+
+        if (v1$.value.$invalid) return;
+        disabled.value = true;
+        document.getElementById("btnAction").classList.remove('active')
+
+        form1.value.submit();
+
+        setTimeout(() => {
+          register1.nombres = "";
+          register1.type_documento = '';
+          register1.documento = "";
+          register1.correo = "";
+          register1.celular = "";
+          register1.tratamiento = false;
+          register1.promociones = false;
+          disabled.value = false;
+        }, 3000)
+      };
+
+      return {
+        register1,
+        submitForm1,
+        isNumber,
+        form1,
+        v1$,
+        modal1,
+        modal2,
+        modal3,
+        disabled,
+        limit,
+        lgthTypeDocument
+      };
+    },
+  });
+
+  app.mount("#app");
+
+  const modals = document.querySelectorAll('.portlet[data-portlet=bannerform] > .section > .section__modals')
+
+  const closesSub = document.querySelectorAll('.portlet[data-portlet=bannerform] > .section > .section__modals > .section__modals__modal > .section__modals__modal-close')
+
+  const closesBtn = document.querySelectorAll('.portlet[data-portlet=bannerform] > .section > .section__modals > .section__modals__modal > .section__modals__modal-footer > .section__modals__modal-footer-close')
+
+  const btnsOpen = document.querySelectorAll('.portlet[data-portlet=bannerform] > .section > .section__align > .content > .formBC > .formBC__main > dl > dd > .formBC__main-checkbox >.formBC__main-checkbox-text > .ctopen');
+
+  btnsOpen.forEach(function (e, i) {
+    e.onclick = function () {
+      modals[i].classList.add('active');
+      console.log("CLICK")
+
+      window.onclick = function (event) {
+        if (event.target === modals[i]) {
+          modals.forEach(e => e.classList.remove('active'));
+        }
+      };
+    }
+  })
+  closesSub.forEach(function (e, _i) {
+    e.onclick = function () {
+      modals.forEach(e => e.classList.remove('active'));
+    }
+  })
+  closesBtn.forEach(function (e, _i) {
+    e.onclick = function () {
+      modals.forEach(e => e.classList.remove('active'));
+    }
+  })
+
+
+
+</script>
+
+[/Plugin:ifInRange]

@@ -1,0 +1,138 @@
+html {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  //font: 1em/1.25 Arial, Helvetica, sans-serif;
+}
+
+.layout {
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  ul,
+  li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  dl,
+  dd,
+  dt {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+
+  table,
+  td {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    border: 0 none;
+  }
+
+  a,
+  a:hover {
+    outline: medium none;
+    text-decoration: none;
+  }
+
+  br {
+    clear: both;
+  }
+
+  form,
+  fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
+    margin: 0;
+    padding: 0;
+  }
+
+  *,
+  *:after,
+  *:before {
+    @include caja-modelo(border-box);
+  }
+}
+
+
+
+/*body > .layout,  body > .u-menufix{
+  p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  ul, li {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+  dl, dd, dt {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+  }
+  table, td {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    border: 0 none;
+  }
+  a, a:hover {
+    outline: medium none;
+    text-decoration: none;
+  }
+  br {
+    clear: both;
+  }
+  form, fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+  }
+  footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+  }
+  
+  *,
+  *:after,
+  *:before {
+    @include caja-modelo(border-box);
+  }
+}*/

@@ -1,0 +1,41 @@
+.layout{
+	&__main{
+		
+	}
+	&__modal{
+		display: none;
+		.overlay {
+		  @include opacidad(bg, #000000, 0.7,claro);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: 20; 
+		}
+
+		.box {
+		  width: 100%;
+		  height: 100%;
+		  z-index: 20;
+		  display: table;
+
+  		&__inset {
+		    display: table-cell;
+		    vertical-align: middle;
+		    width: 100%;
+		    position: relative; 
+		    /*&--close{
+		    	position: absolute;
+		      top: -10;
+		      right: -10;
+		      z-index: 2;
+		      cursor: pointer;
+		    }*/
+  		}
+  	}
+  }
+  &__modal.active{
+		display: block;
+  }
+}

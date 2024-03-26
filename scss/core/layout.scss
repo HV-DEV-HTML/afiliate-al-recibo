@@ -1,0 +1,603 @@
+.grecaptcha-badge{
+	visibility: collapse !important;  
+}
+
+.d-none{
+	display: none;
+}
+
+@keyframes animationColor {
+	from {
+		background-color: rgba(0, 0, 0, 0);
+		-webkit-background-color: rgba(0, 0, 0, 0);  
+		-moz-background-color: rgba(0, 0, 0, 0);
+		-ms-background-color: rgba(0, 0, 0, 0);
+		-o-background-color: rgba(0, 0, 0, 0);
+	}
+	to {
+		background-color: rgba(0, 0, 0, 0.65);
+		-webkit-background-color: rgba(0, 0, 0, 0.65);  
+		-moz-background-color: rgba(0, 0, 0, 0.65);
+		-ms-background-color: rgba(0, 0, 0, 0.65);
+		-o-background-color: rgba(0, 0, 0, 0.65);
+	}
+}
+
+[v-cloak] > * { display:none; }
+
+.load_ing {
+	display: grid;
+	place-content: center;
+	z-index: 9999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	&.over_lay{
+		animation-name: animationColor;
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+	}
+
+	img{
+		width: 50px;
+		height: 50px;
+	}
+}
+#app:not([v-cloak]) ~ .load_ing {
+	display: none;
+}
+
+#app ~ #load_er.over_lay{
+	display: grid;
+}
+
+#app .v--modal-overlay { 
+	background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.layout{
+	&__main{
+		font: normal 400 em(16) $font1;
+		font-size: 16px;
+		
+		.home{
+			&__header{
+
+				.portlet1{
+					&__align{
+						width: 100%;
+						overflow: hidden;
+					}
+					.zone1{
+						padding-bottom: 60px;
+						&__header{
+							background-color: #ff0000;
+							position: relative;
+
+							.slick-dots {
+								position: absolute;
+								bottom: -35px;
+								@include to(movil) {
+									display: block;
+									bottom: -40px;
+								}
+							}
+
+							.slick-dots li {
+								width: 10px;
+								height: 10px;
+								margin: 0 7px;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button {
+								width: 10px;
+								height: 10px;
+								
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button:before {
+								width: 10px;
+								height: 10px;
+								// border: solid 1px #ee122c;
+								border: none;
+								background-color: #d8d8d8;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li.slick-active button:before {
+								color: #869791;
+								opacity: 1;
+								background: transparent;
+								background: #869791;
+							}
+							
+							.banner{
+								
+								&__image{
+									background-repeat: no-repeat;
+									background-position: center center;
+									//background-size: cover;
+
+									width: 100%;
+									height: 480px;
+
+									position: relative;
+									display: block;
+									margin: 0 auto;
+
+									&.banner1{
+										background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Desktop-1920x480-general.jpg");
+									}
+									&.banner2{
+										background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Desktop-1920x480-debito-automatico.jpg");
+									}
+									&.banner3{
+										background-image: url("#{$path}/banners/home/Banner_Landing_debito_Desktop_1920x480.jpg");
+									}
+
+									@include to(laptop) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Laptop-1366x365-general.jpg");
+										}
+										&.banner2{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Laptop-1366x365-debito-automatico.jpg");
+										}
+										&.banner3{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Laptop_1366x365.jpg");
+										}
+
+										height: 365px;
+									}
+
+									@include to(tablet-h) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Tablet-H-1024x342-general.jpg");
+										}
+										&.banner2{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Tablet-H-1024x342-debito-automatico.jpg");
+										}
+										&.banner3{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Tablet_H_1024x342.jpg");
+										}
+
+										height: 342px;
+									}
+
+									@include to(tablet) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Tablet-V-768x384-general.jpg");
+										}
+										&.banner2{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Tablet-V-768x384-debito-automatico.jpg");
+										}
+										&.banner3{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Tablet_V_768x384.jpg");
+										}
+
+										height: 384px;
+									}
+
+									@include to(movil-h) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Movil-H-570x190-general.jpg");
+										}
+										&.banner2{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Movil-H-570x190-debito-automatico.jpg");
+										}
+										&.banner3{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Movil_H_570x190.jpg");
+										}
+
+										height: 190px;
+									}
+
+									@include to(movil) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Movil-V-430x400-general.jpg");
+										}
+										&.banner2{
+											background-image: url("#{$path}/banners/home/Banner-Conoce-tu-recibo-Movil-V-430x400-debito-automatico.jpg");
+										}
+										&.banner3{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Movil_V_430x400.jpg");
+										}
+
+										height: 400px;
+									}
+
+
+									&__link{
+										max-width: 1200px;
+										margin: 0 auto;
+										height: 100%;
+										position: relative;
+
+										@include to(laptop) {
+											max-width: 1240px;
+										}
+
+										@include to(tablet-h) {
+											max-width: 980px;
+										}
+
+										@include to(tablet) {
+											max-width: 715px;
+										}
+
+										@include to(movil-h) {
+											max-width: 410px;
+										}
+
+										@include to(movil) {
+											max-width: 280px;
+										}
+
+										&.disable{
+											visibility: hidden;
+										}
+
+										a{
+											font: normal 400 em(18) $font1;
+											position: absolute;
+											bottom: 0;
+											left: 0;
+											margin-bottom: 100px;
+											display: inline-block;
+											vertical-align: top;
+											color: #fff;
+											background: #EE122C;
+											border-radius: 32px;
+											padding: 10px 40px;
+											cursor: pointer;
+
+											@include to(tablet) {
+												margin-bottom: 40px;
+											}
+
+											@include to(movil-h) {
+												margin-bottom: 10px;
+											}
+
+											@include to(movil) {
+												margin-bottom: 20px;
+											}
+										}
+									}
+								}
+								
+							}
+						}
+					}
+
+				}
+
+			}
+		}
+		.internal{
+			&__header{
+
+				.portlet1{
+					&__align{
+						width: 100%;
+						overflow: hidden;
+					}
+					.zone1{
+						//padding-bottom: 60px;
+						&__header{
+							//background-color: #ff0000;
+							position: relative;
+
+							.slick-dots {
+								position: absolute;
+								bottom: -35px;
+								@include to(movil) {
+									display: block;
+									bottom: -40px;
+								}
+							}
+
+							.slick-dots li {
+								width: 10px;
+								height: 10px;
+								margin: 0 7px;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button {
+								width: 10px;
+								height: 10px;
+								
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li button:before {
+								width: 10px;
+								height: 10px;
+								// border: solid 1px #ee122c;
+								border: none;
+								background-color: #d8d8d8;
+								@include to(movil) {
+									width: 10px;
+									height: 10px;
+								}
+							}
+
+							.slick-dots li.slick-active button:before {
+								color: #869791;
+								opacity: 1;
+								background: transparent;
+								background: #869791;
+							}
+							
+							.banner{
+								
+								&__image{
+									background-repeat: no-repeat;
+									background-position: center center;
+									//background-size: cover;
+									height: 480px;
+									width: 100%;
+									position: relative;
+									display: block;
+									margin: 0 auto;
+
+									/*&.banner1{
+										background-image: url("#{$path}/banners/home/Banner_Landing_debito_Desktop_1920x480.jpg");
+									}
+
+									@include to(laptop) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Laptop_1366x365.jpg");
+										}
+
+										height: 365px;
+									}
+
+									@include to(tablet-h) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Tablet_H_1024x342.jpg");
+										}
+
+										height: 342px;
+									}
+
+									@include to(tablet) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Tablet_V_768x384.jpg");
+										}
+
+										height: 384px;
+									}
+
+									@include to(movil-h) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Movil_H_570x190.jpg");
+										}
+
+										height: 190px;
+									}
+
+									@include to(movil) {
+
+										&.banner1{
+											background-image: url("#{$path}/banners/home/Banner_Landing_debito_Movil_V_430x400.jpg");
+										}
+
+										height: 400px;
+									}*/
+
+									&__link{
+										max-width: 1200px;
+										margin: 0 auto;
+										height: 100%;
+										position: relative;
+
+										&.disable{
+											visibility: hidden;
+										}
+
+										a{
+											font: normal 400 em(18) $font1;
+											position: absolute;
+											bottom: 0;
+											left: 0;
+											margin-bottom: 100px;
+											display: inline-block;
+											vertical-align: top;
+											color: #fff;
+											background: #EE122C;
+											border-radius: 32px;
+											padding: 10px 40px;
+											cursor: pointer;
+										}
+									}
+								}
+								
+							}
+						}
+					}
+
+				}
+
+				.portlet2{
+					&__align{
+						width: 100%;
+						max-width: 1238px;
+						margin: 0 auto;
+						@include to(tablet-h) {
+							padding: 0 20px;
+						}
+						@include to(movil) {
+							background-color: #f3f3f3;
+							box-shadow: 0 3px 7px rgb(0 0 0 / 15%);
+						}
+					}
+					.zone1{
+						padding: 30px 0;
+						@include to(movil) {
+							padding: 15px 0;
+						}
+						&__header{
+							section{
+								ul{
+									@include flexbox;
+									@include flex-wrap(wrap);
+									li{
+										font: normal 300 em(16) $font1;
+										color: #abaeaf;
+										margin-right: 8px;
+										a{
+											color: #3fc3e9;
+											&:hover{
+												color: #3fc3e9;
+											}
+										}
+									}
+								}
+							}
+						}
+						
+					}
+				}
+
+			}
+		}
+	}
+	&__modal{
+		
+		.v--modal{
+			background: transparent;
+			box-shadow: none;
+		}		
+
+		.v--modal-overlay{
+			background: rgba(0, 0, 0, 0.9);
+		}
+
+		.video{
+			padding: 50px;
+			@include to(tablet) {
+				padding: 40px;
+			}
+			@include to(movil) {
+				padding: 20px;
+			}
+			&__header{
+				position: relative;
+				button{
+					position: absolute;
+					top: 0px;
+					right: -50px;
+					width: 40px;
+					height: 40px;
+					background-color: #ffffff;
+					border: 0px;
+					font: normal 800 em(20) $font1;
+					color: #ef2539;
+					cursor: pointer;
+					@include transicion(all,0.2s,ease,0s);
+
+					@include to(tablet) {
+						right: -40px;
+						width: 30px;
+						height: 30px;
+						font: normal 800 em(16) $font1;
+					}
+
+					@include to(movil) {
+						top: -20px;
+						right: 0px;
+						width: 20px;
+						height: 20px;
+						font: normal 800 em(14) $font1;
+					}
+
+					&:hover{
+						background-color: #ef2539;
+						color: #ffffff;
+						@include transicion(all,0.2s,ease,0s);
+					}
+				}
+			}
+			
+		  &__iframe{
+		  	width: 100%;
+			  padding-top: 56.25%;
+			  position: relative;
+		  	iframe{
+					display: block;
+					position: absolute;
+				  top: 0;
+				  left: 0;
+				  width: 100%;
+				  height: 100%;
+				}	
+		  }
+		}
+
+
+		/*display: none;
+		.overlay {
+		  @include opacidad(bg, #000000, 0.7,claro);
+		  position: fixed;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 100%;
+		  z-index: 9999; 
+		}
+
+		.box {
+		  width: 100%;
+		  height: 100%;
+		  z-index: 20;
+		  display: table;
+
+  		&__inset {
+		    display: table-cell;
+		    vertical-align: middle;
+		    width: 100%;
+		    position: relative; 
+		   //&--close{
+		    //	position: absolute;
+		    //  top: -10;
+		    //  right: -10;
+		    //  z-index: 2;
+		    //  cursor: pointer;
+		    //}
+  		}
+  	}*/
+  }
+  &__modal.active{
+		display: block;
+  }
+}

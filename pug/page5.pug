@@ -1,0 +1,152 @@
+extends includes/master
+
+block vars
+	- var script = 1;
+	- var css = 0;
+	- var title = 'Conoce tu recibo';
+	- var modal = 0;
+
+block content
+	.page5.internal
+		.page5__header.internal__header
+			//-.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__banner
+							.banner
+								.banner__image(data-banner1="imagen1")
+									.banner__image__link.disable
+										a Ingresa aquí
+			.portlet2
+				.portlet2__align
+					.zone1
+						.zone1__header
+							section
+								ul
+									li 
+										a Inicio
+									li /
+									li Glosario de facturación
+									li /
+									li A
+		.page5__main
+			.portlet1
+				.portlet1__align
+					.zone1
+						.zone1__header
+							hgroup
+								h2 Glosario de facturación
+						.zone1__main
+							section
+								vue-slick(ref="slick1" :options="slickOptions.mode2" class="menu")
+									.menu__item.active 
+										p A
+									.menu__item 
+										p C
+									.menu__item 
+										p D
+									.menu__item 
+										p F
+									.menu__item 
+										p G
+									.menu__item 
+										p H
+									.menu__item 
+										p I
+									.menu__item 
+										p L
+									.menu__item 
+										p M
+									.menu__item 
+										p N
+									.menu__item 
+										p P
+									.menu__item 
+										p R
+									.menu__item 
+										p S
+									.menu__item 
+										p T
+									.menu__item 
+										p U
+									.menu__item 
+										p V
+									.menu__item 
+										p Z
+							
+						.zone1__footer
+							section
+								dl
+									dt 
+										h3 Ampliación de recarga
+									dd 
+										p Extensión en la fecha de término de la recarga de tu servicio prepago o televisión satelital.
+								dl
+									dt 
+										h3 APP
+									dd 
+										p Aplicación móvil
+								dl
+									dt 
+										h3 APN
+									dd 
+										p APN o Access Point Name es el punto de acceso para las redes 3G, 4G o 5G que debe configurarse en el celular para que puedas acceder a Internet
+								dl
+									dt 
+										h3 Ajuste en facturación
+									dd 
+										p Gestión para corregir el monto facturado en el recibo de servicio
+						
+block modal
+	.page1(v-if='modal.page0')
+		.page1__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__header
+				.title
+					h3 Gracias
+			.section1__main
+				.content
+					p Te avisaremos cuando esté disponible
+						//br
+						//br
+						//| #YoSoyClaroClub
+	.page2(v-if='modal.page0')
+		.page2__close(@click='closeModal()') Cerrar
+		section.section1
+			.section1__header
+				hgroup
+					h3 Tratamiento de Datos Personales
+					p Otorga su consentimiento a AMERICA MOVIL PERU S.A.C. con domicilio en Av. Nicolás Arriola N° 480, Santa Catalina, La Victoria, provincia y departamento de Lima (en adelante CLARO), para utilizar los datos personales que ha registrado, con la finalidad de recibir información sobre productos y/o servicios que ha solicitado mediante este formulario. Es oportuno mencionarle que sus datos personales serán registrados en nuestro Banco de Datos que ha sido declarado a la Autoridad Nacional de Protección de Datos Personales.
+					p Usted podrá revocar su consentimiento y/o ejercer los derechos ARCO (Acceso, Rectificación, Cancelación y Oposición); en los puntos de atención designados para tal efecto o a través del siguiente 
+						a(href="https://www.claro.com.pe/legal-y-regulatorio/derechos-arco/" target="_blank") enlace.
+					p CLARO garantiza por su parte, el respeto y observancia al ejercicio de dichos derechos. Para mayor información revisa nuestra 
+						a(href="https://www.claro.com.pe/personas/movil/proteccion_datos/" target="_blank") Política de Seguridad
+
+block css
+	style(type="text/css").
+			
+			/*.fade-enter-active, .fade-leave-active {
+				transition: opacity 0.25s ease-out;
+			}
+
+			.fade-enter, .fade-leave-to {
+				opacity: 0;
+			}
+
+			[v-cloak] > * { display:none; }
+			[v-cloak]::before { content: "loading..."; }*/
+
+block javascript
+	script(src="https://www.google.com/recaptcha/api.js?render=6Le-6poUAAAAAPbrsY79XwKMDjW9PkwVZAU36Fxz")
+	script(type='text/javascript' src=path+'js/library/vue2-transitions.min.js')
+	script(type='text/javascript' src=path+'js/library/toastr.js')
+	script(type='text/javascript' src=path+'js/library/lodash.js')
+	script(type='text/javascript' src=path+'js/library/vee-validate.js')
+	script(type='text/javascript' src=path+'js/library/vue-scrollto.js')
+	script(type="text/javascript" src=path+'js/library/slick.js' charset='utf-8')
+	script(type="text/javascript" src=path+'js/library/vue-slide-up-down.umd.js' charset="utf-8")
+	script(type="text/javascript" src=path+'js/library/vue-slick.js' charset='utf-8')
+	script(type='text/javascript' src=path+'js/library/vue-modal.js')
+	script(type='text/javascript' src=path+'js/datacontent.js')
+	script(type='text/javascript' src=path+'js/core.js')
+	script(type='text/javascript' src=path+'js/common.js')

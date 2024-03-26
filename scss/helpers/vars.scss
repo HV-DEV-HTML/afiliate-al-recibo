@@ -1,0 +1,61 @@
+/******************** variables ********************/
+
+/*$breakpoints: (
+  movil  		: 480px,
+  movil-h 	: 640px,
+  tablet 		: 769px,
+  tablet-h  : 1025px,
+  tablet-w  : 1344px,
+  laptop  	: 1367px
+);*/
+
+$breakpoints: (
+  movil  		: 481px,
+  movil-h 	: 641px,
+  tablet 		: 769px,
+  tablet-h  : 1025px,
+  tablet-w  : 1342px,
+  laptop  	: 1367px,
+  laptop-w 	: 1441px
+);
+
+// color
+
+$color_t1: #ffffff;
+$color_t2: #000000;
+$color_t3: #da272c;
+$color_t4: #868686;
+$color_t5: #50cce4;
+$color_t6: #212121;
+$color_t7: #232323;
+$color_t8: #e30613;
+$color_t9: #0097ae;
+
+$color_b1: #ffffff;
+$color_b2: #000000;
+$color_b3: #f6f6f6;
+$color_b4: #0097ae;
+$color_b5: #006d7d;
+$color_b6: #da272c;
+$color_b7: #3697af;
+$color_b8: #eeedee;
+$color_b9: #2197ae;
+$color_b10: #ff0000;
+$color_b11: #8c171b;
+$color_b12: #c5261c;
+$color_b13: #a0a0a0;
+$color_b14: #f9f8f9;
+
+
+//rutas
+
+/*$path: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets";
+$path-netflix: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets/banners/netflix";
+$path-fibraoptica: "https://static.claro.com.pe/landings/havas/2022/dco/v2/assets/banners/fibraoptica";*/
+
+$path: "../assets";
+//$path: "https://static.claro.com.pe/landings/havas/2023/portabilidad/v1/assets";
+$path-netflix: "https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home";
+$path-fibraoptica: "https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home";
+
+$pathfonts: "../fonts";
