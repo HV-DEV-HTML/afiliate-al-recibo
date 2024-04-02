@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Telavox">
     <script type="text/javascript" src="js/_library/jquery.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/common.css" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/common.css?v=0.0.2" charset="utf-8">
     <link rel="preconnect" href="https://fonts.gstatic.com">
   </head>
   <body>
@@ -51,20 +51,20 @@
               </picture>
               <div class="section__align"> 
                 <div class="content"> 
-                  <form class="formBC" action="https://claromarketingtool.pe/save-form/eyJpdiI6IitNS3FtQmFnZGtraGFwUGp0Umk5U3c9PSIsInZhbHVlIjoiYUpVazdwVUVSRHpSdlpzM2hNdm9VZz09IiwibWFjIjoiOGU5ZTBhZDQ0ZDk4YWNiZTA2ODAxYjEzNTg3YmFkYjRiMDA0ZGVkODMyZWM2YzcxNGQ1NmE5MjBiMjI2ZjQzMCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1"> 
+                  <form class="formBC" action="https://claromarketingtool.pe/save-form/eyJpdiI6Imh1VklXcWVYWmRBR0J1bEtVMTRyY0E9PSIsInZhbHVlIjoiVHJheUJRZjRiQ2VqdHBNeDlQd0M2UT09IiwibWFjIjoiZDBkOGRkMGFkMWRkMjYzODIyZDIwZjJjMDJkNDk1M2FjYjMxYTI0Y2JhMTYyODUwNTE2MzkyODIxNjg0Y2M5NyIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1"> 
                     <hgroup class="formBC__group"> 
-                      <h1 class="formBC__group-title">Afíliate al recibo digital</h1>
+                      <h1 class="formBC__group-title">¡Paga a tiempo tu recibo y gana!</h1>
                       <p class="formBC__group-text">
-                         Es gratuito y reduce el consumo de papel.</p>
+                         Hazlo antes de la fecha de vencimiento, regístrate aquí y participa del sorteo.</p><br/>
                       <p class="formBC__group-text">
-                         Completa tus datos ahora:</p>
+                         Sorteo: 12 de abril 2024</p>
                     </hgroup>
                     <div class="formBC__main"> 
-                      <input type="hidden" name="form_id" value="167"/>
-                      <input type="hidden" name="form_name" value="Recibo digital por correo"/>
+                      <input type="hidden" name="form_id" value="216"/>
+                      <input type="hidden" name="form_name" value="Sorteo Pronto Pago - 2"/>
                       <dl class="type1"> 
                         <dd> 
-                          <input class="formBC__main-input" type="text" name="nombre_y_apellido" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }"/>
+                          <input class="formBC__main-input" type="text" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }"/>
                         </dd>
                       </dl>
                       <dl class="type2"> 
@@ -80,17 +80,17 @@
                       </dl>
                       <dl class="type3"> 
                         <dd> 
-                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress="isNumber($event)" :maxlength="lgthTypeDocument"/>
+                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress=" (v1$.type_documento.$model == 'CE' || v1$.type_documento.$model == 'Pasaporte') ? isAlphanumeric($event) : isNumber($event)" :maxlength="lgthTypeDocument"/>
                         </dd>
                       </dl>
                       <dl class="type1"> 
                         <dd> 
-                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)"/>
+                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.number="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)"/>
                         </dd>
                       </dl>
-                      <dl class="type1"> 
+                      <dl class="type1">
                         <dd> 
-                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico"/>
+                          <input class="formBC__main-input formBC__main-input--email" type="text" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico"/>
                         </dd>
                       </dl>
                       <dl class="type4"> 
@@ -127,7 +127,8 @@
     <script type="text/javascript" src="js/portal/vue3.js"> </script>
     <script type="text/javascript" src="js/portal/vue3-demi.js"> </script>
     <script type="text/javascript" src="js/portal/vuelidate3-core.js"> </script>
-    <script type="text/javascript" src="js/portal/vuelidate3-validators.js"> </script>
-    <script type="module" src="js/main.js" async="async"></script>
+    <script type="text/javascript" src="js/portal/vuelidate3-validators.js"></script>
+    <script type="text/javascript" src="js/plugins/auto-suggest-email.min.js"></script>
+    <script type="module" src="js/main.js?v=0.0.2" async="async"></script>
   </body>
 </html>

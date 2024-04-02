@@ -6,21 +6,38 @@ const {
   computed,
   onMounted
 } = Vue;
-const { required, minLength, maxLength, numeric } =
+const { required, minLength, maxLength, numeric, alphaNum } =
   VuelidateValidators;
 const { useVuelidate } = Vuelidate;
 
 
 
 const isNumber = (evt) => {
-  evt = (evt) ? evt : window.event;
-  var charCode = (evt.which) ? evt.which : evt.keyCode;
-  if ((charCode > 31 && (charCode < 48 || charCode > 57)) && charCode !== 46) {
-    evt.preventDefault();
-  } else {
+  evt = evt || window.event;
+  const charCode = evt.which || evt.keyCode;
+
+  // Permitir teclas de control como Enter, retroceso y eliminar
+  if (charCode === 13 || charCode === 8 || charCode === 46) {
     return true;
   }
+
+  // Asegurar que el carácter sea un dígito del 0 al 9
+  if (charCode < 48 || charCode > 57) {
+    evt.preventDefault();
+    return false;
+  }
+
+  return true;
+};
+
+const isAlphanumeric = (inputString) => {
+  let validPattern = /^[a-zA-Z0-9]+$/;
+  if (validPattern.test(inputString)) {
+    return true;
+  }
+  return false;
 }
+
 const validName = (name) => {
   let validNamePattern = new RegExp("^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+(?:[-'\\s][a-zA-ZñÑáéíóúÁÉÍÓÚ]+)*$");
   if (validNamePattern.test(name)) {
@@ -148,17 +165,17 @@ const app = createApp({
       },
       documento: {
         required,
-        numeric,
+        alphaNum,
         name_validation: {
           $validator: validateDocument
         }
       },
       celular: {
         required,
-        numeric,
-        name_validation: {
-          $validator: validPhone,
-        },
+        // numeric,
+        // name_validation: {
+        //   $validator: validPhone,
+        // },
         min: minLength(9),
       },
       correo: {
@@ -231,6 +248,7 @@ const app = createApp({
       register1,
       submitForm1,
       isNumber,
+      isAlphanumeric,
       form1,
       v1$,
       modal1,
@@ -243,7 +261,7 @@ const app = createApp({
   },
 });
 
-app.mount("#app");
+const vm = app.mount("#app");
 
 const modals = document.querySelectorAll('.portlet[data-portlet=bannerform] > .section > .section__modals')
 
@@ -277,3 +295,37 @@ closesBtn.forEach(function (e, _i) {
 })
 
 
+const inputField = document.querySelector('.formBC__main-input--email');
+
+const ase = new autoSuggestEmail(inputField, {
+  // domains:  ["gmail.com", "hotmail.com", "yahoo.com", "outlook.com"],
+  priority: ["gmail.com", "hotmail.com","outlook.com",  "yahoo.com"]
+});
+
+
+// Obtén una referencia al contenedor ul
+const ulContainer = document.getElementById('asm-autolist');
+if (ulContainer) {
+  // Agrega un evento click al contenedor ul
+  ulContainer.addEventListener('click', function(event) {
+    if (event.target.tagName == 'LI') {
+      const textLI = event.target.innerText
+      vm.register1.correo = textLI;
+    } else if (event.target.tagName == 'STRONG') {
+      const textSTRONG = event.target.parentElement.innerText
+      vm.register1.correo = textSTRONG
+    }
+  });
+  document.querySelector(".formBC").addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' || event.keyCode === 13) {
+      setTimeout(() => {
+        const valueEmail = document.querySelector('.formBC__main-input--email').value
+        vm.register1.correo = valueEmail
+      }, 150);
+    }
+  });
+}
+
+// setTimeout(() => {
+//   vm.register1.correo = "q1DkG@example.com";
+// }, 2000);

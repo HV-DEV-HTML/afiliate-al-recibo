@@ -40,27 +40,27 @@ block content
 							button.section__modals__modal-footer-close Entendido
 
 				picture.section__banner 
-					source(media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-mobile.jpg")
-					source(media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-desktop.jpg")
-					img(src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-prontopago-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy")
+					source(media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-mobile.jpg")
+					source(media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg")
+					img(src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy")
 
 				.section__align 
 					.content 
-						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6Imh1VklXcWVYWmRBR0J1bEtVMTRyY0E9PSIsInZhbHVlIjoiVHJheUJRZjRiQ2VqdHBNeDlQd0M2UT09IiwibWFjIjoiZDBkOGRkMGFkMWRkMjYzODIyZDIwZjJjMDJkNDk1M2FjYjMxYTI0Y2JhMTYyODUwNTE2MzkyODIxNjg0Y2M5NyIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
+						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6ImxkRVFscVBpbk5MZlZ5Wjk2bVRJV2c9PSIsInZhbHVlIjoiMjh0ZWN0L1RhK2cwQlBtN2gwK2M0Zz09IiwibWFjIjoiYTgyNWU2ZjU0ZDg5Njg5NWNiNzg3MTkwZDRiNmUxNzg5NTc5NDQxMjhiOGMyMDU2ZTg4NzgwMjVkN2Y3MzBmZCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
 							hgroup.formBC__group 
-								h1.formBC__group-title ¡Paga a tiempo tu recibo y gana!
+								h1.formBC__group-title ¿No pudiste pagar tu recibo?
 								p.formBC__group-text 
-									| Hazlo antes de la fecha de vencimiento, regístrate aquí y participa del sorteo.
+									| Paga tus recibos pendientes hasta el 31 de marzo del 2024, regístrate aquí y participa del sorteo.
 								br
 								p.formBC__group-text 
-									| Sorteo: 12 de abril 2024
+									| Sorteo: 12 de abril del 2024
 									//- br
 									//- br
 									//- p.formBC__group-text 
 									//- 	| Sorteo: 13/02/2024
 							.formBC__main 
-								input(type="hidden" name="form_id" value="216")
-								input(type="hidden" name="form_name" value="Sorteo Pronto Pago - 2")
+								input(type="hidden" name="form_id" value="215")
+								input(type="hidden" name="form_name" value="Sorteo Recibo Vencido - 2")
 								dl.type1  
 									dd 
 										input(type="text" class="formBC__main-input" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }")
@@ -77,7 +77,7 @@ block content
 										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress=" (v1$.type_documento.$model == 'CE' || v1$.type_documento.$model == 'Pasaporte') ? isAlphanumeric($event) : isNumber($event)" :maxlength="lgthTypeDocument")
 								dl.type1 
 									dd 
-										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.number="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)") 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)") 
 								dl.type1
 									dd 
 										input(type="text" class="formBC__main-input formBC__main-input--email" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico") 
