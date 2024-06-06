@@ -1,29 +1,3 @@
-//@use "sass:selector";
-
-/*
-
-.carousel__item {
-  min-height: 200px;
-  width: 100%;
-  background-color: #642afb;
-  color: white;
-  font-size: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.carousel__slide {
-  padding: 10px;
-}
-
-.carousel__prev,
-.carousel__next {
-  background-color: #fff7;
-}*/
-
-
 @keyframes animationColor {
 	from {
 		background-color: rgba(0, 0, 0, 0);
@@ -86,13 +60,13 @@
 .portlet[data-portlet=bannerform] {
 	// @include reset();
 	width: 100%;
-	height: 600px;
+	height: auto;
 	overflow: hidden;
 	@include to(tablet-h) {
-		height: 800px;
+		height: auto;
 	}
 	@include to(movil-h) {
-		height: 740px;
+		height: auto;
 	}
 	.section {
 		width: 100%;
@@ -135,7 +109,7 @@
 
 			&__modal {
 				width: 92%;
-				max-width: 800px;
+				max-width: 500px;
 				margin: 3% auto 0;
 				padding: 0;
 				border: none;
@@ -176,7 +150,9 @@
 						font: normal 700 24px $font2;
 						line-height: normal;
 						color: #000;
-
+						strong{
+							color: red;
+						}
 						@include to(movil-h) {
 							font-size: 18px;
 						}
@@ -184,9 +160,8 @@
 				}
 
 				&-main {
-
 					padding: 0 40px 0px;
-
+					width: 100%;
 					@include to(movil-h) {
 						max-height: 300px;
 						overflow: hidden;
@@ -208,21 +183,26 @@
 							font-weight: 700;
 						}
 					}
+					&-image{
+						text-align: center;
+						svg{
+							max-width: 100%;
+						}
+					}
 				}
 
 				&-footer {
 					padding: 0 0 40px;
-
 					width: 100%;
-
+					text-align: center;
 					@include to(movil-h) {
 						padding-bottom: 20px;
 					}
 
 					&-close {
-						float: right;
+						float: none;
 						width: 130px;
-						margin-right: 40px;
+						margin-right: 0;
 						cursor: pointer;
 						font: normal 700 16px $font1;
 						line-height: 45px;
@@ -230,7 +210,6 @@
 						background-color: #da291c;
 						border: none;
 						border-radius: 32px;
-
 						@include to(movil-h) {
 							width: calc(100% - 80px);
 						}
@@ -241,30 +220,29 @@
 
 		&__align {
 			top: 0;
-			position: absolute;
+			position: relative;
 			width: 100%;
-			height: 100%;
+			height: auto;
 			margin: 0 auto;
 			left: 0;
 			right: 0;
-			max-width: 1400px;
+			max-width: 1440px;
 			display: flex;
 			align-items: center;
-			justify-content: flex-end;
+			justify-content: center;
 
 			@include to(1600px) {
-				max-width: 1280px;
-				width: 90%;
+				width: 100%;
 			}
 			@include to(tablet-h) {
 				max-width: 100%;
 				width: 100%;
-				align-items: flex-end;
 				padding-bottom: 4%;
 			}
 
 			.content {
-				width: 544px;
+				width: 100%;
+				max-width: 934px;
 				height: fit-content;
 				border-radius: 20px;
 				background: #FFF;
@@ -278,14 +256,12 @@
 				}
 				@include to(movil-h) {
 					max-width: 326px;
-					padding: 15px 0;
+					padding: 18px 0;
 					margin: 0 auto 15px;
 					// padding: 15px;
 				}
 
 				.formBC {
-
-					// padding: 30px 47px;
 					margin: 0 auto;
 					width: calc(100% - 94px);
 					gap: 20px;
@@ -302,13 +278,25 @@
 
 					@include to(movil-h) {
 						gap: 10px;
-						width: calc(100% - 40px);
+						width: calc(100% - 0px);
 					}
 
 					&__group {
 						text-align: left;
 						width: 100%;
-
+						&-image{
+							margin-bottom: 20px;
+							display: block;
+							max-width: 218px;
+							height: auto;
+							@include to(tablet-h){
+								max-width: 166px;
+							}
+							@include to(movil-h){
+								max-width: 115px;
+								margin-bottom: 20px;
+							}
+						}
 						&-title {
 							font: normal 700 30px $font2;
 							line-height: 113%;
@@ -316,7 +304,6 @@
 							margin-bottom: 15px;
 
 							@include to(tablet-h) {
-								text-align: center;
 								font-size: 22px;
 								margin-bottom: 13px;
 							}
@@ -327,13 +314,21 @@
 						}
 
 						&-text {
-							font: normal 400 16px $font1;
+							font: normal 400 20px $font1;
 							line-height: 113%;
 							color: #000;
 
 							@include to(tablet-h) {
-								text-align: center;
-								font-size: 14px;
+								font-size: 16px;
+							}
+						}
+						&-subtitle {
+							font: normal 700 20px $font1;
+							line-height: 113%;
+							color: #000;
+							padding: 14px 0;
+							@include to(tablet-h) {
+								font-size: 16px;
 							}
 						}
 					}
@@ -344,23 +339,26 @@
 						justify-content: space-between;
 						// align-items: ce;
 						flex-wrap: wrap;
-
+						padding-top: 30px;
+						@include to(tablet-h) {
+							padding-top: 14px;
+						}
 						.type1 {
 							width: 100%;
 							position: relative;
 						}
 
 						.type2 {
-							width: 40%;
-
+							width: 49%;
+							position: relative;
 							@include to(tablet-h) {
 								width: 100%;
 							}
 						}
 
 						.type3 {
-							width: 58%;
-
+							width: 49%;
+							position: relative;
 							@include to(tablet-h) {
 								width: 100%;
 							}
@@ -368,14 +366,16 @@
 
 						.type4 {
 							width: 100%;
-
+						}
+						.type5 {
+							width: 49%;
+							display: grid;
+							grid-template-columns: 0.5fr 0.5fr 1.5fr;
+							gap: 10px;
 						}
 
 						dl {
-
-
 							dd {
-
 								input[type="text"],
 								select {
 									width: 100%;
@@ -388,7 +388,9 @@
 									&:focus {
 										outline: none;
 									}
-
+									&[disabled]{
+										opacity: 0.4;
+									}
 
 									&.invalid:-webkit-autofill,
 									&.invalid:-webkit-autofill:hover,
@@ -456,6 +458,15 @@
 							}
 							@include to(movil-h) {
 								margin-bottom: 8px;
+							}
+							&.inputBBVA{
+								&:disabled{
+									background-color: #F5F5F5;
+									opacity: 1 !important;
+									color: #202124;
+									text-align: center;
+									padding-left: 0;
+								}
 							}
 						}
 
@@ -554,7 +565,7 @@
 									font-size: 13px;
 								}
 
-								em {
+								em, a {
 									color: #0fbfdf;
 									text-decoration: underline;
 									font-weight: 700;
@@ -573,12 +584,12 @@
 							cursor: not-allowed;
 							border: none;
 							border-radius: 25px;
-							background-color: #cecbcb;
-							color: #E4E4E4;
+							background-color: #F4F6F9;
+							color: #979797;
 							width: 197px;
 							height: 50px;
-
-							color: #FFF;
+							margin: 0 auto;
+							display: block;
 							text-align: center;
 							font: normal 700 15px $font1;
 							line-height: normal;
@@ -614,10 +625,11 @@
 	position: absolute;
 	padding: 6px 10px;
 	width: 100%;
-	top: 82%;
+	top: 78%;
 	left: 0;
 	margin-top: 0;
 	box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.05);
+	z-index: 2;
 	li {
 		list-style: none;
 		padding: 10px 12px;

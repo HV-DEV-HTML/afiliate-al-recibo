@@ -98,13 +98,18 @@
 }*/
 @import url(https://fonts.googleapis.com/css?family=Anton|Bevan|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap);
 @font-face {
-  font-family: "AMX-Bold";
-  src: url("../fonts/AMX-Bold.eot?") format("eot"), url("../fonts/AMX-Bold.woff2") format("woff2"), url("../fonts/AMX-Bold.woff") format("woff"), url("../fonts/AMX-Bold.ttf") format("truetype"), url("../fonts/AMX-Bold.svg#AMX-Bold") format("svg");
+  font-family: "AMX-Regular";
+  src: url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular.eot?") format("eot"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular.woff2") format("woff2"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular.woff") format("woff"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular.ttf") format("truetype"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular.svg#AMX-Regular") format("svg");
   font-display: swap;
 }
 @font-face {
-  font-family: "AMX-Regular";
-  src: url("../fonts/AMX-Regular.eot?") format("eot"), url("../fonts/AMX-Regular.woff2") format("woff2"), url("../fonts/AMX-Regular.woff") format("woff"), url("../fonts/AMX-Regular.ttf") format("truetype"), url("../fonts/AMX-Regular.svg#AMX-Regular") format("svg");
+  font-family: "AMX-Medium";
+  src: url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium.eot?") format("eot"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium.woff2") format("woff2"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium.woff") format("woff"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium.ttf") format("truetype"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium.svg#AMX-Medium") format("svg");
+  font-display: swap;
+}
+@font-face {
+  font-family: "AMX-Bold";
+  src: url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold.eot?") format("eot"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold.woff2") format("woff2"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold.woff") format("woff"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold.ttf") format("truetype"), url("https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold.svg#AMX-Bold") format("svg");
   font-display: swap;
 }
 /******************** variables ********************/

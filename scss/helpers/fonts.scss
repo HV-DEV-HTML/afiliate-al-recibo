@@ -45,9 +45,9 @@
 
 @import url(https://fonts.googleapis.com/css?family=Anton|Bevan|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap);
 
-@include font-face('AMX-Bold', '../fonts/AMX-Bold');
-@include font-face('AMX-Regular', '../fonts/AMX-Regular');
-//@include font-face('AMX-Medium', '../fonts/AMX-Medium');
+@include font-face('AMX-Regular', 'https://www.claro.com.pe/assets/havas/general/fonts/AMX-Regular');
+@include font-face('AMX-Medium', 'https://www.claro.com.pe/assets/havas/general/fonts/AMX-Medium');
+@include font-face('AMX-Bold', 'https://www.claro.com.pe/assets/havas/general/fonts/AMX-Bold');
 
 
 

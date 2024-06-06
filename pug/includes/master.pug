@@ -4,7 +4,8 @@ include mixin
 //- var path = "https://www.claro.com.pe/portal/pe-2020/recursos_contenido/claro-home/"; 
 - var path = "";
 
-//- let pathImage = './public/images/';
+//- - var pathImage = './assets/';
+- var pathImage = 'https://www.claro.com.pe/assets/havas/actualiza-tu-correo/';
 //- let pathCSS = './public/css/';
 //- let pathCSSComponent = './components/';
 //- let pathJSComponent = './components/';
@@ -31,7 +32,7 @@ html(lang='es')
 		//-link(rel='stylesheet' type='text/css' href=path+'css/common.css' charset="utf-8")
 
 		//-link(rel="preload" href=path+"css/common.css" as="style" onload="this.onload=null;this.rel='stylesheet'")
-		link(rel='stylesheet' type='text/css' href=path+'css/common.css?v=0.0.2' charset="utf-8")
+		link(rel='stylesheet' type='text/css' href=path+'css/common.css' charset="utf-8")
 
 		link(rel="preconnect" href="https://fonts.gstatic.com")
 		//-noscript
@@ -75,15 +76,10 @@ html(lang='es')
 			}
 
 		//- script(type='text/javascript' src='https://unpkg.com/vue@3/dist/vue.global.js') 
-		script(type='text/javascript' src=path+"js/portal/vue3.js") 
-		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js') 
-		//- script(type='text/javascript' src=path+"js/portal/vue3-sfc-loader.js") 		
-		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/vue-demi') 
-		script(type='text/javascript' src=path+"js/portal/vue3-demi.js") 
-		//- script(type='text/javascript' src='https://cdn.jsdelivr.net/npm/@vuelidate/core') 
-		script(type='text/javascript' src=path+"js/portal/vuelidate3-core.js") 
-		//- script(type='text/javascript' src="https://cdn.jsdelivr.net/npm/@vuelidate/validators") 
-		script(type='text/javascript' src=path+"js/portal/vuelidate3-validators.js")
+		script(type='text/javascript' src="https://www.claro.com.pe/portal/pe/recursos_tema/genericos/vue3.js") 
+		script(type='text/javascript' src="https://www.claro.com.pe/portal/pe/recursos_tema/genericos/vue3-demi.js") 
+		script(type='text/javascript' src="https://www.claro.com.pe/portal/pe/recursos_tema/genericos/vuelidate3-core.js") 
+		script(type='text/javascript' src="https://www.claro.com.pe/portal/pe/recursos_tema/genericos/vuelidate3-validators.js")
 		script(type='text/javascript' src=path+"js/plugins/auto-suggest-email.min.js")
 		
 			
