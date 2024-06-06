@@ -391,25 +391,29 @@ const app = createApp({
       const inputCuenta = document.querySelector(".formBC__main-input[name='numero_de_cuenta_bancaria']")
       inputCuenta.value = '0011' + register1.cuenta_bancaria_code + register1.cuenta_bancaria
       document.getElementById("btnAction").classList.remove('active')
-
-      form1.value.submit();
-
-      setTimeout(() => {
-        register1.nombres = "";
-        register1.type_documento = '';
-        register1.type_service = '';
-        register1.documento = "";
-        register1.servicio = "";
-        register1.correo = "";
-        register1.celular = "";
-        register1.cuenta_bancaria_code = "";
-        register1.cuenta_bancaria = "";
-        register1.tratamiento = false;
-        register1.promociones = false;
-        disabled.value = false;
-        v1$.value.$reset();
-        document.querySelector(".formBC__main-input[name='monto_maximo']").value = "";
-      }, 1000)
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6Ld1_2caAAAAABG4EakA3PwvnyGjP2OLAn20_F9g', { action: 'homepage' }).then(function (token) {
+        $('#token-HV').val(token);
+        console.log(token, "TOKEN");
+        form1.value.submit();
+        setTimeout(() => {
+          register1.nombres = "";
+          register1.type_documento = '';
+          register1.type_service = '';
+          register1.documento = "";
+          register1.servicio = "";
+          register1.correo = "";
+          register1.celular = "";
+          register1.cuenta_bancaria_code = "";
+          register1.cuenta_bancaria = "";
+          register1.tratamiento = false;
+          register1.promociones = false;
+          disabled.value = false;
+          v1$.value.$reset();
+          document.querySelector(".formBC__main-input[name='monto_maximo']").value = "";
+        }, 1000)
+      });
+    });
     };
 
     return {
