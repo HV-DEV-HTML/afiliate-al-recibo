@@ -228,8 +228,10 @@ const openModalBBVA = (event) => {
   if (!modalBBVA.classList.contains("opened")) {
     modalBBVA.classList.add("opened")
     modalBBVA.classList.add("active")
+    document.querySelector("#inputHidden_modal").focus()
   }
 }
+
 
 const modal1 = ref(false);
 const modal2 = ref(false);
@@ -258,6 +260,7 @@ const app = createApp({
       register1.cuenta_bancaria = "";
       register1.tratamiento = false;
       register1.promociones = false;
+      register1.monto = "";
       disabled.value = false;
     })
 
@@ -271,6 +274,7 @@ const app = createApp({
       celular: "",
       cuenta_bancaria_code: "",
       cuenta_bancaria: "",
+      monto: false,
       tratamiento: false,
       promociones: false,
     });
@@ -324,7 +328,10 @@ const app = createApp({
         cuenta_bancaria: {
           required,
           numeric,
-          min: minLength(9),
+          min: minLength(10),
+        },
+        monto: {
+          numeric,
         },
         correo: {
           required,
@@ -378,6 +385,7 @@ const app = createApp({
       celular: toRef(register1, "celular"),
       cuenta_bancaria_code: toRef(register1, "cuenta_bancaria_code"),
       cuenta_bancaria: toRef(register1, "cuenta_bancaria"),
+      monto: toRef(register1, "monto"),
       tratamiento: toRef(register1, "tratamiento"),
       promociones: toRef(register1, "promociones"),
     });
@@ -406,12 +414,13 @@ const app = createApp({
           register1.celular = "";
           register1.cuenta_bancaria_code = "";
           register1.cuenta_bancaria = "";
+          register1.monto = "";
           register1.tratamiento = false;
           register1.promociones = false;
           disabled.value = false;
           v1$.value.$reset();
           document.querySelector(".formBC__main-input[name='monto_maximo']").value = "";
-        }, 1000)
+        }, 1500)
       });
     });
     };
@@ -507,4 +516,85 @@ if (ulContainer) {
       }, 150);
     }
   });
+}
+
+document.querySelector("#origen-HV").value  = window.location.origin + window.location.pathname
+
+/**
+ * Habilita el modal de error si el parámetro de consulta especificado está presente en la URL.
+ *
+ * @param {HTMLElement} elParent - El elemento padre para insertar el modal.
+ * @param {string} nameParam - El nombre del parámetro de consulta a verificar.
+ * @param {object} data - Los datos del modal.
+ * @return {void}
+ */
+const templateModalError = (data) => {
+  return `
+    <div class="section__modals" id="modalError"> 
+      <div class="section__modals__modal" style="max-width: 660px;">
+        <div class="section__modals__modal-close"></div>
+        <div class="section__modals__modal-main-image" style="width:100%;padding-top:40px"><img style="display:inline-block" src="${data.image}" alt="${data.title}" width="206" height="180"/></div>
+        <hgroup class="section__modals__modal-group" style="padding-top:20px">
+          <h4 class="section__modals__modal-group-title" style="color:#DA291C;margin-top:0px;text-align:center">${data.title}</h4>
+        </hgroup>
+        <div class="section__modals__modal-main"> 
+          <p class="section__modals__modal-main-text" style="text-align:center">${data.description}</p>
+        </div>
+        <div class="section__modals__modal-footer"> 
+          <button class="section__modals__modal-footer-close" style="width:180px">${data.callToAction}</button>
+        </div>
+      </div>
+    </div>
+  `
+}
+const enabelModalError = (elParent, nameParam, data) => {
+  const searchParams = new URLSearchParams(window.location.search)
+  let dataByParams = "";
+  if(searchParams.get(nameParam) == null) return;
+  const params = JSON.parse(searchParams.get(nameParam))
+  dataByParams = params
+  // console.log(params);
+  //show modal
+  const templateModal = templateModalError(data)
+  elParent.insertAdjacentHTML("afterbegin", templateModal)
+  const modalError = document.querySelector('#modalError')
+  const btnClose = modalError.querySelector('.section__modals__modal-close')
+  const btnAction = modalError.querySelector('.section__modals__modal-footer-close')
+  modalError.classList.add("active")
+  btnClose.addEventListener('click', () => {
+    modalError.classList.remove("active")
+  })
+  btnAction.addEventListener('click', () => {
+    modalError.classList.remove("active")
+  })
+  return dataByParams
+}
+//Autocompletamos los campos segun los parametros (los campos dependerán del formulario)
+const autoCompleteValues = (params) => {
+  vm.register1.nombres = params.nombre_y_apellidos
+  vm.register1.type_documento = params.tipo_de_documento
+  vm.register1.type_service = params.tipo_de_servicio
+  vm.register1.documento = params.numero_de_documento
+  vm.register1.servicio = params.numero_de_servicio
+  vm.register1.correo = params.correo_electronico
+  vm.register1.cuenta_bancaria_code = params.numero_de_cuenta_bancaria_code
+  vm.register1.cuenta_bancaria = params.numero_de_cuenta_bancaria_final
+  vm.register1.monto = params.monto_maximo
+  vm.register1.tratamiento = (params.acepto_terminos_y_condiciones == "Sí") ? true : false;
+}
+
+const dataModal = {
+  title: "¡Vaya! Algo salió mal",
+  description: "Por favor, intenta enviar nuevamente el formulario en unos minutos.",
+  callToAction: "Volver a la página",
+  image: "https://www.claro.com.pe/assets/havas/general/error_alert.png"
+}
+//declaramos el ID donde ser insertará el modal de error Recaptcha
+const doomModalError = document.querySelector('.portlet[data-portlet=bannerform] .section')
+// habilitamos el modal y retornamos los datos para autocompletar
+const dataParams = enabelModalError(doomModalError, "parameters", dataModal);
+if (typeof dataParams == "object") {
+  //autocompletamos los campos
+  console.log(dataParams)
+  autoCompleteValues(dataParams)
 }

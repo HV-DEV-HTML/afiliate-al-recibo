@@ -151,7 +151,7 @@
 						line-height: normal;
 						color: #000;
 						strong{
-							color: red;
+							color: #DA291C;
 						}
 						@include to(movil-h) {
 							font-size: 18px;
@@ -372,6 +372,10 @@
 							display: grid;
 							grid-template-columns: 0.5fr 0.5fr 1.5fr;
 							gap: 10px;
+							@include to(tablet-h) {
+								width: 100%;
+								grid-template-columns: 0.5fr 0.65fr 1.3fr;
+							}
 						}
 
 						dl {
@@ -460,6 +464,14 @@
 								margin-bottom: 8px;
 							}
 							&.inputBBVA{
+								// text-align: center;
+								// padding-left: 2px !important;
+								// &.minInput{
+								// 	&.valid, &.invalid{
+								// 		text-align: left;
+								// 		padding-left: 10px !important;
+								// 	}
+								// }
 								&:disabled{
 									background-color: #F5F5F5;
 									opacity: 1 !important;

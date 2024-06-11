@@ -3507,7 +3507,7 @@ body {
   color: #000;
 }
 .portlet[data-portlet=bannerform] .section__modals__modal-group-title strong {
-  color: red;
+  color: #DA291C;
 }
 @media screen and (max-width: 640px) {
   .portlet[data-portlet=bannerform] .section__modals__modal-group-title {
@@ -3772,6 +3772,13 @@ body {
   -ms-grid-columns: 0.5fr 10px 0.5fr 10px 1.5fr;
   grid-template-columns: 0.5fr 0.5fr 1.5fr;
   gap: 10px;
+}
+@media screen and (max-width: 1024px) {
+  .portlet[data-portlet=bannerform] .section__align .content .formBC__main .type5 {
+    width: 100%;
+    -ms-grid-columns: 0.5fr 0.65fr 1.3fr;
+    grid-template-columns: 0.5fr 0.65fr 1.3fr;
+  }
 }
 .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd input[type=text],
 .portlet[data-portlet=bannerform] .section__align .content .formBC__main dl dd select {
