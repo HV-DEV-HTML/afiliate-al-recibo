@@ -39,14 +39,14 @@ block content
 						.section__modals__modal-footer 
 							button.section__modals__modal-footer-close Entendido
 
-				picture.section__banner 
-					source(media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-mobile.jpg")
-					source(media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg")
-					img(src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy")
+				picture.section__banner
+					source(media='(min-width: 1200px)' srcset='https://www.claro.com.pe/portal/pe/recursos_contenido/banner-sorteo-labicolor.jpg')
+					source(media='(min-width: 992px)' srcset='https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-tablet.jpg')
+					img(src='https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-mobile.jpg' alt='Banner Form Claro' width='0' height='0' loading='lazy')
 
 				.section__align 
 					.content 
-						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6ImxkRVFscVBpbk5MZlZ5Wjk2bVRJV2c9PSIsInZhbHVlIjoiMjh0ZWN0L1RhK2cwQlBtN2gwK2M0Zz09IiwibWFjIjoiYTgyNWU2ZjU0ZDg5Njg5NWNiNzg3MTkwZDRiNmUxNzg5NTc5NDQxMjhiOGMyMDU2ZTg4NzgwMjVkN2Y3MzBmZCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
+						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6IlFtUjN1STRveUxCTjJSaU9SRGpqUUE9PSIsInZhbHVlIjoic1dUcE1GOVlrMWdXVlR0SkNidU5rdz09IiwibWFjIjoiODU5NzYyYTYzYWM2YTRlNDZmZjNiMmYyNmFjODM2ZDFlM2IzNDNjYjc3YWRlNmUyZTEyMzBlNjFjZTU3MWYxNiIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
 							hgroup.formBC__group 
 								h1.formBC__group-title Sorteamos 200 bonos de internet por sorteo
 								p.formBC__group-text 
@@ -58,11 +58,13 @@ block content
 									//- p.formBC__group-text 
 									//- 	| Sorteo: 13/02/2024
 							.formBC__main 
-								input(type="hidden" name="form_id" value="215")
-								input(type="hidden" name="form_name" value="Sorteo Recibo Vencido - 2")
+								input(type="hidden" name="form_id" value="224")
+								input(type="hidden" name="form_name" value="Sorteo bono gb")
+								input(type="hidden" name="origen" id="origen-HV")
+								<input type="hidden" name="g-recaptcha-response" id="token-HV" />
 								dl.type1  
 									dd 
-										input(type="text" class="formBC__main-input" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }")
+										input(type="text" class="formBC__main-input" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }" @input="onlyStrings" @keypress="onlyStringsKey($event)")
 								dl.type2 
 									dd 
 										select(class="formBC__main-select" autocomplete="nope" v-model.trim="v1$.type_documento.$model" :class="{ 'invalid': v1$.type_documento.$error, 'valid': !v1$.type_documento.$invalid, }" name="tipo_de_documento")
@@ -73,7 +75,10 @@ block content
 											option(value="Pasaporte") Pasaporte
 								dl.type3 
 									dd 
-										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress=" (v1$.type_documento.$model == 'CE' || v1$.type_documento.$model == 'Pasaporte') ? isAlphanumeric($event) : isNumber($event)" :maxlength="lgthTypeDocument")
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento"
+										@input="preventNonAlphanumericInput"
+										@keydown="(v1$.type_documento.$model == 'Pasaporte') ? isAlphanumericKey($event) : isNumberKey($event)"
+										:maxlength="lgthTypeDocument")
 								dl.type1 
 									dd 
 										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)") 
@@ -88,8 +93,9 @@ block content
 											label.formBC__main-checkbox-label(for="tratamiento") 
 												b 
 											small.formBC__main-checkbox-text 
-												| Autorizo el 
-												em.ctopen tratamiento de mis datos personales.
+												| Acepto los  
+												a(href="https://www.claro.com.pe/assets/pdf/BASES-SORTEO-BONO-DE-GB-BICOLOR-3.pdf" target="_blank")  términos y condiciones 
+												| del sorteo
 
 								dl.type4 
 									dd 

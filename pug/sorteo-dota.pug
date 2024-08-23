@@ -39,18 +39,48 @@ block content
 						.section__modals__modal-footer 
 							button.section__modals__modal-footer-close Entendido
 
-				picture.section__banner 
-					source(media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-mobile.jpg")
-					source(media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg")
-					img(src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy")
+				picture.section__banner
+					source(media='(min-width: 1200px)' srcset='https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_desktop_1.jpg')
+					source(media='(min-width: 992px)' srcset='https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_tablet_1.jpg')
+					img(src='https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_mobile_1.jpg' alt='Banner Form Claro' width='0' height='0' loading='lazy')
 
 				.section__align 
-					.content 
-						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6ImxkRVFscVBpbk5MZlZ5Wjk2bVRJV2c9PSIsInZhbHVlIjoiMjh0ZWN0L1RhK2cwQlBtN2gwK2M0Zz09IiwibWFjIjoiYTgyNWU2ZjU0ZDg5Njg5NWNiNzg3MTkwZDRiNmUxNzg5NTc5NDQxMjhiOGMyMDU2ZTg4NzgwMjVkN2Y3MzBmZCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
+					.content
+						//- .formBC
+						//- 	h1.formBC__group-title-results(style="text-align: center;") ¡Felicidades a los ganadores!
+						//- 	.formBC__results
+						//- 		.formBC__results__item
+						//- 			p Christina Elisa Azucena Chuco
+						//- 			p DNI XXXXX331
+						//- 		.formBC__results__item
+						//- 			p Erick Mijhail Temoche Angelino
+						//- 			p DNI XXXXX843
+						//- 		.formBC__results__item
+						//- 			p Cristóbal Aráoz
+						//- 			p DNI XXXXX519
+						//- 		.formBC__results__item
+						//- 			p Kelly Rodríguez de la Cruz
+						//- 			p DNI XXXXX1077
+						//- 		.formBC__results__item
+						//- 			p Luis Vásquez
+						//- 			p DNI XXXXX697
+						//- 		.formBC__results__item
+						//- 			p Luis Miguel Guerrero Milla
+						//- 			p DNI XXXXX479
+						//- 		.formBC__results__item
+						//- 			p Juan José Rodríguez Salome
+						//- 			p DNI XXXXX011
+						//- 		.formBC__results__item
+						//- 			p Cristian Anthony Rodriguez Castro
+						//- 			p DNI XXXXX825
+						//- 		.formBC__results__item
+						//- 			p Carlos Aylwin Curi Avalos
+						//- 			p DNI XXXXX515
+						form.formBC(action="https://claromarketingtool.pe/save-form/eyJpdiI6ImwrSExESzZnT3Z4YzNJT0UrUHBXSVE9PSIsInZhbHVlIjoieE90SGxRcklpUDFPaTd5aHRmRDdEdz09IiwibWFjIjoiMjUxZmUyMzE3NjE2NDY4Yzk0OTllZGE1Y2Q3NTJjNDBmNGUyOTVkNzgwNzNkMDMzMmE2ZTM1M2RiN2QxMTg0MCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1") 
 							hgroup.formBC__group 
-								h1.formBC__group-title Sorteamos 200 bonos de internet por sorteo
+								h1.formBC__group-title(style="text-align: center;") ¡Déjanos tus datos y participa!
 								p.formBC__group-text 
-									| Regístrate y participa del 05/07 al 11/07 del 2024.
+									//- | Regístrate y participa del 05/07 al 11/07 del 2024.
 								//- p.formBC__group-text 
 									//- | Sorteo: 12 de abril del 2024
 									//- br
@@ -58,28 +88,41 @@ block content
 									//- p.formBC__group-text 
 									//- 	| Sorteo: 13/02/2024
 							.formBC__main 
-								input(type="hidden" name="form_id" value="215")
-								input(type="hidden" name="form_name" value="Sorteo Recibo Vencido - 2")
+								input(type="hidden" name="form_id" value="234")
+								input(type="hidden" name="form_name" value="Sorteo ESBELITE")
+								input(type="hidden" name="origen" id="origen-HV")
+								input(type="hidden" name="g-recaptcha-response" id="token-HV")
 								dl.type1  
 									dd 
-										input(type="text" class="formBC__main-input" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }")
-								dl.type2 
+										input(type="text" class="formBC__main-input" name="nombres_y_apellidos_del_titular_claro_hogar" placeholder="Nombres y Apellidos del titular Claro Hogar" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }" @input="onlyStrings" @keypress="onlyStringsKey($event)")
+								dl.type2(style="display: none;")
 									dd 
 										select(class="formBC__main-select" autocomplete="nope" v-model.trim="v1$.type_documento.$model" :class="{ 'invalid': v1$.type_documento.$error, 'valid': !v1$.type_documento.$invalid, }" name="tipo_de_documento")
 											option(value="" disabled selected) Tipo de documento
-											option(value="DNI") DNI 
+											option(value="DNI" selected) DNI 
 											option(value="RUC") RUC 
 											option(value="CE") Carnet de Extranjería
 											option(value="Pasaporte") Pasaporte
-								dl.type3 
+								dl.type1
 									dd 
-										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress=" (v1$.type_documento.$model == 'CE' || v1$.type_documento.$model == 'Pasaporte') ? isAlphanumeric($event) : isNumber($event)" :maxlength="lgthTypeDocument")
-								dl.type1 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento.$model" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_dni" placeholder="Número de DNI"
+										@input="preventNonAlphanumericInput"
+										@keydown="isNumberKey($event)"
+										maxlength="8")
+								dl.type1
 									dd 
 										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)") 
 								dl.type1
 									dd 
 										input(type="text" class="formBC__main-input formBC__main-input--email" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico") 
+
+								dl.type1  
+									dd 
+										input(type="text" class="formBC__main-input" name="nombre_y_apellido_del_acompanante" placeholder="Nombre del acompañante" autocomplete="nope" v-model.trim="v1$.nombres_acompanante.$model" :class="{ 'invalid': v1$.nombres_acompanante.$error, 'valid': !v1$.nombres_acompanante.$invalid, }" @input="onlyStrings" @keypress="onlyStringsKey($event)")
+								
+								dl.type1
+									dd 
+										input(type="text" class="formBC__main-input" autocomplete="nope" v-model.trim="v1$.documento_acompanante.$model" :class="{ 'invalid': v1$.documento_acompanante.$error, 'valid': !v1$.documento_acompanante.$invalid, }" name="dni_del_acompanante" placeholder="DNI del acompañante" @input="preventNonAlphanumericInput" @keydown="isNumberKey($event)" maxlength="8")
 
 								dl.type4 
 									dd 
@@ -102,8 +145,8 @@ block content
 												em.ctopen promociones y beneficios
 												|  de Claro.
 
-							.formBC__footer 
-								button.formBC__footer-action#btnAction(type='submit' :disabled="v1$.$invalid && !disabled" :class="{ 'active': !v1$.$invalid }") Quiero participar
+							.formBC__footer(style="text-align: center")
+								button.formBC__footer-action#btnAction(type='submit' :disabled="v1$.$invalid && !disabled" :class="{ 'active': !v1$.$invalid }") Enviar
 
 block modal
 
@@ -116,4 +159,7 @@ block javascript
 
 
 		})
-	script(type="module" src=path+"js/main.js" async)
+	script(type="module" src=path+"js/main-dota.js" async)
+	script(type="text/javascript").
+		const selectDoc = document.querySelector('input[name="tipo_de_documento"]')
+

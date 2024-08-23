@@ -211,8 +211,10 @@ const app = createApp({
 
     onMounted(() => {
       register1.nombres = "";
+      register1.nombres_acompanante = "";
       register1.type_documento = '';
       register1.documento = "";
+      register1.documento_acompanante = "";
       register1.correo = "";
       register1.celular = "";
       register1.cuenta_bancaria = "";
@@ -223,8 +225,10 @@ const app = createApp({
 
     const register1 = reactive({
       nombres: "",
+      nombres_acompanante: "",
       type_documento: '',
       documento: "",
+      documento_acompanante: "",
       correo: "",
       celular: "",
       cuenta_bancaria: "",
@@ -251,11 +255,22 @@ const app = createApp({
             $validator: validName,
           },
         },
+        nombres_acompanante: {
+          required,
+          name_validation: {
+            $validator: validName,
+          },
+        },
         type_documento: {
           // required,
         },
         // documento: documentoRules,
         documento: {
+          required,
+          numeric,
+          min: minLength(8),
+        },
+        documento_acompanante: {
           required,
           numeric,
           min: minLength(8),
@@ -305,8 +320,10 @@ const app = createApp({
 
     const v1$ = useVuelidate(rules1, {
       nombres: toRef(register1, "nombres"),
+      nombres_acompanante: toRef(register1, "nombres_acompanante"),
       type_documento: toRef(register1, "type_documento"),
       documento: toRef(register1, "documento"),
+      documento_acompanante: toRef(register1, "documento_acompanante"),
       correo: toRef(register1, "correo"),
       celular: toRef(register1, "celular"),
       cuenta_bancaria: toRef(register1, "cuenta_bancaria"),
@@ -328,8 +345,10 @@ const app = createApp({
           setTimeout(() => {
             console.log("After submitted!!")
             register1.nombres = "";
+            register1.nombres_acompanante = "";
             register1.type_documento = '';
             register1.documento = "";
+            register1.documento_acompanante = "";
             register1.correo = "";
             register1.celular = "";
             register1.tratamiento = false;

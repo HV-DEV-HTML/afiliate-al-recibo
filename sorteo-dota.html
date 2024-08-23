@@ -45,43 +45,44 @@
                   </div>
                 </div>
               </div>
-              <picture class="section__banner"> 
-                <source media="(max-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-mobile.jpg"/>
-                <source media="(min-width: 640px)" srcset="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg"/><img src="https://www.claro.com.pe/assets/havas/formportal/assets/banners/banner-sorteo-desktop.jpg" alt="Banner Form Claro" width="auto" height="auto" loading="lazy"/>
+              <picture class="section__banner">
+                <source media="(min-width: 1200px)" srcset="https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_desktop_1.jpg"/>
+                <source media="(min-width: 992px)" srcset="https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_tablet_1.jpg"/><img src="https://www.claro.com.pe/assets/havas/sorteo-dota/banner-sorte-dota_mobile_1.jpg" alt="Banner Form Claro" width="0" height="0" loading="lazy"/>
               </picture>
               <div class="section__align"> 
-                <div class="content"> 
-                  <form class="formBC" action="https://claromarketingtool.pe/save-form/eyJpdiI6ImxkRVFscVBpbk5MZlZ5Wjk2bVRJV2c9PSIsInZhbHVlIjoiMjh0ZWN0L1RhK2cwQlBtN2gwK2M0Zz09IiwibWFjIjoiYTgyNWU2ZjU0ZDg5Njg5NWNiNzg3MTkwZDRiNmUxNzg5NTc5NDQxMjhiOGMyMDU2ZTg4NzgwMjVkN2Y3MzBmZCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1"> 
+                <div class="content">
+                  <form class="formBC" action="https://claromarketingtool.pe/save-form/eyJpdiI6ImwrSExESzZnT3Z4YzNJT0UrUHBXSVE9PSIsInZhbHVlIjoieE90SGxRcklpUDFPaTd5aHRmRDdEdz09IiwibWFjIjoiMjUxZmUyMzE3NjE2NDY4Yzk0OTllZGE1Y2Q3NTJjNDBmNGUyOTVkNzgwNzNkMDMzMmE2ZTM1M2RiN2QxMTg0MCIsInRhZyI6IiJ9" method="POST" ref="form1" @submit.prevent="submitForm1"> 
                     <hgroup class="formBC__group"> 
-                      <h1 class="formBC__group-title">Sorteamos 200 bonos de internet por sorteo</h1>
-                      <p class="formBC__group-text">
-                         Regístrate y participa del 05/07 al 11/07 del 2024.</p>
+                      <h1 class="formBC__group-title" style="text-align: center;">¡Déjanos tus datos y participa!</h1>
+                      <p class="formBC__group-text"> </p>
                     </hgroup>
                     <div class="formBC__main"> 
-                      <input type="hidden" name="form_id" value="215"/>
-                      <input type="hidden" name="form_name" value="Sorteo Recibo Vencido - 2"/>
+                      <input type="hidden" name="form_id" value="234"/>
+                      <input type="hidden" name="form_name" value="Sorteo ESBELITE"/>
+                      <input type="hidden" name="origen" id="origen-HV"/>
+                      <input type="hidden" name="g-recaptcha-response" id="token-HV"/>
                       <dl class="type1"> 
                         <dd> 
-                          <input class="formBC__main-input" type="text" name="nombres_y_apellidos" placeholder="Nombres y apellidos" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }"/>
+                          <input class="formBC__main-input" type="text" name="nombres_y_apellidos_del_titular_claro_hogar" placeholder="Nombres y Apellidos del titular Claro Hogar" autocomplete="nope" v-model.trim="v1$.nombres.$model" :class="{ 'invalid': v1$.nombres.$error, 'valid': !v1$.nombres.$invalid, }" @input="onlyStrings" @keypress="onlyStringsKey($event)"/>
                         </dd>
                       </dl>
-                      <dl class="type2"> 
+                      <dl class="type2" style="display: none;">
                         <dd> 
                           <select class="formBC__main-select" autocomplete="nope" v-model.trim="v1$.type_documento.$model" :class="{ 'invalid': v1$.type_documento.$error, 'valid': !v1$.type_documento.$invalid, }" name="tipo_de_documento">
                             <option value="" disabled="disabled" selected="selected">Tipo de documento</option>
-                            <option value="DNI">DNI </option>
+                            <option value="DNI" selected="selected">DNI </option>
                             <option value="RUC">RUC </option>
                             <option value="CE">Carnet de Extranjería</option>
                             <option value="Pasaporte">Pasaporte</option>
                           </select>
                         </dd>
                       </dl>
-                      <dl class="type3"> 
+                      <dl class="type1">
                         <dd> 
-                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.documento.$model" :disabled="!register1.type_documento" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_documento" placeholder="Número de documento" @keypress=" (v1$.type_documento.$model == 'CE' || v1$.type_documento.$model == 'Pasaporte') ? isAlphanumeric($event) : isNumber($event)" :maxlength="lgthTypeDocument"/>
+                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.documento.$model" :class="{ 'invalid': v1$.documento.$error, 'valid': !v1$.documento.$invalid, }" name="numero_de_dni" placeholder="Número de DNI" @input="preventNonAlphanumericInput" @keydown="isNumberKey($event)" maxlength="8"/>
                         </dd>
                       </dl>
-                      <dl class="type1"> 
+                      <dl class="type1">
                         <dd> 
                           <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.celular.$model" maxlength="9" :class="{ 'invalid': v1$.celular.$error, 'valid': !v1$.celular.$invalid, }" name="numero_de_celular" placeholder="Número de celular" @keypress="isNumber($event)"/>
                         </dd>
@@ -89,6 +90,16 @@
                       <dl class="type1">
                         <dd> 
                           <input class="formBC__main-input formBC__main-input--email" type="text" autocomplete="nope" v-model.trim="v1$.correo.$model" :class="{ 'invalid': v1$.correo.$error, 'valid': !v1$.correo.$invalid, }" name="correo_electronico" placeholder="Correo electrónico"/>
+                        </dd>
+                      </dl>
+                      <dl class="type1"> 
+                        <dd> 
+                          <input class="formBC__main-input" type="text" name="nombre_y_apellido_del_acompanante" placeholder="Nombre del acompañante" autocomplete="nope" v-model.trim="v1$.nombres_acompanante.$model" :class="{ 'invalid': v1$.nombres_acompanante.$error, 'valid': !v1$.nombres_acompanante.$invalid, }" @input="onlyStrings" @keypress="onlyStringsKey($event)"/>
+                        </dd>
+                      </dl>
+                      <dl class="type1">
+                        <dd> 
+                          <input class="formBC__main-input" type="text" autocomplete="nope" v-model.trim="v1$.documento_acompanante.$model" :class="{ 'invalid': v1$.documento_acompanante.$error, 'valid': !v1$.documento_acompanante.$invalid, }" name="dni_del_acompanante" placeholder="DNI del acompañante" @input="preventNonAlphanumericInput" @keydown="isNumberKey($event)" maxlength="8"/>
                         </dd>
                       </dl>
                       <dl class="type4"> 
@@ -110,8 +121,8 @@
                         </dd>
                       </dl>
                     </div>
-                    <div class="formBC__footer"> 
-                      <button class="formBC__footer-action" id="btnAction" type="submit" :disabled="v1$.$invalid &amp;&amp; !disabled" :class="{ 'active': !v1$.$invalid }">Quiero participar</button>
+                    <div class="formBC__footer" style="text-align: center">
+                      <button class="formBC__footer-action" id="btnAction" type="submit" :disabled="v1$.$invalid &amp;&amp; !disabled" :class="{ 'active': !v1$.$invalid }">Enviar</button>
                     </div>
                   </form>
                 </div>
@@ -128,6 +139,7 @@
     <script type="text/javascript" src="https://www.claro.com.pe/portal/pe/recursos_tema/genericos/vuelidate3-validators.js"></script>
     <script type="text/javascript" src="js/plugins/auto-suggest-email.min.js"></script>
     <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6Ld1_2caAAAAABG4EakA3PwvnyGjP2OLAn20_F9g"> </script>
-    <script type="module" src="js/main.js" async="async"></script>
+    <script type="module" src="js/main-dota.js" async="async"></script>
+    <script type="text/javascript">const selectDoc = document.querySelector('input[name="tipo_de_documento"]')</script>
   </body>
 </html>
